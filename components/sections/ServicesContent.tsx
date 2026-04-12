@@ -1,140 +1,119 @@
 "use client";
 
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Check, ArrowRight, Zap, Shield, Crown } from 'lucide-react';
+import React, { useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
+import { ArrowRight, Database, Layout, GitMerge, Cpu } from 'lucide-react';
 import Link from 'next/link';
-import { Button } from '@/components/ui/Button';
 
 export function ServicesContent() {
+    const headerRef = useRef(null);
+    const servicesRef = useRef(null);
+    const headerInView = useInView(headerRef, { once: true, margin: "-50px" });
+    const servicesInView = useInView(servicesRef, { once: true, margin: "-100px" });
+
+    const services = [
+        {
+            num: "01",
+            title: "Frontend Architecture",
+            desc: "Designing high-fidelity, conversion-optimized interfaces that don't just load—they perform. Specializing in Next.js, React, and motion-rich UI systems to keep users deeply engaged.",
+            icon: Layout
+        },
+        {
+            num: "02",
+            title: "SaaS & Platform Engineering",
+            desc: "Building complex, scalable web applications. From custom booking engines to real-time dashboards, I architect the backend logic and database structures that drive core business operations.",
+            icon: Database
+        },
+        {
+            num: "03",
+            title: "Logistics & API Integration",
+            desc: "Unifying fragmented data. Seamless integration of global tracking APIs, secure payment gateways, and real-time operational communication tools to create a single source of truth.",
+            icon: GitMerge
+        },
+        {
+            num: "04",
+            title: "Technical Strategy & Audits",
+            desc: "Moving beyond code. Providing strategic oversight to optimize legacy systems, eliminate architectural debt, and ensure your digital assets directly compound your business leverage.",
+            icon: Cpu
+        }
+    ];
+
     return (
         <main className="min-h-screen bg-background pt-32 pb-20">
 
             {/* Header Section */}
-            <section className="container mx-auto px-6 md:px-12 mb-20">
+            <section ref={headerRef} className="container mx-auto px-6 md:px-12 mb-32">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                    className="max-w-4xl"
+                    animate={headerInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+                    transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+                    className="max-w-5xl"
                 >
-                    <div className="flex items-center gap-3 mb-6">
+                    <div className="flex items-center gap-3 mb-8">
                         <div className="h-[2px] w-12 bg-primary"></div>
-                        <span className="text-sm font-bold tracking-widest uppercase text-foreground">What I Do</span>
+                        <span className="text-sm font-bold tracking-widest uppercase text-muted-foreground">Capabilities</span>
                     </div>
-                    <h1 className="text-4xl md:text-5xl lg:text-7xl font-black tracking-tighter text-foreground uppercase mb-8">
-                        Simple, Effective <br />
-                        <span className="text-primary">Development.</span>
+                    <h1 className="text-5xl md:text-7xl lg:text-[6rem] font-black tracking-tighter text-foreground uppercase leading-[0.9] mb-10">
+                        Engineering <br />
+                        <span className="text-primary">Capital.</span>
                     </h1>
-                    <p className="text-xl md:text-2xl text-muted-foreground/80 leading-relaxed max-w-2xl">
-                        I build software directly for your business needs. No jargon, no complications. Just results.
+                    <p className="text-xl md:text-2xl text-foreground font-medium leading-relaxed max-w-3xl">
+                        I don't build generic SaaS templates. I architect robust, high-performance systems designed to automate operations and capture market share.
                     </p>
                 </motion.div>
             </section>
 
-            {/* Services List */}
-            <section className="container mx-auto px-6 md:px-12 mb-32">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-16">
-
-                    {/* Service 1 */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        className="flex gap-6 items-start"
-                    >
-                        <div className="w-16 h-16 rounded-2xl bg-blue-50 text-primary flex items-center justify-center shrink-0">
-                            <Zap size={32} />
-                        </div>
-                        <div>
-                            <h3 className="text-2xl font-bold text-gray-900 mb-3">Custom Websites</h3>
-                            <p className="text-lg text-muted-foreground leading-relaxed">
-                                I build fast, professional websites that work perfectly on phones, tablets, and computers. Whether it's a landing page or a full company site, it will look great and load instantly.
-                            </p>
-                        </div>
-                    </motion.div>
-
-                    {/* Service 2 */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.1 }}
-                        className="flex gap-6 items-start"
-                    >
-                        <div className="w-16 h-16 rounded-2xl bg-blue-50 text-primary flex items-center justify-center shrink-0">
-                            <Crown size={32} />
-                        </div>
-                        <div>
-                            <h3 className="text-2xl font-bold text-gray-900 mb-3">Web Applications</h3>
-                            <p className="text-lg text-muted-foreground leading-relaxed">
-                                Need more than just a website? I create complex tools like dashboards, customer portals, and booking systems that help you run your business online.
-                            </p>
-                        </div>
-                    </motion.div>
-
-                    {/* Service 3 */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.2 }}
-                        className="flex gap-6 items-start"
-                    >
-                        <div className="w-16 h-16 rounded-2xl bg-blue-50 text-primary flex items-center justify-center shrink-0">
-                            <Shield size={32} />
-                        </div>
-                        <div>
-                            <h3 className="text-2xl font-bold text-gray-900 mb-3">Fixes & Maintenance</h3>
-                            <p className="text-lg text-muted-foreground leading-relaxed">
-                                Have a broken site? I fix bugs, improve speed, and secure your current website so you don't have to worry about hackers or downtime.
-                            </p>
-                        </div>
-                    </motion.div>
-
-                    {/* Service 4 */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.3 }}
-                        className="flex gap-6 items-start"
-                    >
-                        <div className="w-16 h-16 rounded-2xl bg-blue-50 text-primary flex items-center justify-center shrink-0">
-                            <Check size={32} />
-                        </div>
-                        <div>
-                            <h3 className="text-2xl font-bold text-gray-900 mb-3">Tech Consulting</h3>
-                            <p className="text-lg text-muted-foreground leading-relaxed">
-                                Not sure what you need? I help you choose the right tools and plan your project so you don't waste money on things you don't need.
-                            </p>
-                        </div>
-                    </motion.div>
-
+            {/* Services List - Structural Row Format */}
+            <section ref={servicesRef} className="container mx-auto px-6 md:px-12 mb-32">
+                <div className="border-t border-border/40">
+                    {services.map((service, index) => {
+                        const IconComponent = service.icon;
+                        return (
+                            <motion.div
+                                key={service.num}
+                                initial={{ opacity: 0, y: 30 }}
+                                animate={servicesInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+                                transition={{ duration: 0.6, delay: 0.1 * index, ease: [0.25, 0.1, 0.25, 1] }}
+                                className="group flex flex-col md:flex-row items-start md:items-center py-12 md:py-16 border-b border-border/40 hover:bg-muted/30 transition-colors duration-500"
+                            >
+                                <div className="w-full md:w-1/4 mb-6 md:mb-0 flex items-center gap-6 text-muted-foreground/50 group-hover:text-primary transition-colors duration-500">
+                                    <span className="text-5xl md:text-6xl font-black font-mono tracking-tighter">
+                                        {service.num}
+                                    </span>
+                                    <IconComponent size={32} strokeWidth={1.5} className="opacity-0 group-hover:opacity-100 -translate-x-4 group-hover:translate-x-0 transition-all duration-500" />
+                                </div>
+                                <div className="w-full md:w-1/3 mb-4 md:mb-0 pr-8">
+                                    <h3 className="text-2xl md:text-3xl font-bold text-foreground uppercase tracking-tight">
+                                        {service.title}
+                                    </h3>
+                                </div>
+                                <div className="w-full md:w-5/12 ml-auto">
+                                    <p className="text-lg text-muted-foreground leading-relaxed">
+                                        {service.desc}
+                                    </p>
+                                </div>
+                            </motion.div>
+                        );
+                    })}
                 </div>
             </section>
 
-            {/* CTA Bottom */}
+            {/* Authoritative Single CTA */}
             <section className="container mx-auto px-6 md:px-12 mb-20">
-                <div className="p-12 bg-gray-50 rounded-[3rem] text-center border border-border/50">
-                    <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Ready to start?</h2>
-                    <Link href="/#contact">
-                        <Button className="h-14 px-10 rounded-full text-lg bg-primary hover:bg-primary/90 text-white transition-all shadow-lg hover:shadow-primary/50">
-                            Let's Work Together
-                        </Button>
-                    </Link>
-                </div>
-            </section>
-
-            {/* Application Banner */}
-            <section className="container mx-auto px-6 md:px-12">
-                <div className="rounded-[3rem] bg-muted relative overflow-hidden p-12 md:p-24 text-center">
-                    <h2 className="text-4xl md:text-6xl font-black text-foreground mb-8">
-                        Not sure what you need?
-                    </h2>
-                    <Link href="/#contact" className="inline-flex items-center gap-2 text-xl font-bold text-primary hover:text-primary/80 transition-colors uppercase tracking-widest border-b-2 border-primary hover:border-primary/50 pb-1">
-                        Book a Strategy Call <ArrowRight />
-                    </Link>
+                <div className="border border-border/40 bg-transparent p-12 md:p-20 relative overflow-hidden group">
+                    <div className="absolute top-0 left-0 w-2 h-full bg-primary" />
+                    
+                    <div className="relative z-10 max-w-3xl">
+                        <h2 className="text-4xl md:text-6xl font-black text-foreground uppercase leading-[0.9] mb-8">
+                            Ready to formalize <br />
+                            the <span className="text-primary italic font-serif">architecture?</span>
+                        </h2>
+                        
+                        <Link href="/#contact" className="inline-flex items-center gap-4 h-16 px-10 bg-foreground text-background font-bold tracking-widest uppercase transition-all duration-300 hover:bg-primary">
+                            <span>Initiate Strategy Call</span>
+                            <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                        </Link>
+                    </div>
                 </div>
             </section>
 

@@ -36,11 +36,11 @@ export const AboutContent = () => {
     ];
 
     const backendSkills = [
-        { name: 'Node.js', level: 90 },
-        { name: 'PostgreSQL', level: 85 },
-        { name: 'Supabase', level: 92 },
-        { name: 'GraphQL', level: 80 },
-        { name: 'AWS / Docker', level: 75 },
+        { name: 'Node.js & Express', level: 90 },
+        { name: 'MongoDB', level: 85 },
+        { name: 'Firebase', level: 92 },
+        { name: 'MySQL', level: 85 },
+        { name: 'REST APIs & JWT', level: 90 },
     ];
 
     const strategyPoints = [
@@ -106,7 +106,7 @@ export const AboutContent = () => {
                         transition={{ duration: 0.5, delay: 0.3, ease: smoothEase }}
                         className="text-xl md:text-2xl text-muted-foreground/80 leading-relaxed max-w-2xl mb-12"
                     >
-                        I'm not just a coder. I'm a strategic partner for founders who value speed, precision, and architectural integrity.
+                        Frontend-focused Full-Stack Developer building production-grade web applications across logistics, SaaS, media, and service platforms. Focused on shipping fast, solving real problems, and leveraging modern tools to create high-impact digital products.
                     </motion.p>
 
                     {/* Dossier Download Button */}

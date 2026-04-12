@@ -9,9 +9,10 @@ interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
   children: React.ReactNode;
+  className?: string;
 }
 
-export const Modal = ({ isOpen, onClose, children }: ModalProps) => {
+export const Modal = ({ isOpen, onClose, children, className }: ModalProps) => {
   const [mounted, setMounted] = React.useState(false);
 
   useEffect(() => {
@@ -55,7 +56,7 @@ export const Modal = ({ isOpen, onClose, children }: ModalProps) => {
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              className="bg-background w-full max-w-lg rounded-3xl shadow-2xl p-8 relative pointer-events-auto border border-border/50"
+              className={`bg-background shadow-2xl relative pointer-events-auto border border-border/50 flex flex-col ${className || 'w-full max-w-lg rounded-3xl p-8'}`}
             >
               <button
                 onClick={onClose}

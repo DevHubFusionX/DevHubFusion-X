@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Modal } from '@/components/ui/Modal';
-import { Button } from '@/components/ui/Button';
-import { ArrowRight, Send, CheckCircle2, AlertCircle } from 'lucide-react';
+import { ArrowRight, Check } from 'lucide-react';
 
 interface ApplicationModalProps {
   isOpen: boolean;
@@ -15,7 +14,7 @@ interface ApplicationModalProps {
 export const ApplicationModal = ({
   isOpen,
   onClose,
-  title = "Apply for Access",
+  title = "Application Form",
   subject: customSubject,
   initialDescription = ""
 }: ApplicationModalProps) => {
@@ -26,7 +25,6 @@ export const ApplicationModal = ({
   });
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
 
-  // Sync initialDescription if it changes (though usually doesn't for a single mount)
   useEffect(() => {
     if (initialDescription) {
       setFormData(prev => ({ ...prev, description: initialDescription }));
@@ -47,10 +45,9 @@ export const ApplicationModal = ({
         body: JSON.stringify({
           access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY,
           ...formData,
-          subject: customSubject || `🚀 New Application: ${formData.name}`,
-          from_name: "Antigravity AI Portal",
+          subject: customSubject || `Arch: New Application - ${formData.name}`,
+          from_name: "System Portal",
           replyto: formData.email,
-          template_id: "table-green",
         }),
       });
 
@@ -66,109 +63,114 @@ export const ApplicationModal = ({
   };
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose}>
-
-      {/* Success State */}
-      {status === 'success' ? (
-        <div className="text-center py-12 px-4 rounded-3xl bg-gradient-to-b from-primary/5 to-transparent border border-primary/10">
-          <motion.div
-            initial={{ scale: 0, rotate: -45 }}
-            animate={{ scale: 1, rotate: 0 }}
-            transition={{ type: "spring", damping: 12, stiffness: 200 }}
-            className="w-24 h-24 bg-primary/10 text-primary rounded-full flex items-center justify-center mx-auto mb-8 relative"
-          >
-            <div className="absolute inset-0 bg-primary/20 rounded-full animate-ping opacity-20" />
-            <CheckCircle2 size={48} />
-          </motion.div>
-          <h3 className="text-4xl font-black uppercase tracking-tighter mb-4 text-foreground">
-            Transmission Received
-          </h3>
-          <p className="text-muted-foreground mb-10 text-lg leading-relaxed max-w-sm mx-auto">
-            Your profile has been logged into our system. <br />
-            If we match, you'll hear from me within <span className="text-primary font-bold">48 hours</span>.
-          </p>
-          <Button onClick={onClose} variant="outline" className="rounded-full px-10 h-14 border-primary/20 hover:border-primary/40 hover:bg-primary/5 hover:text-primary transition-all font-bold uppercase tracking-widest text-xs">
-            Dismiss Protocol
-          </Button>
-        </div>
-      ) : (
-        /* Form State */
-        <>
-          <div className="text-center mb-10">
-            <h3 className="text-3xl font-bold uppercase tracking-tighter mb-2 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              {title}
+    <Modal isOpen={isOpen} onClose={onClose} className="w-[777px] h-[444px] max-w-[100vw] overflow-y-auto scrollbar-hide">
+      <div className="bg-background text-foreground relative overflow-hidden h-full flex flex-col items-center justify-center rounded-none sm:rounded-sm border-0">
+        
+        {/* Success State */}
+        {status === 'success' ? (
+          <div className="p-8 w-full text-left">
+            <motion.div
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+              style={{ transformOrigin: 'left' }}
+              className="w-12 h-1 bg-primary mb-8"
+            />
+            <h3 className="text-3xl md:text-5xl font-black uppercase tracking-tighter mb-4 text-foreground leading-[0.9]">
+              Application <br />
+              <span className="text-primary">Received.</span>
             </h3>
-            <div className="h-1 w-12 bg-primary mx-auto mb-4 rounded-full" />
-            <p className="text-muted-foreground text-base max-w-[280px] mx-auto leading-relaxed">
-              Strictly limited capacity. <br /> Tell me what you're building.
+            <p className="text-muted-foreground mb-8 text-lg leading-relaxed max-w-sm">
+              Your information has been logged. We will get back to you within 48 hours.
             </p>
-          </div>
-
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <input type="hidden" name="access_key" value={process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY} />
-            <input type="hidden" name="from_name" value="Antigravity AI Portal" />
-            <input type="hidden" name="subject" value={customSubject || `🚀 New Application: ${formData.name}`} />
-            <input type="hidden" name="template_id" value="table-green" />
-
-            {status === 'error' && (
-              <div className="p-4 bg-red-500/10 border border-red-500/20 rounded-lg flex items-center gap-3 text-red-500 text-sm font-bold">
-                <AlertCircle size={16} />
-                <span>Transmission failed. Please try again.</span>
-              </div>
-            )}
-
-            <div className="group space-y-2">
-              <label className="text-xs font-black uppercase tracking-widest text-muted-foreground group-focus-within:text-primary transition-colors ml-1">Name</label>
-              <input
-                required
-                type="text"
-                className="w-full px-5 py-4 rounded-2xl bg-muted/50 border-2 border-transparent focus:bg-background focus:border-primary/50 focus:ring-8 focus:ring-primary/5 transition-all outline-none text-foreground font-medium placeholder:text-muted-foreground/30"
-                placeholder="Founder Name"
-                value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                disabled={status === 'submitting'}
-              />
-            </div>
-
-            <div className="group space-y-2">
-              <label className="text-xs font-black uppercase tracking-widest text-muted-foreground group-focus-within:text-primary transition-colors ml-1">Email</label>
-              <input
-                required
-                type="email"
-                className="w-full px-5 py-4 rounded-2xl bg-muted/50 border-2 border-transparent focus:bg-background focus:border-primary/50 focus:ring-8 focus:ring-primary/5 transition-all outline-none text-foreground font-medium placeholder:text-muted-foreground/30"
-                placeholder="work@company.com"
-                value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                disabled={status === 'submitting'}
-              />
-            </div>
-
-            <div className="group space-y-2">
-              <label className="text-xs font-black uppercase tracking-widest text-muted-foreground group-focus-within:text-primary transition-colors ml-1">The Challenge</label>
-              <textarea
-                required
-                rows={4}
-                className="w-full px-5 py-4 rounded-2xl bg-muted/50 border-2 border-transparent focus:bg-background focus:border-primary/50 focus:ring-8 focus:ring-primary/5 transition-all outline-none resize-none text-foreground font-medium placeholder:text-muted-foreground/30"
-                placeholder="Briefly describe your project or problem..."
-                value={formData.description}
-                onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-                disabled={status === 'submitting'}
-              />
-            </div>
-
-            <Button
-              type="submit"
-              size="lg"
-              className="w-full rounded-2xl text-lg group h-14 bg-primary hover:bg-primary-hover shadow-lg shadow-primary/20 transition-all active:scale-[0.98]"
-              isLoading={status === 'submitting'}
+            <button 
+              onClick={onClose} 
+              className="h-12 px-8 bg-foreground text-background font-bold tracking-widest uppercase transition-all duration-300 hover:bg-primary flex items-center gap-4 group"
             >
-              Send Application
-              {status === 'idle' && <Send size={18} className="ml-2 group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform" />}
-            </Button>
-          </form>
-        </>
-      )}
+              <span>Close</span>
+              <Check size={20} className="text-background" />
+            </button>
+          </div>
+        ) : (
+          /* Form State */
+          <div className="p-8 w-full text-left overflow-y-auto scrollbar-hide">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="h-[2px] w-8 bg-primary"></div>
+              <span className="text-xs font-bold tracking-widest uppercase text-muted-foreground">
+                {title}
+              </span>
+            </div>
+
+            <h3 className="text-3xl font-black uppercase tracking-tighter mb-6 leading-[0.9]">
+              Apply <span className="text-primary">Now.</span>
+            </h3>
+
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <input type="hidden" name="access_key" value={process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY} />
+
+              {status === 'error' && (
+                <div className="p-4 border border-red-500/30 text-red-500 text-sm font-bold uppercase tracking-widest">
+                  [Error] Transmission failed. Check network.
+                </div>
+              )}
+
+              <div className="space-y-1">
+                <label className="text-xs font-bold uppercase tracking-widest text-muted-foreground">
+                  Name
+                </label>
+                <input
+                  required
+                  type="text"
+                  className="w-full bg-transparent border-b border-border/60 py-2 text-base font-medium text-foreground focus:outline-none focus:border-primary transition-colors placeholder:text-muted-foreground/30 rounded-none"
+                  placeholder="John Doe"
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  disabled={status === 'submitting'}
+                />
+              </div>
+
+              <div className="space-y-1">
+                <label className="text-xs font-bold uppercase tracking-widest text-muted-foreground">
+                  Email
+                </label>
+                <input
+                  required
+                  type="email"
+                  className="w-full bg-transparent border-b border-border/60 py-2 text-base font-medium text-foreground focus:outline-none focus:border-primary transition-colors placeholder:text-muted-foreground/30 rounded-none"
+                  placeholder="name@company.com"
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  disabled={status === 'submitting'}
+                />
+              </div>
+
+              <div className="space-y-1 pt-2">
+                <label className="text-xs font-bold uppercase tracking-widest text-muted-foreground">
+                  Project Details
+                </label>
+                <textarea
+                  required
+                  rows={2}
+                  className="w-full bg-transparent border border-border/60 p-3 mt-1 text-base font-medium text-foreground focus:outline-none focus:border-primary transition-colors placeholder:text-muted-foreground/30 resize-none rounded-none"
+                  placeholder="Describe what you need..."
+                  value={formData.description}
+                  onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+                  disabled={status === 'submitting'}
+                />
+              </div>
+
+              <button
+                type="submit"
+                disabled={status === 'submitting'}
+                className="w-full mt-2 h-12 bg-foreground text-background font-bold tracking-widest uppercase transition-all duration-300 hover:bg-primary flex items-center justify-center gap-4 group disabled:opacity-50 disabled:cursor-not-allowed shrink-0"
+              >
+                <span>{status === 'submitting' ? 'Submitting...' : 'Submit Application'}</span>
+                {!status && <ArrowRight size={20} className="group-hover:translate-x-2 transition-transform" />}
+              </button>
+            </form>
+          </div>
+        )}
+      </div>
     </Modal>
   );
 };
-

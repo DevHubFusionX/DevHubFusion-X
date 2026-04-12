@@ -135,7 +135,7 @@ export const Footer = () => {
           transition={{ duration: 0.4, delay: 0.9, ease: "easeOut" }}
           className="flex flex-col md:flex-row justify-between items-center mt-12 text-sm font-medium"
         >
-          <p>© {new Date().getFullYear()} DEVHUBFUSIONX™</p>
+          <p>© {new Date().getFullYear()} DEVHUBFUSIONX™ | Anyanwu Franklin</p>
           <div className="flex gap-8 mt-4 md:mt-0">
             <Link href="/privacy" className="hover:opacity-100 transition-opacity duration-200">Privacy Policy</Link>
             <Link href="/terms" className="hover:opacity-100 transition-opacity duration-200">Terms of Service</Link>
