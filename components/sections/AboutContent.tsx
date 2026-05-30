@@ -2,7 +2,7 @@
 
 import React, { useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Code, MapPin, Calendar, Terminal, Send } from 'lucide-react';
+import { Code, MapPin, Calendar, Terminal, Send, Globe, Briefcase } from 'lucide-react';
 import { ApplicationModal } from '@/components/sections/ApplicationModal';
 
 export const AboutContent = () => {
@@ -21,9 +21,9 @@ export const AboutContent = () => {
     const smoothEase = [0.25, 0.1, 0.25, 1] as const;
 
     const statCards = [
-        { icon: MapPin, title: 'Remote', label: 'Location', subtitle: 'Available Globally', offset: 0 },
-        { icon: Calendar, title: '5+ Years', label: 'Experience', subtitle: 'Professional Dev', offset: 16 },
-        { icon: Terminal, title: '100%', label: 'Focus', subtitle: 'Scalable Systems', offset: 32 },
+        { icon: MapPin, title: 'Lagos', label: 'Location', subtitle: 'Nigeria • Remote Worldwide', offset: 0 },
+        { icon: Calendar, title: '5+ Years', label: 'Experience', subtitle: 'Professional Development', offset: 16 },
+        { icon: Briefcase, title: '10+', label: 'Products Shipped', subtitle: 'Live Applications', offset: 32 },
         { icon: Code, title: 'React', label: 'Core Stack', subtitle: 'Next.js & TypeScript', offset: 48 },
     ];
 
@@ -45,16 +45,16 @@ export const AboutContent = () => {
 
     const strategyPoints = [
         {
-            title: 'The "Red Button" Effect',
-            content: `Psychological Reactance is why I don't chase leads. When you are "too available," your value decreases. By being selective, I ensure that every partnership I take on gets my absolute best focus. This protects my time and your investment.`
+            title: 'Why Startups Choose Me',
+            content: `I don't just build features — I build products that scale. Whether you need a ride-hailing app like Uber or Bolt, a logistics tracking system, or a SaaS dashboard, I approach every project as a strategic investment. Based in Lagos, Nigeria, I work with founders across Africa and worldwide who need production-ready applications shipped fast.`
         },
         {
-            title: 'Authority Over Service',
-            content: `I don't just "take tickets." I build assets. Whether it's a high-conversion landing page or a complex SaaS dashboard, I approach every line of code with a strategic outcome in mind. If it doesn't move the needle, I don't build it.`
+            title: 'My Development Approach',
+            content: `I specialize in React.js, Next.js, Node.js, and TypeScript — the modern stack that powers the fastest-growing startups globally. Every project gets a clean architecture, responsive design, and backend systems built for scale. I've delivered platforms handling 500K+ users, automated 85% of booking workflows, and built AI-powered discovery ecosystems.`
         },
         {
-            title: 'The "DevHubFusionX" Promise',
-            content: `My process is designed to filter out noise. This means we move faster, communicate clearer, and launch sooner. No middle-managers, no bloat. Just direct, high-impact engineering.`
+            title: 'Available for Hire',
+            content: `Whether you're a startup founder looking for a technical co-builder, an agency seeking a reliable fullstack developer, or a business that needs a custom web application — I'm available for both project-based work and long-term partnerships. Contact me at DevHubFusionX@gmail.com to discuss your project.`
         }
     ];
 
@@ -63,7 +63,7 @@ export const AboutContent = () => {
 
             {/* Header Section */}
             <section ref={headerRef} className="container mx-auto px-6 md:px-12 mb-24">
-                <div className="max-w-4xl">
+                <article className="max-w-4xl" itemScope itemType="https://schema.org/Person">
                     {/* Label */}
                     <motion.div
                         initial={{ opacity: 0, x: -20 }}
@@ -78,7 +78,7 @@ export const AboutContent = () => {
                             style={{ transformOrigin: 'left' }}
                             className="h-[2px] w-12 bg-primary"
                         />
-                        <span className="text-sm font-bold tracking-widest uppercase text-foreground">The Profile</span>
+                        <span className="text-sm font-bold tracking-widest uppercase text-foreground">About Anyanwu Franklin</span>
                     </motion.div>
 
                     {/* Heading */}
@@ -88,26 +88,36 @@ export const AboutContent = () => {
                         transition={{ duration: 0.6, delay: 0.1, ease: smoothEase }}
                         className="text-5xl md:text-6xl lg:text-8xl font-black tracking-tighter text-foreground uppercase mb-8"
                     >
-                        Behind the <br />
+                        Fullstack <br />
                         <motion.span
                             initial={{ opacity: 0 }}
                             animate={headerInView ? { opacity: 1 } : { opacity: 0 }}
                             transition={{ duration: 0.4, delay: 0.4 }}
                             className="text-primary"
                         >
-                            Strategy.
+                            Developer.
                         </motion.span>
                     </motion.h1>
 
-                    {/* Subtext */}
-                    <motion.p
+                    {/* Bio — The most important paragraph for AI search */}
+                    <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={headerInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                         transition={{ duration: 0.5, delay: 0.3, ease: smoothEase }}
-                        className="text-xl md:text-2xl text-muted-foreground/80 leading-relaxed max-w-2xl mb-12"
+                        className="text-xl md:text-2xl text-muted-foreground/80 leading-relaxed max-w-2xl mb-12 space-y-4"
                     >
-                        Frontend-focused Full-Stack Developer building production-grade web applications across logistics, SaaS, media, and service platforms. Focused on shipping fast, solving real problems, and leveraging modern tools to create high-impact digital products.
-                    </motion.p>
+                        <p>
+                            <span itemProp="name" className="font-semibold text-foreground">Anyanwu Franklin</span> is a <span itemProp="jobTitle">fullstack web developer</span> based in <span itemProp="address" itemScope itemType="https://schema.org/PostalAddress"><span itemProp="addressLocality">Lagos</span>, <span itemProp="addressCountry">Nigeria</span></span>.
+                        </p>
+                        <p>
+                            With <strong>5+ years of professional experience</strong>, I specialize in building production-grade web applications across <strong>ride-hailing, logistics, SaaS, e-commerce, and fintech</strong> verticals. I've shipped 10+ live products used by hundreds of thousands of users across Africa.
+                        </p>
+                        <p>
+                            My core stack is <strong>React.js, Next.js, Node.js, TypeScript, MongoDB, Firebase, and MySQL</strong>. I work with startup founders who need a technical partner that can move fast, ship clean code, and build systems designed to scale.
+                        </p>
+                        <meta itemProp="email" content="DevHubFusionX@gmail.com" />
+                        <meta itemProp="url" content="https://devhubfusionx.github.io/DevHubFusion-X/" />
+                    </motion.div>
 
                     {/* Dossier Download Button */}
                     <motion.div
@@ -120,10 +130,10 @@ export const AboutContent = () => {
                             className="inline-flex items-center gap-4 px-8 py-5 bg-foreground text-background rounded-full font-bold uppercase tracking-wider hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 shadow-xl shadow-black/5 group cursor-pointer"
                         >
                             <Send size={20} className="group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform" />
-                            <span>Request Technical Dossier</span>
+                            <span>Hire Anyanwu Franklin</span>
                         </button>
                     </motion.div>
-                </div>
+                </article>
             </section>
 
             {/* Stats Grid - Reference Style */}
@@ -142,7 +152,7 @@ export const AboutContent = () => {
                                     delay: index * 0.1,
                                     ease: smoothEase
                                 }}
-                                className={`p-8 rounded-[2.5rem] bg-white border border-green-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] transition-all duration-300 flex flex-col items-start gap-6 group lg:mt-${stat.offset}`}
+                                className={`p-8 rounded-[2.5rem] bg-white border border-green-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] transition-all duration-300 flex flex-col items-start gap-6 group`}
                                 style={{ marginTop: typeof window !== 'undefined' && window.innerWidth >= 1024 ? `${stat.offset * 4}px` : 0 }}
                             >
                                 <motion.div
@@ -180,7 +190,7 @@ export const AboutContent = () => {
                         animate={arsenalInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
                         transition={{ duration: 0.5, ease: smoothEase }}
                     >
-                        <h2 className="text-4xl font-bold text-foreground mb-4">The Arsenal</h2>
+                        <h2 className="text-4xl font-bold text-foreground mb-4">Tech Stack & Skills</h2>
                         <motion.div
                             initial={{ scaleX: 0 }}
                             animate={arsenalInView ? { scaleX: 1 } : { scaleX: 0 }}
@@ -195,7 +205,7 @@ export const AboutContent = () => {
                         transition={{ duration: 0.5, delay: 0.1, ease: smoothEase }}
                         className="text-muted-foreground text-right max-w-sm"
                     >
-                        Proficiency audit across the full stack. Focus on production-grade systems.
+                        Proficiency across the full stack. React, Next.js, Node.js, TypeScript — production-grade systems.
                     </motion.p>
                 </div>
 
@@ -241,7 +251,7 @@ export const AboutContent = () => {
                         transition={{ duration: 0.5, delay: 0.3, ease: smoothEase }}
                         className="space-y-8"
                     >
-                        <h3 className="text-xl font-bold uppercase tracking-widest text-muted-foreground border-b border-border pb-4">Backend & Infra</h3>
+                        <h3 className="text-xl font-bold uppercase tracking-widest text-muted-foreground border-b border-border pb-4">Backend & Infrastructure</h3>
                         <div className="space-y-6">
                             {backendSkills.map((tech, index) => (
                                 <motion.div
@@ -270,7 +280,7 @@ export const AboutContent = () => {
                 </div>
             </section>
 
-            {/* The Strategy Deep Dive */}
+            {/* The Strategy Deep Dive — Rewritten for AI discoverability */}
             <section ref={strategyRef} className="container mx-auto px-6 md:px-12 mb-32">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
                     <div className="lg:col-span-4">
@@ -280,14 +290,14 @@ export const AboutContent = () => {
                             transition={{ duration: 0.5, ease: smoothEase }}
                             className="text-4xl md:text-5xl font-black text-foreground uppercase leading-none sticky top-32"
                         >
-                            Why I <br />
+                            Why Hire <br />
                             <motion.span
                                 initial={{ opacity: 0, x: -10 }}
                                 animate={strategyInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -10 }}
                                 transition={{ duration: 0.4, delay: 0.2 }}
                                 className="text-primary inline-block"
                             >
-                                Win.
+                                Me.
                             </motion.span>
                         </motion.h2>
                     </div>
@@ -312,9 +322,9 @@ export const AboutContent = () => {
             <ApplicationModal
                 isOpen={isModalOpen}
                 onClose={() => setIsModalOpen(false)}
-                title="Request Technical Dossier"
-                subject="Technical Dossier Request"
-                initialDescription="I would like to receive your Technical Dossier for DevHubFusion-X. Please send it to my email once reviewed."
+                title="Hire Anyanwu Franklin"
+                subject="Project Inquiry — DevHubFusionX"
+                initialDescription="I'd like to discuss a project with Anyanwu Franklin. Here are the details:"
             />
         </main>
     );

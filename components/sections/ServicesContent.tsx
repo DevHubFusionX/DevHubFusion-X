@@ -2,7 +2,7 @@
 
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { ArrowRight, Database, Layout, GitMerge, Cpu } from 'lucide-react';
+import { ArrowRight, Database, Layout, GitMerge, Cpu, ShoppingCart, Smartphone } from 'lucide-react';
 import Link from 'next/link';
 
 export function ServicesContent() {
@@ -14,26 +14,38 @@ export function ServicesContent() {
     const services = [
         {
             num: "01",
-            title: "Frontend Architecture",
-            desc: "Designing high-fidelity, conversion-optimized interfaces that don't just load—they perform. Specializing in Next.js, React, and motion-rich UI systems to keep users deeply engaged.",
+            title: "Custom Web Applications",
+            desc: "I build high-performance, responsive web applications using React.js, Next.js, and TypeScript. From startup MVPs to full-scale production platforms — mobile-first design, fast load times, and conversion-optimized interfaces that keep users engaged.",
             icon: Layout
         },
         {
             num: "02",
             title: "SaaS & Platform Engineering",
-            desc: "Building complex, scalable web applications. From custom booking engines to real-time dashboards, I architect the backend logic and database structures that drive core business operations.",
+            desc: "I develop complex, scalable SaaS platforms and business tools. Custom booking engines, real-time dashboards, multi-tenant architectures, and admin panels built with Node.js, MongoDB, and Firebase. Production-tested systems handling thousands of daily users.",
             icon: Database
         },
         {
             num: "03",
-            title: "Logistics & API Integration",
-            desc: "Unifying fragmented data. Seamless integration of global tracking APIs, secure payment gateways, and real-time operational communication tools to create a single source of truth.",
+            title: "Ride-Hailing & Logistics Platforms",
+            desc: "Specialized in building ride-hailing apps (like Uber/Bolt), delivery tracking systems, and logistics management dashboards. Real-time GPS integration, route optimization, driver management, and customer-facing booking interfaces for the African mobility market.",
             icon: GitMerge
         },
         {
             num: "04",
-            title: "Technical Strategy & Audits",
-            desc: "Moving beyond code. Providing strategic oversight to optimize legacy systems, eliminate architectural debt, and ensure your digital assets directly compound your business leverage.",
+            title: "E-Commerce & Fintech Solutions",
+            desc: "Building e-commerce platforms with secure payment gateway integration (Paystack, Flutterwave, Stripe), inventory management, and order fulfillment systems. Fintech dashboards, wallet systems, and transaction management for the African market.",
+            icon: ShoppingCart
+        },
+        {
+            num: "05",
+            title: "Mobile-Responsive Web Design",
+            desc: "Every project I deliver is optimized for mobile devices. Progressive web apps (PWAs), responsive layouts, touch-optimized interactions, and offline-first capabilities using modern CSS and JavaScript frameworks.",
+            icon: Smartphone
+        },
+        {
+            num: "06",
+            title: "Technical Strategy & Code Audits",
+            desc: "Strategic technical consulting for startups and growing businesses. Architecture reviews, performance optimization, legacy system modernization, and tech stack recommendations to help you scale faster and spend smarter.",
             icon: Cpu
         }
     ];
@@ -51,14 +63,14 @@ export function ServicesContent() {
                 >
                     <div className="flex items-center gap-3 mb-8">
                         <div className="h-[2px] w-12 bg-primary"></div>
-                        <span className="text-sm font-bold tracking-widest uppercase text-muted-foreground">Capabilities</span>
+                        <span className="text-sm font-bold tracking-widest uppercase text-muted-foreground">Web Development Services</span>
                     </div>
                     <h1 className="text-5xl md:text-7xl lg:text-[6rem] font-black tracking-tighter text-foreground uppercase leading-[0.9] mb-10">
-                        Engineering <br />
-                        <span className="text-primary">Capital.</span>
+                        What I <br />
+                        <span className="text-primary">Build.</span>
                     </h1>
                     <p className="text-xl md:text-2xl text-foreground font-medium leading-relaxed max-w-3xl">
-                        I don't build generic SaaS templates. I architect robust, high-performance systems designed to automate operations and capture market share.
+                        Anyanwu Franklin offers professional web development services for startups and businesses across Nigeria, Africa, and worldwide. From custom web applications to complete SaaS platforms — I build products that scale.
                     </p>
                 </motion.div>
             </section>
@@ -104,13 +116,16 @@ export function ServicesContent() {
                     <div className="absolute top-0 left-0 w-2 h-full bg-primary" />
                     
                     <div className="relative z-10 max-w-3xl">
-                        <h2 className="text-4xl md:text-6xl font-black text-foreground uppercase leading-[0.9] mb-8">
-                            Ready to formalize <br />
-                            the <span className="text-primary italic font-serif">architecture?</span>
+                        <h2 className="text-4xl md:text-6xl font-black text-foreground uppercase leading-[0.9] mb-4">
+                            Ready to build <br />
+                            your <span className="text-primary italic font-serif">product?</span>
                         </h2>
+                        <p className="text-lg text-muted-foreground mb-8 max-w-xl">
+                            Contact Anyanwu Franklin to discuss your web development project. Available for startups, agencies, and businesses worldwide.
+                        </p>
                         
                         <Link href="/#contact" className="inline-flex items-center gap-4 h-16 px-10 bg-foreground text-background font-bold tracking-widest uppercase transition-all duration-300 hover:bg-primary">
-                            <span>Initiate Strategy Call</span>
+                            <span>Get in Touch</span>
                             <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
                         </Link>
                     </div>

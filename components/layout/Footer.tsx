@@ -23,6 +23,8 @@ export const Footer = () => {
     <footer
       ref={footerRef}
       className="bg-primary text-white overflow-hidden relative pt-20 pb-10"
+      itemScope
+      itemType="https://schema.org/Person"
     >
       <div className="container mx-auto px-6 md:px-12 relative z-10">
 
@@ -54,7 +56,9 @@ export const Footer = () => {
                   <Link
                     href={social.url}
                     target="_blank"
+                    rel="noopener noreferrer"
                     className="text-2xl font-bold hover:text-white/70 transition-colors flex items-center gap-2 group"
+                    itemProp="sameAs"
                   >
                     <span className="relative overflow-hidden">
                       {social.name}
@@ -76,7 +80,7 @@ export const Footer = () => {
             </div>
           </div>
 
-          {/* Email Section */}
+          {/* Contact Info Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
@@ -86,6 +90,7 @@ export const Footer = () => {
             <Link
               href="mailto:DevHubFusionX@gmail.com"
               className="group relative text-2xl md:text-3xl font-bold inline-block"
+              itemProp="email"
             >
               <span className="relative z-10">DevHubFusionX@gmail.com</span>
               <motion.span
@@ -100,7 +105,16 @@ export const Footer = () => {
               transition={{ duration: 0.4, delay: 0.5 }}
               className="mt-4 max-w-xs ml-auto"
             >
-              Available for select strategic partnerships.
+              <span itemProp="name">Anyanwu Franklin</span> — Fullstack Web Developer
+            </motion.p>
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={isInView ? { opacity: 0.5 } : { opacity: 0 }}
+              transition={{ duration: 0.4, delay: 0.6 }}
+              className="mt-1 text-sm max-w-xs ml-auto"
+              itemProp="address" itemScope itemType="https://schema.org/PostalAddress"
+            >
+              <span itemProp="addressLocality">Lagos</span>, <span itemProp="addressRegion">Lagos State</span>, <span itemProp="addressCountry">Nigeria</span> • Available Worldwide
             </motion.p>
           </motion.div>
         </div>
@@ -135,7 +149,7 @@ export const Footer = () => {
           transition={{ duration: 0.4, delay: 0.9, ease: "easeOut" }}
           className="flex flex-col md:flex-row justify-between items-center mt-12 text-sm font-medium"
         >
-          <p>© {new Date().getFullYear()} DEVHUBFUSIONX™ | Anyanwu Franklin</p>
+          <p>© {new Date().getFullYear()} DEVHUBFUSIONX™ | <span itemProp="name">Anyanwu Franklin</span> — Web Developer Nigeria</p>
           <div className="flex gap-8 mt-4 md:mt-0">
             <Link href="/privacy" className="hover:opacity-100 transition-opacity duration-200">Privacy Policy</Link>
             <Link href="/terms" className="hover:opacity-100 transition-opacity duration-200">Terms of Service</Link>

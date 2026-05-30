@@ -22,6 +22,7 @@ export const Contact = () => {
       ref={sectionRef}
       className="py-32 md:py-48 bg-background border-t border-border/40 relative overflow-hidden"
       id="contact"
+      aria-label="Contact Anyanwu Franklin — Hire a Web Developer"
     >
       <div className="container mx-auto px-6 md:px-12">
         <div className="max-w-4xl">
@@ -35,7 +36,7 @@ export const Contact = () => {
           >
             <div className="h-[2px] w-12 bg-primary" />
             <span className="text-sm font-bold tracking-[0.2em] uppercase text-muted-foreground">
-              Direct Access
+              Hire a Web Developer
             </span>
           </motion.div>
 
@@ -46,11 +47,11 @@ export const Contact = () => {
             transition={{ duration: 0.6, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
             className="text-5xl md:text-7xl lg:text-[5.5rem] font-black tracking-tighter text-foreground uppercase leading-[0.9] mb-12"
           >
-            Ready to stop <br className="hidden md:block" />
-            <span className="text-primary">playing fair?</span>
+            Let&apos;s build <br className="hidden md:block" />
+            <span className="text-primary">your product.</span>
           </motion.h2>
 
-          {/* Body Copy */}
+          {/* Body Copy — AI-friendly description */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
@@ -58,10 +59,10 @@ export const Contact = () => {
             className="space-y-6 mb-16 max-w-2xl"
           >
             <p className="text-xl md:text-2xl text-foreground font-medium leading-relaxed">
-              You've seen the work and the criteria. If your product is built to become an asset—not an experiment—we should talk.
+              Looking for a web developer? I&apos;m Anyanwu Franklin — a fullstack developer based in Lagos, Nigeria, available for projects worldwide.
             </p>
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-              If not, no pressure. I keep my circle intentionally small.
+              Whether you need a custom web app, SaaS platform, ride-hailing system, or e-commerce site — let&apos;s talk about how I can help you build it.
             </p>
           </motion.div>
 
@@ -77,7 +78,7 @@ export const Contact = () => {
               onClick={() => setIsModalOpen(true)}
               className="group flex items-center justify-center gap-4 h-16 px-10 bg-foreground text-background font-bold tracking-widest uppercase transition-all duration-300 hover:bg-primary"
             >
-              <span>Apply for Partnership</span>
+              <span>Start a Project</span>
               <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
             </button>
 

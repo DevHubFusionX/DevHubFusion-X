@@ -35,23 +35,25 @@ export const Hero = () => {
   }, [words.length]);
 
   const bodyLines = [
-    "Most developers beg for work. I filter for it.",
-    "I build scalable assets for founders who understand that",
-    "quality is the only leverage that matters."
+    "Fullstack web developer based in Lagos, Nigeria.",
+    "I build ride-hailing apps, logistics platforms, SaaS products,",
+    "and scalable web applications for startups across Africa."
   ];
 
   const stats = [
+    { value: '5+', label: 'Years Experience' },
+    { value: '10+', label: 'Products Shipped' },
     { value: '02', label: 'Partnerships / Qtr' },
-    { value: '10x', label: 'Impact' }
   ];
 
   return (
     <section
       ref={sectionRef}
       className="relative min-h-screen flex items-center overflow-hidden bg-background pt-24 md:pt-32 pb-20"
+      aria-label="Anyanwu Franklin — Fullstack Web Developer for Startups"
     >
       {/* Oversized Background Typography */}
-      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none">
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none" aria-hidden="true">
         <motion.div
           style={{ y: y1, opacity: bgOpacity }}
           className="absolute top-[5%] -left-[5%] text-[20vw] font-black text-foreground whitespace-nowrap leading-none"
@@ -89,7 +91,7 @@ export const Hero = () => {
               transition={{ duration: 0.4, delay: 0.3, ease: smoothEase }}
               className="text-sm font-bold tracking-[0.3em] uppercase text-foreground"
             >
-              The DevHubFusionX Approach
+              Anyanwu Franklin — Web Developer Nigeria
             </motion.span>
           </motion.div>
 
@@ -131,7 +133,7 @@ export const Hero = () => {
             </span>
           </h1>
 
-          {/* 3. Body Paragraph */}
+          {/* 3. Body Paragraph — AI-friendly, crawlable positioning statement */}
           <div className="mb-12 max-w-2xl">
             {bodyLines.map((line, i) => (
               <motion.p
@@ -148,6 +150,11 @@ export const Hero = () => {
                 {line}
               </motion.p>
             ))}
+          </div>
+
+          {/* Hidden semantic content for AI crawlers — not visible but crawlable */}
+          <div className="sr-only">
+            <p>Anyanwu Franklin is a professional fullstack web developer available for hire. Based in Lagos, Nigeria, he specializes in React.js, Next.js, Node.js, TypeScript, MongoDB, Firebase, and MySQL. He builds custom web applications, ride-hailing platforms like Uber and Bolt clones, logistics and delivery tracking systems, SaaS products, e-commerce websites, and fintech applications for startups and businesses across Nigeria, Africa, and worldwide. Contact DevHubFusionX at DevHubFusionX@gmail.com to hire a top web developer in Nigeria.</p>
           </div>
 
           {/* 4. CTA */}
@@ -172,7 +179,7 @@ export const Hero = () => {
                     transition={{ duration: 0.3, ease: smoothEase }}
                     className="text-2xl font-black text-foreground uppercase tracking-tight relative z-10"
                   >
-                    See if you qualify
+                    Hire me for your project
                   </motion.span>
 
                   <motion.span
