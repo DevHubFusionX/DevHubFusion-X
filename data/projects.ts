@@ -25,6 +25,80 @@ export interface Project {
 export const projects: Project[] = [
   {
     "id": 1,
+    "title": "DevhubxAPI",
+    "category": "API Infrastructure",
+    "description": "A unified API gateway that normalises 40+ African identity, payments, mobile money, and logistics providers into a single endpoint — replacing fragmented integrations with one key.",
+    "metric": "2.8M+ API Calls",
+    "year": "2026",
+    "status": "Live",
+    "image": "/DevHubFusion-X/projects/DevhubXapi.png",
+    "liveLink": "https://devhubapi.vercel.app/",
+    "architecture": ["Next.js", "Node.js", "Redis", "PostgreSQL", "REST"],
+    "challenge": "African fintechs typically wire together NIMC, NIBSS, MTN MoMo, Airtel, Flutterwave, and numerous other providers by hand — each with its own authentication, schema, and rate limits. This fragmented approach turns every new integration into weeks of plumbing work.",
+    "solution": "Built a normalisation layer that abstracts 40+ regional APIs behind a single RESTful endpoint with unified auth, consistent response schemas, and intelligent rate-limit management. Achieved 4.2ms average gateway latency with 99.98% uptime.",
+    "role": "Creator & Lead Engineer",
+    "outcomes": [
+      "Processed over 2.8 million API calls per month with 99.98% uptime across 90 days",
+      "Reduced average gateway latency to 4.2ms through edge caching and connection pooling",
+      "Unified 40+ regional APIs (NIN, BVN, mobile money, logistics) into a single developer-friendly endpoint"
+    ],
+    "systemParts": [
+      {
+        "id": "gateway",
+        "name": "API Gateway",
+        "description": "High-throughput normalisation layer translating requests across 40+ provider schemas with unified auth and rate limiting."
+      },
+      {
+        "id": "identity",
+        "name": "Identity Engine",
+        "description": "NIN, BVN, and KYC verification pipeline aggregating NIMC and NIBSS endpoints into single-call lookups."
+      },
+      {
+        "id": "payments",
+        "name": "Payments Hub",
+        "description": "Unified payments interface spanning Flutterwave, MTN MoMo, Airtel Money, and card processors with consistent webhook delivery."
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Noteable",
+    "category": "Privacy-First AI Workspace",
+    "description": "A local-first, privacy-focused AI notepad that runs entirely on-device, offering instant voice capture, smart summarization, and interactive chat without cloud exposure.",
+    "metric": "100% On-Device",
+    "year": "2026",
+    "status": "Live",
+    "image": "/DevHubFusion-X/projects/Noteable.png",
+    "liveLink": "https://noteable-kappa.vercel.app/",
+    "architecture": ["Next.js", "React.js", "Transformers.js", "IndexedDB", "Tailwind CSS"],
+    "challenge": "Modern AI applications typically rely on remote cloud APIs, posing serious data privacy risks and latency issues. The goal was to build a highly responsive workspace where document processing, semantic auto-linking, and voice synthesis happen entirely offline.",
+    "solution": "Developed a local-first architecture leveraging Transformers.js and Web Assembly for client-side LLM inference. Integrated IndexedDB for secure offline storage, and built a custom Web Audio pipeline for real-time transcription and fluid voice capturing.",
+    "role": "Creator & Lead Architect",
+    "outcomes": [
+      "Achieved 100% on-device data privacy with zero cloud exposure or external API requests",
+      "Engineered 'Note Buddy', an on-device AI chat assistant that dynamically queries and connects local notes",
+      "Implemented a real-time speech transcription pipeline ('Fluid Capture') converting audio inputs directly into structured notes"
+    ],
+    "systemParts": [
+      {
+        "id": "ai-engine",
+        "name": "Note Buddy AI",
+        "description": "On-device LLM runner powered by Transformers.js, performing client-side inference, semantic analysis, and chat queries."
+      },
+      {
+        "id": "capture",
+        "name": "Fluid Capture",
+        "description": "Client-side audio transcription pipeline converting voice notes into structured markdown documents instantly."
+      },
+      {
+        "id": "storage",
+        "name": "Local Storage Hub",
+        "description": "IndexedDB-backed offline storage maintaining all user notes, automatic tags, and relationship graphs without cloud sync."
+      }
+    ]
+  },
+  {
+    "id": 3,
     "title": "blynQe",
     "category": "Dating Mobile App",
     "description": "Built a modern, privacy-first dating platform focused on meaningful connections rather than swipe-based engagement.",
@@ -56,39 +130,7 @@ export const projects: Project[] = [
     ]
   },
   {
-    "id": 2,
-    "title": "Comtranz Global",
-    "category": "Service Operations Architecture",
-    "description": "Engineered a high-performance service ecosystem for a premier cleaning enterprise, featuring custom scheduling logic and a conversion-optimized client interface.",
-    "metric": "85% Booking Automation",
-    "year": "2026",
-    "status": "Live",
-    "architecture": ["React.js", "Firebase", "Express.js", "MySQL"],
-    "image": "/DevHubFusion-X/projects/Cleaner-Image.png",
-    "liveLink": "https://www.comtranzglobal.com",
-    "challenge": "The enterprise faced serious operational bottlenecks due to manual scheduling and fragmented booking processes. They required a robust solution to handle complex service availabilities.",
-    "solution": "Developed a custom booking engine automating the entire scheduling lifecycle, alongside a high-conversion client acquisition funnel using React and Firebase.",
-    "role": "Lead Systems Architect & Frontend Engineer",
-    "outcomes": [
-      "Achieved 85% automation of the previously manual booking workflow",
-      "Optimized frontend components to substantially improve client acquisition",
-      "Integrated scalable backend services managing daily operations flawlessly"
-    ],
-    "systemParts": [
-      {
-        "id": "dev",
-        "name": "Service Hub",
-        "description": "Custom booking engine with specialized scheduling logic built on Node and Express."
-      },
-      {
-        "id": "deploy",
-        "name": "Client Portal",
-        "description": "Conversion-focused interface engineered for maximum lead capture."
-      }
-    ]
-  },
-  {
-    "id": 3,
+    "id": 4,
     "title": "FindMe",
     "category": "SaaS Platform",
     "description": "Developed an AI-powered service discovery ecosystem connecting users and businesses across multiple verticals.",
@@ -120,7 +162,39 @@ export const projects: Project[] = [
     ]
   },
   {
-    "id": 4,
+    "id": 5,
+    "title": "Comtranz Global",
+    "category": "Service Operations Architecture",
+    "description": "Engineered a high-performance service ecosystem for a premier cleaning enterprise, featuring custom scheduling logic and a conversion-optimized client interface.",
+    "metric": "85% Booking Automation",
+    "year": "2026",
+    "status": "Live",
+    "architecture": ["React.js", "Firebase", "Express.js", "MySQL"],
+    "image": "/DevHubFusion-X/projects/Cleaner-Image.png",
+    "liveLink": "https://www.comtranzglobal.com",
+    "challenge": "The enterprise faced serious operational bottlenecks due to manual scheduling and fragmented booking processes. They required a robust solution to handle complex service availabilities.",
+    "solution": "Developed a custom booking engine automating the entire scheduling lifecycle, alongside a high-conversion client acquisition funnel using React and Firebase.",
+    "role": "Lead Systems Architect & Frontend Engineer",
+    "outcomes": [
+      "Achieved 85% automation of the previously manual booking workflow",
+      "Optimized frontend components to substantially improve client acquisition",
+      "Integrated scalable backend services managing daily operations flawlessly"
+    ],
+    "systemParts": [
+      {
+        "id": "dev",
+        "name": "Service Hub",
+        "description": "Custom booking engine with specialized scheduling logic built on Node and Express."
+      },
+      {
+        "id": "deploy",
+        "name": "Client Portal",
+        "description": "Conversion-focused interface engineered for maximum lead capture."
+      }
+    ]
+  },
+  {
+    "id": 6,
     "title": "Dara Express",
     "category": "Logistics Systems",
     "description": "Comprehensive logistics and delivery platform optimized for cross-regional shipping and real-time tracking.",
@@ -152,7 +226,7 @@ export const projects: Project[] = [
     ]
   },
   {
-    "id": 5,
+    "id": 7,
     "title": "Photo Studio Website",
     "category": "Photography Portfolio",
     "description": "A professional photography portfolio website designed to showcase high-resolution images with an elegant, minimalist interface.",
