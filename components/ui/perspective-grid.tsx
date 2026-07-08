@@ -21,9 +21,16 @@ export function PerspectiveGrid({
     fadeRadius = 80,
 }: PerspectiveGridProps) {
     const [mounted, setMounted] = useState(false);
+    const [isMobile, setIsMobile] = useState(true);
 
     useEffect(() => {
         setMounted(true);
+        setIsMobile(window.innerWidth < 1024);
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 1024);
+        };
+        window.addEventListener('resize', handleResize, { passive: true });
+        return () => window.removeEventListener('resize', handleResize);
     }, []);
 
     const tiles = useMemo(() => Array.from({ length: gridSize * gridSize }), [gridSize]);
@@ -40,7 +47,7 @@ export function PerspectiveGrid({
             }}
         >
             <div
-                className="absolute w-[80rem] aspect-square grid origin-center"
+                className="absolute w-7xl aspect-square grid origin-center"
                 style={{
                     left: "50%",
                     top: "50%",
@@ -49,13 +56,18 @@ export function PerspectiveGrid({
                     transformStyle: "preserve-3d",
                     gridTemplateColumns: `repeat(${gridSize}, 1fr)`,
                     gridTemplateRows: `repeat(${gridSize}, 1fr)`,
+                    ...(isMobile ? {
+                        backgroundImage: `linear-gradient(to right, rgba(5, 150, 105, 0.15) 1px, transparent 1px),
+                                          linear-gradient(to bottom, rgba(5, 150, 105, 0.15) 1px, transparent 1px)`,
+                        backgroundSize: `${100 / gridSize}% ${100 / gridSize}%`
+                    } : {})
                 }}
             >
-                {mounted &&
+                {mounted && !isMobile &&
                     tiles.map((_, i) => (
                         <div
                             key={i}
-                            className="tile min-h-[1px] min-w-[1px] border transition-colors duration-[1500ms] hover:duration-0"
+                            className="tile min-h-px min-w-px border transition-colors duration-1500 hover:duration-0"
                             style={{ borderColor: 'rgba(5,150,105,0.15)' }}
                             onMouseEnter={(e) => {
                                 const colors = ['#059669', '#34d399', '#10b981'];

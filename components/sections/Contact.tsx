@@ -51,8 +51,8 @@ export const Contact = () => {
           </div>
 
           {/* Content */}
-          <div className="relative z-20 px-8 md:px-14 py-12 md:py-16 pointer-events-none">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          <div className="relative z-20 px-6 sm:px-10 md:px-14 py-10 md:py-16 pointer-events-none">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
               
               {/* Left Column — Text & Actions */}
               <div className="lg:col-span-7">
@@ -61,66 +61,76 @@ export const Contact = () => {
                   initial={{ opacity: 0, x: -20 }}
                   animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
                   transition={{ duration: 0.5, ease: smoothEase }}
-                  className="flex items-center gap-2.5 mb-6"
+                  className="flex items-center gap-2.5 mb-4 md:mb-6"
                 >
                   <div className="w-1.5 h-1.5 rounded-full bg-primary" />
                   <span className="text-xs font-bold tracking-[0.2em] uppercase text-zinc-400">
                     Get Started
                   </span>
                 </motion.div>
-
+ 
                 {/* Headline */}
                 <motion.h2
                   initial={{ opacity: 0, y: 20 }}
                   animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                   transition={{ duration: 0.6, delay: 0.1, ease: smoothEase }}
-                  className="text-2xl md:text-4xl font-black tracking-tight text-white leading-[1.15] mb-6 animate-pulse-faint"
+                  className="text-xl sm:text-2xl md:text-4xl font-black tracking-tight text-white leading-[1.15] mb-4 md:mb-6 animate-pulse-faint"
                 >
-                  Start building your product <br className="hidden md:block" />
-                  the way it should be built.
+                  <span className="hidden sm:inline">
+                    Start building your product <br className="hidden md:block" />
+                    the way it should be built.
+                  </span>
+                  <span className="inline sm:hidden">
+                    Start building your product.
+                  </span>
                 </motion.h2>
-
+ 
                 {/* Body */}
                 <motion.p
                   initial={{ opacity: 0, y: 15 }}
                   animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 15 }}
                   transition={{ duration: 0.6, delay: 0.2, ease: smoothEase }}
-                  className="text-sm md:text-base text-zinc-400 leading-relaxed max-w-md mb-8"
+                  className="text-xs md:text-base text-zinc-400 leading-relaxed max-w-md mb-6 md:mb-8"
                 >
-                  We build custom apps and automated workflows that run your business for you. Ready to start? Let&apos;s talk about what you need.
+                  <span className="hidden sm:inline">
+                    We build custom apps and automated workflows that run your business for you. Ready to start? Let&apos;s talk about what you need.
+                  </span>
+                  <span className="inline sm:hidden">
+                    We build custom apps and automated workflows that run your business for you. Let&apos;s talk.
+                  </span>
                 </motion.p>
-
+ 
                 {/* Action row */}
                 <motion.div
                   initial={{ opacity: 0, y: 15 }}
                   animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 15 }}
                   transition={{ duration: 0.6, delay: 0.3, ease: smoothEase }}
-                  className="flex flex-wrap items-center gap-3"
+                  className="flex flex-col sm:flex-row sm:items-center gap-3 w-full"
                 >
                   {/* WhatsApp CTA */}
                   <a
                     href={WA_LINK}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 bg-white text-zinc-950 text-sm font-bold rounded-full hover:bg-primary hover:text-white transition-colors duration-300 pointer-events-auto group"
+                    className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-white text-zinc-950 text-sm font-bold rounded-full hover:bg-primary hover:text-white transition-colors duration-300 pointer-events-auto group w-full sm:w-auto text-center"
                   >
                     <MessageCircle size={15} />
                     Chat on WhatsApp
                   </a>
-
+ 
                   {/* Start a Project */}
                   <button
                     onClick={() => setIsModalOpen(true)}
-                    className="inline-flex items-center gap-2 px-5 py-2.5 bg-transparent border border-zinc-800 text-white text-sm font-bold rounded-full hover:bg-zinc-900 transition-colors duration-300 cursor-pointer pointer-events-auto group"
+                    className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-transparent border border-zinc-800 text-white text-sm font-bold rounded-full hover:bg-zinc-900 transition-colors duration-300 cursor-pointer pointer-events-auto group w-full sm:w-auto"
                   >
                     Start a Project
                     <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                   </button>
-
+ 
                   {/* Email copy */}
                   <button
                     onClick={copyEmail}
-                    className="inline-flex items-center gap-2 px-4 py-2.5 text-xs text-zinc-500 hover:text-zinc-300 transition-colors cursor-pointer pointer-events-auto"
+                    className="inline-flex items-center justify-center gap-2 px-4 py-2.5 text-xs text-zinc-500 hover:text-zinc-300 transition-colors cursor-pointer pointer-events-auto w-full sm:w-auto"
                   >
                     <span className="font-mono">devhubfusionx@gmail.com</span>
                     <AnimatePresence mode="wait">
@@ -148,17 +158,17 @@ export const Contact = () => {
                   </button>
                 </motion.div>
               </div>
-
+ 
               {/* Right Column — Email Subscribe Form */}
               <div className="lg:col-span-5 flex flex-col justify-center">
                 <motion.div
                   initial={{ opacity: 0, x: 20 }}
                   animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
                   transition={{ duration: 0.6, delay: 0.3, ease: smoothEase }}
-                  className="bg-zinc-900/40 border border-zinc-800/80 backdrop-blur-md rounded-2xl p-6 md:p-8"
+                  className="bg-zinc-900/40 border border-zinc-800/80 backdrop-blur-md rounded-2xl p-5 md:p-8"
                 >
-                  <h3 className="text-lg font-bold text-white mb-2">Subscribe to our newsletter</h3>
-                  <p className="text-xs text-zinc-400 mb-6">Stay updated with engineering insights, strategies, and case studies.</p>
+                  <h3 className="text-base md:text-lg font-bold text-white mb-1 sm:mb-2">Subscribe</h3>
+                  <p className="hidden sm:block text-xs text-zinc-400 mb-6">Stay updated with engineering insights and case studies.</p>
                   
                   <form onSubmit={handleSubscribe} className="relative flex flex-col gap-3 pointer-events-auto">
                     <div className="relative flex items-center bg-zinc-950 border border-zinc-800 rounded-full p-1.5 focus-within:border-primary/50 transition-colors">
@@ -168,19 +178,18 @@ export const Contact = () => {
                         placeholder="Your email address"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        className="w-full bg-transparent pl-4 pr-12 py-2.5 text-sm text-white placeholder-zinc-500 focus:outline-none"
+                        className="w-full bg-transparent pl-4 pr-16 py-2 text-xs md:text-sm text-white placeholder-zinc-500 focus:outline-none"
                       />
                       <button
                         type="submit"
                         disabled={subscribed}
-                        className="absolute right-2 top-1.5 bottom-1.5 aspect-square lg:aspect-auto lg:px-4 bg-primary text-white rounded-full flex items-center justify-center hover:bg-emerald-600 transition-colors disabled:bg-zinc-800 disabled:text-zinc-600 cursor-pointer"
+                        className="absolute right-2 top-1.5 bottom-1.5 px-3 md:px-4 bg-primary text-white text-[10px] md:text-xs font-bold rounded-full flex items-center justify-center hover:bg-emerald-600 transition-colors disabled:bg-zinc-800 disabled:text-zinc-600 cursor-pointer"
                       >
-                        <span className="hidden lg:inline text-xs font-bold mr-1">Subscribe</span>
-                        <Send size={12} className="lg:ml-0.5" />
+                        Subscribe
                       </button>
                     </div>
                   </form>
-
+ 
                   <AnimatePresence>
                     {subscribed && (
                       <motion.p
@@ -189,13 +198,13 @@ export const Contact = () => {
                         exit={{ opacity: 0 }}
                         className="text-xs text-primary font-bold mt-3 text-center"
                       >
-                        Thanks for subscribing! Check your inbox soon.
+                        Thanks for subscribing!
                       </motion.p>
                     )}
                   </AnimatePresence>
                 </motion.div>
               </div>
-
+ 
             </div>
           </div>
         </div>

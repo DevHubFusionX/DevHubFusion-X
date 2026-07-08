@@ -2,7 +2,7 @@
 
 import React, { useRef, useState } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
-import { ArrowRight, Globe, Truck, ShoppingBag, BarChart3, Zap, Smartphone } from 'lucide-react';
+import { ArrowRight, Globe, Truck, ShoppingBag, BarChart3, Zap, Smartphone, ChevronDown } from 'lucide-react';
 import Link from 'next/link';
 
 const WA_NUMBER = "2348030531624";
@@ -16,7 +16,7 @@ const products = [
     body: "Stop losing sales after hours. Custom e-commerce with secure checkout, inventory tracking, and automated order flow — your store sells while you sleep.",
     accent: "#059669",
     waMessage: "Hi DevHubFusionX, I'm interested in building an online store / e-commerce system. Let's discuss.",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&q=80",
+    image: "/DevHubFusion-X/software/Your Store, Open 247.jpeg",
   },
   {
     icon: Truck,
@@ -25,7 +25,7 @@ const products = [
     body: "Real-time GPS tracking, driver management, and intelligent booking engines. One dashboard to control your entire fleet.",
     accent: "#10b981",
     waMessage: "Hi DevHubFusionX, I need a logistics / ride-hailing tracking platform built. Let's talk.",
-    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600&q=80",
+    image: "/DevHubFusion-X/software/Track Every Delivery.jpeg",
   },
   {
     icon: BarChart3,
@@ -34,7 +34,7 @@ const products = [
     body: "Replace scattered spreadsheets with a custom dashboard showing revenue, users, and operations in real time. Built for your workflow.",
     accent: "#047857",
     waMessage: "Hi DevHubFusionX, I want to build a SaaS dashboard / admin panel for my business. Let's discuss.",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80",
+    image: "/DevHubFusion-X/software/Data, One Screen.jpeg",
   },
   {
     icon: Globe,
@@ -43,7 +43,7 @@ const products = [
     body: "Custom web apps engineered for speed and SEO. Systems that rank on Google, handle thousands of users, and turn visitors into customers.",
     accent: "#34d399",
     waMessage: "Hi DevHubFusionX, I need a custom web application built. Let's discuss the details.",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80",
+    image: "/DevHubFusion-X/software/Fast Apps That Convert.jpeg",
   },
   {
     icon: Zap,
@@ -52,7 +52,7 @@ const products = [
     body: "Automated invoicing, email sequences, CRM pipelines, and data syncing. Your tools wired together so your team focuses on growth.",
     accent: "#059669",
     waMessage: "Hi DevHubFusionX, I want to automate my business workflows. Let's discuss what's possible.",
-    image: "https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?w=600&q=80",
+    image: "/DevHubFusion-X/software/Kill Repetitive Work.jpeg",
   },
   {
     icon: Smartphone,
@@ -61,7 +61,7 @@ const products = [
     body: "80% of your customers are on mobile. Lightning-fast apps optimized for low bandwidth, any screen size, and real-world usage.",
     accent: "#10b981",
     waMessage: "Hi DevHubFusionX, I need a mobile-first web app built for my business. Let's talk.",
-    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&q=80",
+    image: "/DevHubFusion-X/software/Built for Phones.jpeg",
   },
 ];
 
@@ -101,42 +101,37 @@ export const Philosophy = () => {
             </motion.span>
           </div>
 
-          <h2 className="text-4xl md:text-6xl font-bold tracking-tighter text-foreground leading-[1.1] mb-6">
+          <h2 className="text-3xl md:text-6xl font-black tracking-tighter text-foreground leading-[1.1] mb-6">
             <span className="block overflow-hidden">
-              {["Software", "that", "runs"].map((word, i) => (
-                <motion.span
-                  key={`h1-${i}`}
-                  initial={{ y: '100%', opacity: 0 }}
-                  animate={headerInView ? { y: 0, opacity: 1 } : { y: '100%', opacity: 0 }}
-                  transition={{ duration: 0.4, delay: 0.3 + (i * 0.06), ease: snappyEase }}
-                  className="inline-block mr-[0.25em]"
-                >
-                  {word}
-                </motion.span>
-              ))}
+              <motion.span
+                initial={{ y: '100%', opacity: 0 }}
+                animate={headerInView ? { y: 0, opacity: 1 } : { y: '100%', opacity: 0 }}
+                transition={{ duration: 0.5, ease: snappyEase }}
+                className="block"
+              >
+                Software that runs
+              </motion.span>
             </span>
             <span className="block text-primary overflow-hidden">
-              {["your", "business", "for", "you."].map((word, i) => (
-                <motion.span
-                  key={`h2-${i}`}
-                  initial={{ y: '100%', opacity: 0 }}
-                  animate={headerInView ? { y: 0, opacity: 1 } : { y: '100%', opacity: 0 }}
-                  transition={{ duration: 0.4, delay: 0.5 + (i * 0.06), ease: snappyEase }}
-                  className="inline-block mr-[0.25em]"
-                >
-                  {word}
-                </motion.span>
-              ))}
+              <motion.span
+                initial={{ y: '100%', opacity: 0 }}
+                animate={headerInView ? { y: 0, opacity: 1 } : { y: '100%', opacity: 0 }}
+                transition={{ duration: 0.5, delay: 0.15, ease: snappyEase }}
+                className="block"
+              >
+                your business for you.
+              </motion.span>
             </span>
           </h2>
         </div>
 
-        {/* ── Desktop: Hover-expandable horizontal panels ──────────────── */}
-        <div
-          ref={gridRef}
-          className="hidden md:flex gap-2 h-[420px]"
-          onMouseLeave={() => setActiveIndex(null)}
-        >
+        {/* Wrapper to track visibility of both Desktop & Mobile layouts */}
+        <div ref={gridRef}>
+          {/* ── Desktop: Hover-expandable horizontal panels ──────────────── */}
+          <div
+            className="hidden md:flex gap-2 h-105"
+            onMouseLeave={() => setActiveIndex(null)}
+          >
           {products.map((product, index) => {
             const Icon = product.icon;
             const isActive = activeIndex === index;
@@ -171,7 +166,7 @@ export const Philosophy = () => {
                 />
 
                 {/* Dark overlay for text readability */}
-                <div className="absolute inset-0 z-[1] bg-gradient-to-t from-black/80 via-black/50 to-black/30" />
+                <div className="absolute inset-0 z-1 bg-linear-to-t from-black/80 via-black/50 to-black/30" />
 
                 {/* Left accent bar */}
                 <motion.div
@@ -272,73 +267,84 @@ export const Philosophy = () => {
                 animate={gridInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ delay: 0.05 * index, duration: 0.4, ease: smoothEase }}
                 onClick={() => setMobileActive(isOpen ? null : index)}
-                className="border border-border/50 rounded-xl overflow-hidden cursor-pointer"
+                className={`relative border rounded-xl overflow-hidden cursor-pointer transition-all duration-300 ${
+                  isOpen 
+                    ? 'border-primary/45' 
+                    : 'border-zinc-800/80'
+                }`}
               >
-                {/* Header row — always visible */}
-                <div className="flex items-center gap-4 p-5">
-                  <div
-                    className="w-10 h-10 rounded-lg flex items-center justify-center shrink-0 transition-colors duration-300"
-                    style={{
-                      backgroundColor: isOpen ? 'var(--color-primary)' : 'rgba(5,150,105,0.1)',
-                      color: isOpen ? '#ffffff' : 'var(--color-primary)',
-                    }}
-                  >
-                    <Icon size={18} strokeWidth={2} />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <span className="text-[10px] font-bold tracking-[0.15em] uppercase text-muted-foreground block">
-                      {product.tag}
-                    </span>
-                    <h3 className="text-base font-bold text-foreground tracking-tight truncate">
-                      {product.title}
-                    </h3>
-                  </div>
-                  <motion.div
-                    animate={{ rotate: isOpen ? 90 : 0 }}
-                    transition={{ duration: 0.2 }}
-                    className="text-muted-foreground shrink-0"
-                  >
-                    <ArrowRight size={16} />
-                  </motion.div>
-                </div>
+                {/* Background image — always visible */}
+                <img
+                  src={product.image}
+                  alt=""
+                  className="absolute inset-0 w-full h-full object-cover z-0 transition-transform duration-500"
+                />
 
-                {/* Expandable content */}
-                <AnimatePresence>
-                  {isOpen && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: 'auto', opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.35, ease: snappyEase }}
-                      className="overflow-hidden"
+                {/* Dark overlay for text readability */}
+                <div className="absolute inset-0 z-1 bg-linear-to-t from-black/95 via-black/85 to-black/70" />
+
+                {/* Content Container (Layered on top of image and overlay) */}
+                <div className="relative z-10 w-full h-full">
+                  {/* Header row — always visible */}
+                  <div className="flex items-center gap-4 p-5">
+                    <div
+                      className="w-10 h-10 rounded-lg flex items-center justify-center shrink-0 transition-colors duration-300"
+                      style={{
+                        backgroundColor: isOpen ? 'var(--primary)' : 'rgba(255, 255, 255, 0.1)',
+                        color: '#ffffff',
+                      }}
                     >
-                      <div className="px-5 pb-5 pt-0">
-                        <div className="rounded-lg overflow-hidden mb-4 h-40">
-                          <img
-                            src={product.image}
-                            alt={product.tag}
-                            className="w-full h-full object-cover"
-                          />
-                        </div>
-                        <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-                          {product.body}
-                        </p>
-                        <a
-                          href={waLink(product.waMessage)}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary text-white text-xs font-bold uppercase tracking-widest rounded-lg hover:bg-primary-hover transition-colors"
-                        >
-                          Build This
-                          <ArrowRight size={12} />
-                        </a>
-                      </div>
+                      <Icon size={18} strokeWidth={2} />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <span className="text-[10px] font-bold tracking-[0.15em] uppercase text-white/60 block">
+                        {product.tag}
+                      </span>
+                      <h3 className="text-base font-bold text-white tracking-tight leading-tight">
+                        {product.title}
+                      </h3>
+                    </div>
+                    <motion.div
+                      animate={{ rotate: isOpen ? 180 : 0 }}
+                      transition={{ duration: 0.2 }}
+                      className="text-white/70 shrink-0"
+                    >
+                      <ChevronDown size={16} />
                     </motion.div>
-                  )}
-                </AnimatePresence>
+                  </div>
+
+                  {/* Expandable content */}
+                  <AnimatePresence>
+                    {isOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.35, ease: snappyEase }}
+                        className="overflow-hidden"
+                      >
+                        <div className="px-5 pb-5 pt-0">
+                          <p className="text-sm text-white/80 leading-relaxed mb-4">
+                            {product.body}
+                          </p>
+                          <a
+                            href={waLink(product.waMessage)}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary text-white text-xs font-bold uppercase tracking-widest rounded-lg hover:bg-primary-hover transition-colors"
+                          >
+                            Build This
+                            <ArrowRight size={12} />
+                          </a>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
               </motion.div>
             );
           })}
+        </div>
         </div>
 
         {/* Bottom CTA */}

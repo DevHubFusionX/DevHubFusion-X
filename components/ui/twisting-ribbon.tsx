@@ -288,7 +288,10 @@ export function TwistingRibbon({
       }
     }
 
+    let isVisible = true;
+
     function render() {
+      if (!isVisible) return;
       ctx!.clearRect(0, 0, canvas!.width, canvas!.height);
       t += waveSpeed;
 
@@ -305,10 +308,23 @@ export function TwistingRibbon({
       animationFrameId = requestAnimationFrame(render);
     }
 
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        const wasVisible = isVisible;
+        isVisible = entry.isIntersecting;
+        if (isVisible && !wasVisible) {
+          animationFrameId = requestAnimationFrame(render);
+        }
+      },
+      { threshold: 0.05 }
+    );
+    observer.observe(container);
+
     render();
 
     return () => {
       window.removeEventListener("resize", resize);
+      observer.disconnect();
       cancelAnimationFrame(animationFrameId);
     };
   }, [segments, waveSpeed, waveAmplitude, twistCycles, lightColors, darkColors]);
@@ -317,7 +333,7 @@ export function TwistingRibbon({
     <div
       ref={containerRef}
       className={cn(
-        "relative w-full h-full overflow-hidden rounded-[12px]",
+        "relative w-full h-full overflow-hidden rounded-xl",
         className
       )}
       {...props}
