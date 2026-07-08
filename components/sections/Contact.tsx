@@ -2,14 +2,21 @@
 
 import React, { useState, useRef } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
-import { Copy, ArrowRight } from 'lucide-react';
+import { Copy, ArrowRight, MessageCircle, Send } from 'lucide-react';
 import { ApplicationModal } from './ApplicationModal';
+import { PerspectiveGrid } from '@/components/ui/perspective-grid';
+
+const WA_LINK = "https://wa.me/2348030531624?text=Hi%20DevHubFusionX%2C%20I%27m%20ready%20to%20start%20a%20project.%20Let%27s%20talk.";
 
 export const Contact = () => {
   const [copied, setCopied] = useState(false);
+  const [email, setEmail] = useState('');
+  const [subscribed, setSubscribed] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
   const inView = useInView(sectionRef, { once: true, margin: "-100px" });
+
+  const smoothEase = [0.25, 0.1, 0.25, 1] as const;
 
   const copyEmail = () => {
     navigator.clipboard.writeText("devhubfusionx@gmail.com");
@@ -17,111 +24,183 @@ export const Contact = () => {
     setTimeout(() => setCopied(false), 2000);
   };
 
+  const handleSubscribe = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email) return;
+    setSubscribed(true);
+    setTimeout(() => {
+      setSubscribed(false);
+      setEmail('');
+    }, 4000);
+  };
+
   return (
     <section
       ref={sectionRef}
-      className="py-32 md:py-48 bg-background border-t border-border/40 relative overflow-hidden"
+      className="bg-background py-8 md:py-12"
       id="contact"
-      aria-label="Contact Anyanwu Franklin — Hire a Web Developer"
+      aria-label="Contact DevHubFusionX — Software Systems & Automations"
     >
       <div className="container mx-auto px-6 md:px-12">
-        <div className="max-w-4xl">
-          
-          {/* Section Indicator */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
-            transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
-            className="flex items-center gap-3 mb-10"
-          >
-            <div className="h-[2px] w-12 bg-primary" />
-            <span className="text-sm font-bold tracking-[0.2em] uppercase text-muted-foreground">
-              Hire a Web Developer
-            </span>
-          </motion.div>
+        {/* Contained card */}
+        <div className="relative overflow-hidden rounded-2xl bg-zinc-950 border border-zinc-800/80">
 
-          {/* Headline */}
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ duration: 0.6, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
-            className="text-5xl md:text-7xl lg:text-[5.5rem] font-black tracking-tighter text-foreground uppercase leading-[0.9] mb-12"
-          >
-            Let&apos;s build <br className="hidden md:block" />
-            <span className="text-primary">your product.</span>
-          </motion.h2>
+          {/* Perspective Grid Background */}
+          <div className="absolute inset-0 z-0 opacity-80">
+            <PerspectiveGrid gridSize={25} showOverlay={true} fadeRadius={85} className="bg-zinc-950 [--fade-stop:#09090b]" />
+          </div>
 
-          {/* Body Copy — AI-friendly description */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.6, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
-            className="space-y-6 mb-16 max-w-2xl"
-          >
-            <p className="text-xl md:text-2xl text-foreground font-medium leading-relaxed">
-              Looking for a web developer? I&apos;m Anyanwu Franklin — a fullstack developer based in Lagos, Nigeria, available for projects worldwide.
-            </p>
-            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-              Whether you need a custom web app, SaaS platform, ride-hailing system, or e-commerce site — let&apos;s talk about how I can help you build it.
-            </p>
-          </motion.div>
+          {/* Content */}
+          <div className="relative z-20 px-8 md:px-14 py-12 md:py-16 pointer-events-none">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+              
+              {/* Left Column — Text & Actions */}
+              <div className="lg:col-span-7">
+                {/* Eyebrow */}
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+                  transition={{ duration: 0.5, ease: smoothEase }}
+                  className="flex items-center gap-2.5 mb-6"
+                >
+                  <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                  <span className="text-xs font-bold tracking-[0.2em] uppercase text-zinc-400">
+                    Get Started
+                  </span>
+                </motion.div>
 
-          {/* Action Area */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={inView ? { opacity: 1 } : { opacity: 0 }}
-            transition={{ duration: 0.6, delay: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
-            className="flex flex-col sm:flex-row items-start sm:items-center gap-8"
-          >
-            {/* CTA Button */}
-            <button
-              onClick={() => setIsModalOpen(true)}
-              className="group flex items-center justify-center gap-4 h-16 px-10 bg-foreground text-background font-bold tracking-widest uppercase transition-all duration-300 hover:bg-primary"
-            >
-              <span>Start a Project</span>
-              <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-            </button>
+                {/* Headline */}
+                <motion.h2
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                  transition={{ duration: 0.6, delay: 0.1, ease: smoothEase }}
+                  className="text-2xl md:text-4xl font-black tracking-tight text-white leading-[1.15] mb-6 animate-pulse-faint"
+                >
+                  Start building your product <br className="hidden md:block" />
+                  the way it should be built.
+                </motion.h2>
 
-            {/* Email Copy Box */}
-            <div className="flex items-center">
-              <button
-                onClick={copyEmail}
-                className="group flex items-center gap-3 h-16 px-6 border border-border bg-transparent hover:bg-muted transition-colors duration-200"
-              >
-                <span className="font-mono text-sm tracking-tight text-foreground/80 group-hover:text-foreground">
-                  devhubfusionx@gmail.com
-                </span>
-                <div className="relative w-4 h-4 flex items-center justify-center text-muted-foreground group-hover:text-foreground">
-                  <AnimatePresence mode="wait">
-                    {copied ? (
-                      <motion.span
-                        key="check"
-                        initial={{ scale: 0 }}
-                        animate={{ scale: 1 }}
-                        exit={{ scale: 0 }}
-                        className="text-primary text-sm absolute"
+                {/* Body */}
+                <motion.p
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 15 }}
+                  transition={{ duration: 0.6, delay: 0.2, ease: smoothEase }}
+                  className="text-sm md:text-base text-zinc-400 leading-relaxed max-w-md mb-8"
+                >
+                  We build custom apps and automated workflows that run your business for you. Ready to start? Let&apos;s talk about what you need.
+                </motion.p>
+
+                {/* Action row */}
+                <motion.div
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 15 }}
+                  transition={{ duration: 0.6, delay: 0.3, ease: smoothEase }}
+                  className="flex flex-wrap items-center gap-3"
+                >
+                  {/* WhatsApp CTA */}
+                  <a
+                    href={WA_LINK}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 bg-white text-zinc-950 text-sm font-bold rounded-full hover:bg-primary hover:text-white transition-colors duration-300 pointer-events-auto group"
+                  >
+                    <MessageCircle size={15} />
+                    Chat on WhatsApp
+                  </a>
+
+                  {/* Start a Project */}
+                  <button
+                    onClick={() => setIsModalOpen(true)}
+                    className="inline-flex items-center gap-2 px-5 py-2.5 bg-transparent border border-zinc-800 text-white text-sm font-bold rounded-full hover:bg-zinc-900 transition-colors duration-300 cursor-pointer pointer-events-auto group"
+                  >
+                    Start a Project
+                    <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                  </button>
+
+                  {/* Email copy */}
+                  <button
+                    onClick={copyEmail}
+                    className="inline-flex items-center gap-2 px-4 py-2.5 text-xs text-zinc-500 hover:text-zinc-300 transition-colors cursor-pointer pointer-events-auto"
+                  >
+                    <span className="font-mono">devhubfusionx@gmail.com</span>
+                    <AnimatePresence mode="wait">
+                      {copied ? (
+                        <motion.span
+                          key="check"
+                          initial={{ scale: 0 }}
+                          animate={{ scale: 1 }}
+                          exit={{ scale: 0 }}
+                          className="text-primary text-xs font-bold"
+                        >
+                          ✓
+                        </motion.span>
+                      ) : (
+                        <motion.div
+                          key="copy"
+                          initial={{ scale: 0 }}
+                          animate={{ scale: 1 }}
+                          exit={{ scale: 0 }}
+                        >
+                          <Copy size={12} />
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </button>
+                </motion.div>
+              </div>
+
+              {/* Right Column — Email Subscribe Form */}
+              <div className="lg:col-span-5 flex flex-col justify-center">
+                <motion.div
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
+                  transition={{ duration: 0.6, delay: 0.3, ease: smoothEase }}
+                  className="bg-zinc-900/40 border border-zinc-800/80 backdrop-blur-md rounded-2xl p-6 md:p-8"
+                >
+                  <h3 className="text-lg font-bold text-white mb-2">Subscribe to our newsletter</h3>
+                  <p className="text-xs text-zinc-400 mb-6">Stay updated with engineering insights, strategies, and case studies.</p>
+                  
+                  <form onSubmit={handleSubscribe} className="relative flex flex-col gap-3 pointer-events-auto">
+                    <div className="relative flex items-center bg-zinc-950 border border-zinc-800 rounded-full p-1.5 focus-within:border-primary/50 transition-colors">
+                      <input
+                        type="email"
+                        required
+                        placeholder="Your email address"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        className="w-full bg-transparent pl-4 pr-12 py-2.5 text-sm text-white placeholder-zinc-500 focus:outline-none"
+                      />
+                      <button
+                        type="submit"
+                        disabled={subscribed}
+                        className="absolute right-2 top-1.5 bottom-1.5 aspect-square lg:aspect-auto lg:px-4 bg-primary text-white rounded-full flex items-center justify-center hover:bg-emerald-600 transition-colors disabled:bg-zinc-800 disabled:text-zinc-600 cursor-pointer"
                       >
-                        ✓
-                      </motion.span>
-                    ) : (
-                      <motion.div
-                        key="copy"
-                        initial={{ scale: 0 }}
-                        animate={{ scale: 1 }}
-                        exit={{ scale: 0 }}
-                        className="absolute"
+                        <span className="hidden lg:inline text-xs font-bold mr-1">Subscribe</span>
+                        <Send size={12} className="lg:ml-0.5" />
+                      </button>
+                    </div>
+                  </form>
+
+                  <AnimatePresence>
+                    {subscribed && (
+                      <motion.p
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0 }}
+                        className="text-xs text-primary font-bold mt-3 text-center"
                       >
-                        <Copy size={14} />
-                      </motion.div>
+                        Thanks for subscribing! Check your inbox soon.
+                      </motion.p>
                     )}
                   </AnimatePresence>
-                </div>
-              </button>
-            </div>
-          </motion.div>
+                </motion.div>
+              </div>
 
+            </div>
+          </div>
         </div>
       </div>
+
       <ApplicationModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </section>
   );

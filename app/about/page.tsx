@@ -3,11 +3,11 @@ import { AboutContent } from '@/components/sections/AboutContent';
 import { JsonLd } from '@/components/seo/JsonLd';
 
 export const metadata: Metadata = {
-   title: "About Anyanwu Franklin — Fullstack Web Developer in Lagos, Nigeria",
-   description: "Anyanwu Franklin is a fullstack web developer with 5+ years of experience building ride-hailing apps, logistics platforms, SaaS products, and custom web applications for startups in Nigeria and across Africa. Expert in React, Next.js, Node.js, TypeScript.",
+   title: "About DevHubFusionX — High-Performance Software Systems & Automations",
+   description: "DevHubFusionX is a software engineering agency based in Lagos, Nigeria, serving clients worldwide. We build custom business systems, automated workflows, SaaS dashboards, and ride-hailing/logistics platforms.",
    keywords: [
-      "Anyanwu Franklin", "web developer Nigeria", "fullstack developer Lagos",
-      "hire developer Nigeria", "React developer Africa", "Next.js developer Nigeria"
+      "DevHubFusionX", "software engineering agency Nigeria", "business automation Lagos",
+      "custom software development Nigeria", "Next.js agency Africa"
    ],
 };
 
@@ -15,18 +15,17 @@ export default function AboutPage() {
    const aboutPageSchema = {
       "@context": "https://schema.org",
       "@type": "AboutPage",
-      "name": "About Anyanwu Franklin",
-      "description": "Learn about Anyanwu Franklin, a fullstack web developer based in Lagos, Nigeria, specializing in building high-performance web applications for startups.",
+      "name": "About DevHubFusionX",
+      "description": "Learn about DevHubFusionX, a high-performance software engineering agency based in Lagos, Nigeria, specializing in building custom web applications and business automations.",
       "mainEntity": {
-         "@type": "Person",
-         "name": "Anyanwu Franklin",
-         "jobTitle": "Fullstack Web Developer",
-         "description": "Anyanwu Franklin is a fullstack web developer based in Lagos, Nigeria with 5+ years of experience. He specializes in building ride-hailing apps, logistics and delivery platforms, SaaS products, e-commerce websites, and fintech applications for startups across Africa and worldwide.",
+         "@type": "Organization",
+         "name": "DevHubFusionX",
+         "description": "DevHubFusionX is a high-performance software engineering agency based in Lagos, Nigeria. We specialize in engineering ride-hailing apps, logistics platforms, SaaS products, e-commerce websites, and custom business automations for startups and enterprises worldwide.",
          "knowsAbout": [
             "React.js", "Next.js", "Node.js", "TypeScript", "MongoDB", 
             "Firebase", "MySQL", "REST APIs", "Tailwind CSS", "Framer Motion",
             "Web Application Development", "Ride-Hailing App Development",
-            "Logistics Platform Development", "SaaS Development"
+            "Logistics Platform Development", "SaaS Development", "Business Automation", "Systems Engineering"
          ],
          "address": {
             "@type": "PostalAddress",

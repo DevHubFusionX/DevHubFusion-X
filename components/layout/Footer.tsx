@@ -24,7 +24,7 @@ export const Footer = () => {
       ref={footerRef}
       className="bg-primary text-white overflow-hidden relative pt-20 pb-10"
       itemScope
-      itemType="https://schema.org/Person"
+      itemType="https://schema.org/Organization"
     >
       <div className="container mx-auto px-6 md:px-12 relative z-10">
 
@@ -105,7 +105,7 @@ export const Footer = () => {
               transition={{ duration: 0.4, delay: 0.5 }}
               className="mt-4 max-w-xs ml-auto"
             >
-              <span itemProp="name">Anyanwu Franklin</span> — Fullstack Web Developer
+              <span itemProp="name">DevHubFusionX</span> — High-Performance Software Systems
             </motion.p>
             <motion.p
               initial={{ opacity: 0 }}
@@ -149,7 +149,7 @@ export const Footer = () => {
           transition={{ duration: 0.4, delay: 0.9, ease: "easeOut" }}
           className="flex flex-col md:flex-row justify-between items-center mt-12 text-sm font-medium"
         >
-          <p>© {new Date().getFullYear()} DEVHUBFUSIONX™ | <span itemProp="name">Anyanwu Franklin</span> — Web Developer Nigeria</p>
+          <p>© {new Date().getFullYear()} DEVHUBFUSIONX™ | Software Systems & Automations</p>
           <div className="flex gap-8 mt-4 md:mt-0">
             <Link href="/privacy" className="hover:opacity-100 transition-opacity duration-200">Privacy Policy</Link>
             <Link href="/terms" className="hover:opacity-100 transition-opacity duration-200">Terms of Service</Link>

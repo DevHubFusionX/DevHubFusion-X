@@ -7,8 +7,8 @@ import { Menu, X, ArrowUpRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const navLinks = [
-  { name: 'Strategy', href: '/strategy' },
-  { name: 'Archive', href: '/projects' },
+  { name: 'How we work', href: '/strategy' },
+  { name: 'Projects', href: '/projects' },
   { name: 'Services', href: '/services' },
   { name: 'About', href: '/about' },
 ];
@@ -75,7 +75,7 @@ export const Navbar = () => {
                 whileTap={{ scale: 0.95 }}
                 className="px-6 py-2.5 rounded-full bg-foreground text-background font-bold text-sm hover:bg-foreground/90 transition-colors shadow-md flex items-center gap-2"
               >
-                <span>DevHubFusionX@gmail.com</span>
+                <span>Email Us</span>
               </motion.div>
             </Link>
           </div>

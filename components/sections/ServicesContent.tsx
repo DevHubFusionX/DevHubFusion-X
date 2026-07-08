@@ -15,37 +15,37 @@ export function ServicesContent() {
         {
             num: "01",
             title: "Custom Web Applications",
-            desc: "I build high-performance, responsive web applications using React.js, Next.js, and TypeScript. From startup MVPs to full-scale production platforms — mobile-first design, fast load times, and conversion-optimized interfaces that keep users engaged.",
+            desc: "We build custom websites and apps that load fast and look great on any screen. They help you get more users and keep them happy.",
             icon: Layout
         },
         {
             num: "02",
             title: "SaaS & Platform Engineering",
-            desc: "I develop complex, scalable SaaS platforms and business tools. Custom booking engines, real-time dashboards, multi-tenant architectures, and admin panels built with Node.js, MongoDB, and Firebase. Production-tested systems handling thousands of daily users.",
+            desc: "We build software dashboards and tools for your business. We set up automated admin panels so you can track your business data in one place.",
             icon: Database
         },
         {
             num: "03",
             title: "Ride-Hailing & Logistics Platforms",
-            desc: "Specialized in building ride-hailing apps (like Uber/Bolt), delivery tracking systems, and logistics management dashboards. Real-time GPS integration, route optimization, driver management, and customer-facing booking interfaces for the African mobility market.",
+            desc: "We build apps with map tracking for deliveries and ride bookings. We handle driver management and show live routes so you can run your fleet easily.",
             icon: GitMerge
         },
         {
             num: "04",
             title: "E-Commerce & Fintech Solutions",
-            desc: "Building e-commerce platforms with secure payment gateway integration (Paystack, Flutterwave, Stripe), inventory management, and order fulfillment systems. Fintech dashboards, wallet systems, and transaction management for the African market.",
+            desc: "We build online stores with secure checkout (Paystack, Stripe, etc.). We also build simple wallets and custom payment tools for your customers.",
             icon: ShoppingCart
         },
         {
             num: "05",
             title: "Mobile-Responsive Web Design",
-            desc: "Every project I deliver is optimized for mobile devices. Progressive web apps (PWAs), responsive layouts, touch-optimized interactions, and offline-first capabilities using modern CSS and JavaScript frameworks.",
+            desc: "We make sure your website works perfectly on every mobile phone. Your customers can use it easily on the go, even with slow internet.",
             icon: Smartphone
         },
         {
             num: "06",
             title: "Technical Strategy & Code Audits",
-            desc: "Strategic technical consulting for startups and growing businesses. Architecture reviews, performance optimization, legacy system modernization, and tech stack recommendations to help you scale faster and spend smarter.",
+            desc: "We check your existing software to see how to make it faster. We guide you on the best tools to use so you save money and build the right way.",
             icon: Cpu
         }
     ];
@@ -66,11 +66,11 @@ export function ServicesContent() {
                         <span className="text-sm font-bold tracking-widest uppercase text-muted-foreground">Web Development Services</span>
                     </div>
                     <h1 className="text-5xl md:text-7xl lg:text-[6rem] font-black tracking-tighter text-foreground uppercase leading-[0.9] mb-10">
-                        What I <br />
+                        What We <br />
                         <span className="text-primary">Build.</span>
                     </h1>
                     <p className="text-xl md:text-2xl text-foreground font-medium leading-relaxed max-w-3xl">
-                        Anyanwu Franklin offers professional web development services for startups and businesses across Nigeria, Africa, and worldwide. From custom web applications to complete SaaS platforms — I build products that scale.
+                        We build custom apps and automated workflows that run your business for you. Less manual work, more sales, and faster growth. For companies in Nigeria and worldwide.
                     </p>
                 </motion.div>
             </section>
@@ -121,7 +121,7 @@ export function ServicesContent() {
                             your <span className="text-primary italic font-serif">product?</span>
                         </h2>
                         <p className="text-lg text-muted-foreground mb-8 max-w-xl">
-                            Contact Anyanwu Franklin to discuss your web development project. Available for startups, agencies, and businesses worldwide.
+                            Work with us to build your custom software. We help startups and businesses in Nigeria and all over the world.
                         </p>
                         
                         <Link href="/#contact" className="inline-flex items-center gap-4 h-16 px-10 bg-foreground text-background font-bold tracking-widest uppercase transition-all duration-300 hover:bg-primary">

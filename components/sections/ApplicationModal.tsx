@@ -88,7 +88,7 @@ export const ApplicationModal = ({
               <span className="text-primary">exceptional.</span>
             </h4>
             <p className="text-slate-300 text-sm leading-relaxed font-medium">
-              Collaborate with Anyanwu Franklin to scale your digital presence. Get a production-grade application engineered for speed, conversion, and scalability.
+              Partner with DevHubFusionX to scale your digital presence. Get a production-grade system engineered for speed, automation, and scalability.
             </p>
           </div>
 
@@ -143,7 +143,7 @@ export const ApplicationModal = ({
               </h3>
               
               <p className="text-slate-500 mb-8 text-base leading-relaxed max-w-md font-medium">
-                Thank you for reaching out! Your project inquiry has been successfully transmitted. Anyanwu Franklin will review the details and respond via email within 24–48 hours.
+                Thank you for reaching out! Your project inquiry has been successfully transmitted. The DevHubFusionX team will review the details and respond via email within 24–48 hours.
               </p>
 
               <button 

@@ -1,28 +1,41 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, useScroll, useTransform, useInView, AnimatePresence } from 'framer-motion';
+import { motion, useInView, AnimatePresence } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import { TwistingRibbon } from '@/components/ui/twisting-ribbon';
+
+// Brand green palette for the ribbon
+const GREEN_RIBBON_COLORS = {
+  face: "#059669",   // Emerald 600 — primary
+  foldA: "#34d399",  // Emerald 400 — accent
+  foldB: "#10b981",  // Emerald 500
+  foldC: "#5eead4",  // Teal 300
+};
+
+const stats = [
+  { value: '15+', label: 'Systems Shipped' },
+  { value: '85%', label: 'Workflows Automated' },
+  { value: '3x+', label: 'Output Increase' },
+];
 
 export const Hero = () => {
   const sectionRef = useRef<HTMLElement>(null);
-  const { scrollY } = useScroll();
   const isInView = useInView(sectionRef, { once: true });
 
-  // Parallax for background text
-  const y1 = useTransform(scrollY, [0, 500], [0, 150]);
-  const y2 = useTransform(scrollY, [0, 500], [0, -120]);
-  const bgOpacity = useTransform(scrollY, [0, 400], [0.03, 0.01]);
+  const statsRef = useRef<HTMLDivElement>(null);
+  const statsInView = useInView(statsRef, { once: true });
 
-  // Smooth easing
+  // Smooth easing definitions
   const smoothEase = [0.25, 0.1, 0.25, 1] as const;
   const snappyEase = [0.16, 1, 0.3, 1] as const;
 
-  // Cycled Words for Ticker
+  // Simple, direct words for the ticker
   const words = [
-    "Selecting.",
-    "Scaling.",
+    "get you sales.",
+    "save your time.",
+    "run on autopilot.",
   ];
 
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
@@ -30,212 +43,129 @@ export const Hero = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentWordIndex((prev) => (prev + 1) % words.length);
-    }, 2500); 
+    }, 2800); 
     return () => clearInterval(interval);
   }, [words.length]);
 
-  const bodyLines = [
-    "Fullstack web developer based in Lagos, Nigeria.",
-    "I build ride-hailing apps, logistics platforms, SaaS products,",
-    "and scalable web applications for startups across Africa."
-  ];
-
-  const stats = [
-    { value: '5+', label: 'Years Experience' },
-    { value: '10+', label: 'Products Shipped' },
-    { value: '02', label: 'Partnerships / Qtr' },
-  ];
-
   return (
-    <section
-      ref={sectionRef}
-      className="relative min-h-screen flex items-center overflow-hidden bg-background pt-24 md:pt-32 pb-20"
-      aria-label="Anyanwu Franklin — Fullstack Web Developer for Startups"
-    >
-      {/* Oversized Background Typography */}
-      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none" aria-hidden="true">
-        <motion.div
-          style={{ y: y1, opacity: bgOpacity }}
-          className="absolute top-[5%] -left-[5%] text-[20vw] font-black text-foreground whitespace-nowrap leading-none"
-        >
-          STRATEGY
-        </motion.div>
-        <motion.div
-          style={{ y: y2, opacity: bgOpacity }}
-          className="absolute bottom-[10%] -right-[5%] text-[25vw] font-black text-foreground whitespace-nowrap leading-none"
-        >
-          AUTHORITY
-        </motion.div>
-      </div>
+    <>
+      {/* ── Hero Section — Full viewport ─────────────────────────────── */}
+      <section
+        ref={sectionRef}
+        className="relative h-screen flex items-center overflow-hidden bg-background pt-24 md:pt-32"
+        aria-label="DevHubFusionX — High-Performance Software Systems & Automations"
+      >
+        {/* Twisting Ribbon — animated background accent */}
+        <div className="absolute inset-0 z-0 pointer-events-none select-none opacity-30">
+          <TwistingRibbon
+            segments={400}
+            waveSpeed={0.018}
+            waveAmplitude={1}
+            twistCycles={6}
+            lightColors={GREEN_RIBBON_COLORS}
+            darkColors={GREEN_RIBBON_COLORS}
+            className="w-full h-full rounded-none"
+          />
+        </div>
 
-      <div className="container mx-auto px-6 md:px-12 relative z-10">
-        <div className="max-w-5xl">
+        <div className="container mx-auto px-6 md:px-12 relative z-10">
+          <div className="max-w-4xl text-left">
 
-          {/* 1. Eyebrow Text - Slide in with line grow */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-            transition={{ duration: 0.5, ease: smoothEase }}
-            className="mb-8 flex items-center gap-3"
-          >
-            <motion.div
-              initial={{ scaleX: 0 }}
-              animate={isInView ? { scaleX: 1 } : { scaleX: 0 }}
-              transition={{ duration: 0.6, delay: 0.2, ease: snappyEase }}
-              style={{ transformOrigin: 'left' }}
-              className="h-[2px] w-12 bg-primary"
-            />
-            <motion.span
-              initial={{ opacity: 0, x: -10 }}
-              animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -10 }}
-              transition={{ duration: 0.4, delay: 0.3, ease: smoothEase }}
-              className="text-sm font-bold tracking-[0.3em] uppercase text-foreground"
-            >
-              Anyanwu Franklin — Web Developer Nigeria
-            </motion.span>
-          </motion.div>
-
-          {/* 2. Headline - Architecture Ticker Animation */}
-          <h1 className="text-5xl md:text-8xl lg:text-[7rem] font-bold tracking-tighter uppercase leading-[0.95] md:leading-[1] mb-10">
-            <span className="block text-foreground overflow-hidden">
-              <motion.span
-                initial={{ y: '100%', opacity: 0 }}
-                animate={isInView ? { y: 0, opacity: 1 } : { y: '100%', opacity: 0 }}
-                transition={{ duration: 0.6, delay: 0.4, ease: smoothEase }}
-                className="block"
-              >
-                Stop Competing.
-              </motion.span>
-            </span>
-            <span className="flex flex-wrap items-center overflow-hidden">
-              <motion.span
-                initial={{ y: '100%', opacity: 0 }}
-                animate={isInView ? { y: 0, opacity: 1 } : { y: '100%', opacity: 0 }}
-                transition={{ duration: 0.6, delay: 0.6, ease: smoothEase }}
-                className="block text-foreground mr-4"
-              >
-                Start
-              </motion.span>
-              <div className="relative inline-flex overflow-hidden text-primary">
+            {/* Headline with ticker */}
+            <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-[6rem] font-black tracking-tighter uppercase leading-none mb-8 text-foreground">
+              <span className="block overflow-hidden">
+                <motion.span
+                  initial={{ y: '100%', opacity: 0 }}
+                  animate={isInView ? { y: 0, opacity: 1 } : { y: '100%', opacity: 0 }}
+                  transition={{ duration: 0.6, delay: 0.2, ease: smoothEase }}
+                  className="block"
+                >
+                  We build software to
+                </motion.span>
+              </span>
+              <span className="block overflow-hidden text-primary h-[1.3em] pb-3 relative mt-1">
                 <AnimatePresence mode="popLayout">
                   <motion.span
                     key={currentWordIndex}
-                    initial={{ y: 50, opacity: 0 }}
+                    initial={{ y: '80%', opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
-                    exit={{ y: -50, opacity: 0 }}
-                    transition={{ duration: 0.4, ease: smoothEase }}
-                    className="block"
+                    exit={{ y: '-80%', opacity: 0 }}
+                    transition={{ duration: 0.5, ease: snappyEase }}
+                    className="block whitespace-nowrap"
                   >
                     {words[currentWordIndex]}
                   </motion.span>
                 </AnimatePresence>
-              </div>
-            </span>
-          </h1>
+              </span>
+            </h1>
 
-          {/* 3. Body Paragraph — AI-friendly, crawlable positioning statement */}
-          <div className="mb-12 max-w-2xl">
-            {bodyLines.map((line, i) => (
-              <motion.p
-                key={i}
-                initial={{ opacity: 0, y: 10 }}
-                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
-                transition={{
-                  delay: 0.8 + (i * 0.12),
-                  duration: 0.4,
-                  ease: smoothEase
-                }}
-                className="text-xl md:text-2xl text-muted-foreground font-normal leading-relaxed"
+            {/* Simple, clear subheadline */}
+            <motion.p
+              initial={{ opacity: 0, y: 15 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 15 }}
+              transition={{ delay: 0.6, duration: 0.6, ease: smoothEase }}
+              className="text-xl md:text-2xl text-muted-foreground font-medium leading-relaxed max-w-3xl mb-12"
+            >
+              We build custom apps and automated workflows that run your business for you. Less manual work, more sales, and faster growth. For companies in Nigeria and worldwide.
+            </motion.p>
+
+            {/* Hidden semantic content for search indexers */}
+            <div className="sr-only">
+              <p>DevHubFusionX is a software engineering agency building custom systems, automated workflows, and scalable web applications for businesses in Nigeria and worldwide. We design and deploy booking engines, logistics systems, SaaS dashboards, and automated funnels to maximize sales and operational output. Contact us at DevHubFusionX@gmail.com.</p>
+            </div>
+
+            {/* CTA Buttons */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ delay: 0.8, duration: 0.6, ease: smoothEase }}
+              className="flex flex-wrap items-center gap-5"
+            >
+              <Link
+                href="#contact"
+                className="inline-flex items-center justify-center px-8 py-4 bg-primary text-white font-bold rounded-xl shadow-[0_10px_35px_-10px_rgba(5,150,105,0.4)] hover:bg-primary-hover hover:shadow-[0_15px_40px_-10px_rgba(5,150,105,0.5)] hover:-translate-y-0.5 transition-all duration-300 group"
               >
-                {line}
-              </motion.p>
-            ))}
-          </div>
-
-          {/* Hidden semantic content for AI crawlers — not visible but crawlable */}
-          <div className="sr-only">
-            <p>Anyanwu Franklin is a professional fullstack web developer available for hire. Based in Lagos, Nigeria, he specializes in React.js, Next.js, Node.js, TypeScript, MongoDB, Firebase, and MySQL. He builds custom web applications, ride-hailing platforms like Uber and Bolt clones, logistics and delivery tracking systems, SaaS products, e-commerce websites, and fintech applications for startups and businesses across Nigeria, Africa, and worldwide. Contact DevHubFusionX at DevHubFusionX@gmail.com to hire a top web developer in Nigeria.</p>
-          </div>
-
-          {/* 4. CTA */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ delay: 1.2, duration: 0.5, ease: smoothEase }}
-            className="flex flex-col sm:flex-row items-start sm:items-center gap-8"
-          >
-            <Link href="#contact" className="group">
-              <motion.div
-                className="flex items-center gap-6"
-                whileHover="hover"
-                initial="initial"
+                Start Your Project
+                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </Link>
+              
+              <Link
+                href="#work"
+                className="inline-flex items-center justify-center px-8 py-4 bg-white border border-border text-foreground font-semibold rounded-xl hover:bg-muted transition-all duration-300"
               >
-                <div className="relative flex flex-col items-start">
-                  <motion.span
-                    variants={{
-                      initial: { x: 0 },
-                      hover: { x: -4 }
-                    }}
-                    transition={{ duration: 0.3, ease: smoothEase }}
-                    className="text-2xl font-black text-foreground uppercase tracking-tight relative z-10"
-                  >
-                    Hire me for your project
-                  </motion.span>
+                See our work
+              </Link>
+            </motion.div>
 
-                  <motion.span
-                    variants={{
-                      initial: { scaleX: 0 },
-                      hover: { scaleX: 1 }
-                    }}
-                    transition={{ duration: 0.4, ease: snappyEase }}
-                    style={{ transformOrigin: 'left' }}
-                    className="h-[2px] w-full bg-primary block -mt-1"
-                  />
-                </div>
+          </div>
+        </div>
+      </section>
 
-                <motion.div
-                  variants={{
-                    initial: { x: 0, opacity: 0.5 },
-                    hover: { x: 8, opacity: 1 }
-                  }}
-                  transition={{ duration: 0.3, ease: smoothEase }}
-                  className="text-primary"
-                >
-                  <ArrowRight size={32} strokeWidth={3} />
-                </motion.div>
-              </motion.div>
-            </Link>
-          </motion.div>
-
-          {/* Footer Stats */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-            transition={{ delay: 1.5, duration: 0.5 }}
-            className="mt-24 flex items-start gap-12 border-t border-border/40 pt-8"
-          >
+      {/* ── Stats Divider — below hero ───────────────────────────────── */}
+      <div
+        ref={statsRef}
+        className="relative z-10 bg-muted border-y border-border/40"
+      >
+        <div className="container mx-auto px-6 md:px-12 py-8 md:py-10">
+          <div className="flex flex-wrap items-center justify-center gap-10 sm:gap-16 md:gap-24">
             {stats.map((stat, index) => (
               <motion.div
                 key={stat.label}
                 initial={{ opacity: 0, y: 15 }}
-                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 15 }}
-                transition={{ delay: 1.6 + (index * 0.15), duration: 0.4, ease: smoothEase }}
+                animate={statsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 15 }}
+                transition={{ delay: 0.1 + (index * 0.1), duration: 0.5, ease: smoothEase }}
+                className="flex flex-col items-center text-center"
               >
-                <motion.div
-                  initial={{ scale: 0.9 }}
-                  animate={isInView ? { scale: 1 } : { scale: 0.9 }}
-                  transition={{ delay: 1.7 + (index * 0.15), duration: 0.3 }}
-                  className="text-3xl font-bold text-foreground"
-                >
+                <span className="text-3xl sm:text-4xl font-extrabold text-foreground flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-primary" />
                   {stat.value}
-                </motion.div>
-                <div className="text-xs uppercase tracking-widest text-muted-foreground mt-1">{stat.label}</div>
+                </span>
+                <span className="text-xs uppercase tracking-widest text-muted-foreground mt-2 font-bold">{stat.label}</span>
               </motion.div>
             ))}
-          </motion.div>
-
+          </div>
         </div>
       </div>
-    </section>
+    </>
   );
 };

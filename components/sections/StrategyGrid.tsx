@@ -30,7 +30,7 @@ export const StrategyGrid = () => {
               className="flex items-center gap-4 mb-6"
             >
               <span className="font-mono text-xs text-primary bg-primary/10 px-2 py-1 rounded">SYS.01</span>
-              <div className="h-[1px] w-24 bg-primary/20"></div>
+              <div className="h-px w-24 bg-primary/20"></div>
             </motion.div>
             <motion.h2
               initial={{ opacity: 0, y: 40 }}
@@ -38,8 +38,8 @@ export const StrategyGrid = () => {
               transition={{ duration: 0.8, delay: 0.2, ease: smoothEase }}
               className="text-5xl md:text-8xl font-black text-foreground tracking-tighter uppercase leading-[0.85] mb-8"
             >
-              The <br />
-              <span className="text-primary text-outline-strong">Standard.</span>
+              Our code <br />
+              <span className="text-primary text-outline-strong">standards.</span>
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -47,7 +47,7 @@ export const StrategyGrid = () => {
               transition={{ duration: 0.8, delay: 0.4, ease: smoothEase }}
               className="text-xl text-muted-foreground max-w-xl leading-relaxed"
             >
-              We don't guess. We engineer. Every pixel and line of code follows a strict, asymmetrical cadence designed for one thing: <span className="text-foreground font-bold">Market Authority.</span>
+              We write clean, high-quality code. Every app we build is designed to run fast, look great, and support your business growth.
             </motion.p>
 
             <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full transform translate-x-16 -translate-y-16 group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-500 ease-out" />
@@ -87,9 +87,9 @@ export const StrategyGrid = () => {
               <Code size={40} strokeWidth={1} />
             </div>
             <div className="font-mono text-5xl font-light text-primary/20 mb-8 group-hover:text-primary transition-colors">01</div>
-            <h3 className="text-2xl font-bold text-foreground mb-4">Discovery</h3>
+            <h3 className="text-2xl font-bold text-foreground mb-4">Plan</h3>
             <p className="text-muted-foreground leading-relaxed">
-              We strip away the noise. We identify the single highest-leverage asset your business needs to dominate.
+              We talk about your business goals. We find the easiest and fastest way to build exactly what you need.
             </p>
           </motion.div>
 
@@ -104,9 +104,9 @@ export const StrategyGrid = () => {
               <Cpu size={40} strokeWidth={1} />
             </div>
             <div className="font-mono text-5xl font-light text-primary/20 mb-8 group-hover:text-primary transition-colors">02</div>
-            <h3 className="text-2xl font-bold text-foreground mb-4">Architecture</h3>
+            <h3 className="text-2xl font-bold text-foreground mb-4">Design & Build</h3>
             <p className="text-muted-foreground leading-relaxed">
-              Modular design systems and scalable backend infrastructure. Built to handle 10x growth from Day 1.
+              We design and write the code for your app. We make sure it is super fast and ready to handle lots of users.
             </p>
           </motion.div>
 
@@ -121,9 +121,9 @@ export const StrategyGrid = () => {
               <ShieldCheck size={40} strokeWidth={1} />
             </div>
             <div className="font-mono text-5xl font-light text-primary/20 mb-8 group-hover:text-primary transition-colors">03</div>
-            <h3 className="text-2xl font-bold text-foreground mb-4">Execution</h3>
+            <h3 className="text-2xl font-bold text-foreground mb-4">Launch</h3>
             <p className="text-muted-foreground leading-relaxed">
-              Rapid deployment cycles. We ship assets, not hours. You get a market-ready product, not a GitHub repo.
+              We test everything and launch your app. You get a complete, working product that is ready for your customers.
             </p>
           </motion.div>
         </div>
@@ -137,13 +137,13 @@ export const StrategyGrid = () => {
               transition={{ duration: 0.6, ease: smoothEase }}
               className="text-4xl md:text-5xl font-bold text-foreground mb-8"
             >
-              The ROI Equation.
+              Why work with us.
             </motion.h3>
             <div className="space-y-6">
               {[
-                { label: "Speed to Market", value: "2x Faster" },
-                { label: "Code Quality", value: "Enterprise" },
-                { label: "Scalability", value: "Unlimited" }
+                { label: "Fast Delivery", value: "2x Faster" },
+                { label: "App Quality", value: "Premium" },
+                { label: "User Limits", value: "Unlimited" }
               ].map((item, idx) => (
                 <motion.div
                   key={idx}
@@ -189,7 +189,7 @@ export const StrategyGrid = () => {
                 transition={{ duration: 0.5, delay: 0.8 }}
                 className="text-3xl font-bold text-foreground mb-2"
               >
-                Revenue Focused
+                More Sales
               </motion.h4>
               <motion.p
                 initial={{ opacity: 0 }}
@@ -197,13 +197,13 @@ export const StrategyGrid = () => {
                 transition={{ duration: 0.5, delay: 1 }}
                 className="text-muted-foreground max-w-sm mx-auto"
               >
-                We don't just write code. We build engines that drive revenue.
+                We build custom systems that get you sales and save your time.
               </motion.p>
             </div>
           </motion.div>
         </div>
 
-        <div className="h-[1px] w-full bg-primary/10"></div>
+        <div className="h-px w-full bg-primary/10"></div>
       </div>
     </section>
   );

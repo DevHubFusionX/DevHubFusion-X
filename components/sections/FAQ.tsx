@@ -2,7 +2,8 @@
 
 import React, { useRef, useState } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
-import { ChevronDown } from 'lucide-react';
+import { Plus, Minus, ArrowRight } from 'lucide-react';
+import Link from 'next/link';
 
 interface FAQItem {
     question: string;
@@ -11,36 +12,32 @@ interface FAQItem {
 
 const faqs: FAQItem[] = [
     {
-        question: "Who is Anyanwu Franklin and what does DevHubFusionX do?",
-        answer: "Anyanwu Franklin is a fullstack web developer based in Lagos, Nigeria, operating under the brand DevHubFusionX. He specializes in building custom web applications, ride-hailing platforms, logistics systems, SaaS products, e-commerce websites, and fintech applications for startups and businesses across Africa and worldwide. His core tech stack includes React.js, Next.js, Node.js, TypeScript, MongoDB, Firebase, and MySQL."
+        question: "What does DevHubFusionX do?",
+        answer: "DevHubFusionX is a high-performance software engineering agency based in Lagos, Nigeria. We specialize in building custom web applications, ride-hailing platforms, logistics tracking systems, SaaS products, e-commerce web systems, and custom business automations that maximize sales and operational output for startups and enterprises globally."
     },
     {
-        question: "Can you build a ride-hailing app like Uber or Bolt?",
-        answer: "Yes. I have direct experience building ride-hailing and mobility platforms. I can develop the complete system including real-time GPS tracking, driver and rider interfaces, booking engines, payment integration (Paystack, Flutterwave, Stripe), admin dashboards, and notification systems. I've worked on platforms like F-Ride and understand the technical challenges of building mobility apps for the African market."
+        question: "Can you build ride-hailing platforms or logistics systems?",
+        answer: "Yes. Our team has direct experience engineering ride-hailing, mobility, and delivery tracking platforms. We develop complete custom systems including real-time GPS tracking, rider/driver interfaces, intelligent booking engines, secure payments (Paystack, Flutterwave, Stripe), and administrative control panels."
     },
     {
-        question: "How much does it cost to build a web application in Nigeria?",
-        answer: "The cost depends on the complexity of the project. A simple landing page or portfolio site can range from ₦150,000–₦500,000. A custom web application or SaaS platform typically ranges from ₦500,000–₦3,000,000+. Ride-hailing or logistics platforms with real-time features start from ₦1,500,000+. I provide detailed project scopes and transparent pricing before we begin. Contact me at DevHubFusionX@gmail.com for a free consultation."
+        question: "How much does it cost to build a custom system?",
+        answer: "The cost depends on system complexity. A simple website starts from ₦150,000–₦500,000. A custom web application or SaaS platform typically ranges from ₦500,000–₦3,000,000+. Ride-hailing or logistics tracking systems with real-time requirements start from ₦1,500,000+. Contact us at DevHubFusionX@gmail.com for a detailed scope and timeline proposal."
     },
     {
-        question: "What technologies do you use to build web applications?",
-        answer: "My primary tech stack is React.js and Next.js for the frontend, Node.js and Express for the backend, with MongoDB, Firebase, or MySQL for databases. I use TypeScript for type safety, Tailwind CSS for styling, Framer Motion for animations, and Cloudinary for media handling. I also integrate third-party APIs for payments (Paystack, Flutterwave), real-time tracking, email notifications, and authentication (JWT, OAuth)."
+        question: "What technologies does DevHubFusionX use?",
+        answer: "Our core technology stack features React and Next.js for the frontend, Node.js and Express for the backend, with MongoDB, Firebase, or MySQL for databases. We utilize TypeScript for type safety, Tailwind CSS for styling, Framer Motion for premium animations, and integrate robust third-party APIs for payments, map services, and real-time synchronization."
     },
     {
-        question: "Do you work with clients outside Nigeria?",
-        answer: "Absolutely. While I'm based in Lagos, Nigeria, I work with clients across Africa and worldwide. I've delivered projects for clients in the UK, US, and across West Africa. I work remotely with clear communication processes, regular progress updates, and structured delivery milestones. My working hours are flexible to accommodate different time zones."
+        question: "Does DevHubFusionX work with clients outside Nigeria?",
+        answer: "Yes. While our agency is headquartered in Lagos, Nigeria, we serve clients and businesses globally. We have delivered production-grade systems for clients in the UK, US, and across West Africa, operating with structured remote delivery milestones and clear communication."
     },
     {
-        question: "How long does it take to build a web application?",
-        answer: "Timeline depends on project scope. A standard business website takes 1–2 weeks. A custom web application or SaaS platform takes 4–8 weeks. Complex platforms with real-time features (ride-hailing, logistics, marketplace) take 8–16 weeks. I prioritize shipping functional MVPs quickly, then iterating based on real user feedback. You'll receive weekly progress updates throughout."
+        question: "What kind of projects or startups do you work best with?",
+        answer: "We work best with businesses and founders ready to build or automate. Our sweet spot is mobility systems (ride-hailing, logistics), SaaS platforms, e-commerce operations, and custom business workflows. We have shipped products like blynQe (dating app, 500K+ users), FindMe (AI service discovery), Comtranz Global (cleaning service platform), and Dara Express (logistics tracking)."
     },
     {
-        question: "What kind of startups do you work best with?",
-        answer: "I work best with founders who have a validated idea and are ready to build. My sweet spot is mobility startups (ride-hailing, logistics), SaaS companies, e-commerce businesses, and fintech companies targeting the African market. I've shipped products like blynQe (dating app, 500K+ users), FindMe (AI service discovery), Comtranz Global (cleaning service platform), and Dara Express (logistics tracking)."
-    },
-    {
-        question: "Can you help with an existing website or application?",
-        answer: "Yes. I offer technical audits, performance optimization, and modernization services for existing web applications. Whether you need to migrate a legacy codebase to modern React/Next.js, improve page load speeds, fix bugs, add new features, or scale your infrastructure — I can help. I'll start with a thorough audit and provide a clear roadmap for improvements."
+        question: "Can you help automate or modernize an existing system?",
+        answer: "Yes. We offer legacy system modernization, workflow automation, performance optimization, and custom API integrations. Whether you need to migrate an old codebase to modern React/Next.js or streamline manual spreadsheets into an automated dashboard, we can audit your system and build a clear path forward."
     }
 ];
 
@@ -50,82 +47,130 @@ export const FAQ = () => {
     const [openIndex, setOpenIndex] = useState<number | null>(null);
 
     const smoothEase = [0.25, 0.1, 0.25, 1] as const;
+    const snappyEase = [0.16, 1, 0.3, 1] as const;
 
     return (
-        <section className="py-32 bg-background border-t border-border/40" id="faq" ref={containerRef}>
+        <section className="py-28 md:py-36 bg-background" id="faq" ref={containerRef}>
             <div className="container mx-auto px-6 md:px-12">
 
-                {/* Section Header */}
-                <div className="max-w-4xl mb-16">
-                    <div className="flex items-center gap-3 mb-6">
-                        <motion.div
-                            initial={{ scaleX: 0 }}
-                            animate={inView ? { scaleX: 1 } : { scaleX: 0 }}
-                            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                            style={{ transformOrigin: 'left' }}
-                            className="h-[2px] w-12 bg-primary"
-                        />
-                        <motion.span
-                            initial={{ opacity: 0, x: -10 }}
-                            animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -10 }}
-                            transition={{ duration: 0.4, delay: 0.2, ease: smoothEase }}
-                            className="text-sm font-bold tracking-widest uppercase text-foreground"
-                        >
-                            Frequently Asked Questions
-                        </motion.span>
-                    </div>
-                    <motion.h2
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                        transition={{ duration: 0.6, ease: smoothEase }}
-                        className="text-4xl md:text-6xl font-bold tracking-tighter text-foreground leading-[1.1]"
-                    >
-                        Common <span className="text-primary">Questions.</span>
-                    </motion.h2>
-                </div>
+                {/* Two-column layout: header left, accordion right */}
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20">
 
-                {/* FAQ Accordion */}
-                <div className="max-w-3xl">
-                    {faqs.map((faq, index) => (
-                        <motion.div
-                            key={index}
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                            transition={{ duration: 0.5, delay: 0.1 * index, ease: smoothEase }}
-                            className="border-b border-border/40"
-                        >
-                            <button
-                                onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                                className="w-full flex items-center justify-between py-6 text-left group cursor-pointer"
-                            >
-                                <h3 className="text-lg md:text-xl font-bold text-foreground group-hover:text-primary transition-colors pr-8">
-                                    {faq.question}
-                                </h3>
+                    {/* Left column — sticky header */}
+                    <div className="lg:col-span-4">
+                        <div className="lg:sticky lg:top-32">
+                            <div className="flex items-center gap-3 mb-6">
                                 <motion.div
-                                    animate={{ rotate: openIndex === index ? 180 : 0 }}
-                                    transition={{ duration: 0.3, ease: smoothEase }}
-                                    className="text-muted-foreground shrink-0"
+                                    initial={{ scaleX: 0 }}
+                                    animate={inView ? { scaleX: 1 } : { scaleX: 0 }}
+                                    transition={{ duration: 0.5, ease: snappyEase }}
+                                    style={{ transformOrigin: 'left' }}
+                                    className="h-0.5 w-12 bg-primary"
+                                />
+                                <motion.span
+                                    initial={{ opacity: 0, x: -10 }}
+                                    animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -10 }}
+                                    transition={{ duration: 0.4, delay: 0.2, ease: smoothEase }}
+                                    className="text-sm font-bold tracking-widest uppercase text-foreground"
                                 >
-                                    <ChevronDown size={24} />
-                                </motion.div>
-                            </button>
-                            <AnimatePresence>
-                                {openIndex === index && (
+                                    FAQ
+                                </motion.span>
+                            </div>
+
+                            <motion.h2
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                                transition={{ duration: 0.6, ease: smoothEase }}
+                                className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter text-foreground leading-[1.1] mb-6"
+                            >
+                                Got <br />
+                                <span className="text-primary">Questions?</span>
+                            </motion.h2>
+
+                            <motion.p
+                                initial={{ opacity: 0, y: 10 }}
+                                animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+                                transition={{ delay: 0.3, duration: 0.5, ease: smoothEase }}
+                                className="text-lg text-muted-foreground leading-relaxed mb-8"
+                            >
+                                Everything you need to know about working with us. Can&apos;t find what you&apos;re looking for?
+                            </motion.p>
+
+                            <motion.div
+                                initial={{ opacity: 0, y: 10 }}
+                                animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+                                transition={{ delay: 0.4, duration: 0.5, ease: smoothEase }}
+                            >
+                                <a
+                                    href="https://wa.me/2348030531624?text=Hi%20DevHubFusionX%2C%20I%20have%20a%20question%20about%20your%20services.%20Can%20we%20chat%3F"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white font-bold rounded-xl hover:bg-primary-hover transition-colors duration-200 group"
+                                >
+                                    Ask Us Directly
+                                    <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                                </a>
+                            </motion.div>
+                        </div>
+                    </div>
+
+                    {/* Right column — accordion */}
+                    <div className="lg:col-span-8">
+                        <div className="space-y-0">
+                            {faqs.map((faq, index) => {
+                                const isOpen = openIndex === index;
+                                return (
                                     <motion.div
-                                        initial={{ height: 0, opacity: 0 }}
-                                        animate={{ height: "auto", opacity: 1 }}
-                                        exit={{ height: 0, opacity: 0 }}
-                                        transition={{ duration: 0.3, ease: smoothEase }}
-                                        className="overflow-hidden"
+                                        key={index}
+                                        initial={{ opacity: 0, y: 20 }}
+                                        animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                                        transition={{ duration: 0.5, delay: 0.08 * index, ease: smoothEase }}
+                                        className="border-b border-border/40"
                                     >
-                                        <p className="pb-6 text-lg text-muted-foreground leading-relaxed">
-                                            {faq.answer}
-                                        </p>
+                                        <button
+                                            onClick={() => setOpenIndex(isOpen ? null : index)}
+                                            className="w-full flex items-start justify-between py-7 text-left group cursor-pointer gap-6"
+                                        >
+                                            <div className="flex items-start gap-5">
+                                                <span className="text-sm font-mono font-bold text-muted-foreground/50 mt-1.5 shrink-0 tabular-nums">
+                                                    {String(index + 1).padStart(2, '0')}
+                                                </span>
+                                                <h3 className="text-lg md:text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-200">
+                                                    {faq.question}
+                                                </h3>
+                                            </div>
+                                            <motion.div
+                                                animate={{ rotate: isOpen ? 90 : 0 }}
+                                                transition={{ duration: 0.25, ease: snappyEase }}
+                                                className="shrink-0 mt-1.5 w-8 h-8 rounded-full border border-border/60 flex items-center justify-center text-muted-foreground group-hover:border-primary group-hover:text-primary transition-colors duration-200"
+                                            >
+                                                {isOpen ? <Minus size={16} strokeWidth={2.5} /> : <Plus size={16} strokeWidth={2.5} />}
+                                            </motion.div>
+                                        </button>
+
+                                        <AnimatePresence>
+                                            {isOpen && (
+                                                <motion.div
+                                                    initial={{ height: 0, opacity: 0 }}
+                                                    animate={{ height: "auto", opacity: 1 }}
+                                                    exit={{ height: 0, opacity: 0 }}
+                                                    transition={{ duration: 0.35, ease: snappyEase }}
+                                                    className="overflow-hidden"
+                                                >
+                                                    <div className="pb-8 pl-12 md:pl-14 pr-14">
+                                                        <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+                                                            {faq.answer}
+                                                        </p>
+                                                    </div>
+                                                </motion.div>
+                                            )}
+                                        </AnimatePresence>
                                     </motion.div>
-                                )}
-                            </AnimatePresence>
-                        </motion.div>
-                    ))}
+                                );
+                            })}
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>

@@ -15,37 +15,29 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://devhubfusionx.github.io/DevHubFusion-X/"),
   title: {
-    default: "Anyanwu Franklin — Fullstack Web Developer for Startups in Nigeria | DevHubFusionX",
-    template: "%s | DevHubFusionX — Anyanwu Franklin"
+    default: "DevHubFusionX — High-Performance Software Systems & Automations",
+    template: "%s | DevHubFusionX"
   },
-  description: "Anyanwu Franklin is a fullstack web developer based in Lagos, Nigeria, specializing in building ride-hailing apps, logistics platforms, SaaS products, and scalable web applications for African startups. Expert in React, Next.js, Node.js, and TypeScript. Available for hire.",
+  description: "DevHubFusionX is a high-performance software engineering agency based in Lagos, Nigeria, serving clients worldwide. We build custom business systems, automated workflows, SaaS dashboards, and ride-hailing/logistics platforms. React, Next.js, Node.js, and TypeScript experts.",
   keywords: [
-    "web developer Nigeria",
-    "fullstack developer Lagos",
-    "React developer Nigeria",
-    "Next.js developer Africa",
-    "hire web developer Nigeria",
-    "website developer for startups",
-    "ride-hailing app developer",
-    "logistics app developer Nigeria",
-    "SaaS developer Africa",
-    "freelance web developer Nigeria",
-    "mobile app developer Lagos",
-    "e-commerce developer Nigeria",
-    "fintech developer Nigeria",
-    "web application development Nigeria",
-    "Anyanwu Franklin developer",
     "DevHubFusionX",
-    "best web developer Nigeria",
-    "website developer near me Nigeria",
-    "custom web app development",
-    "Node.js developer Nigeria",
-    "TypeScript developer Africa",
-    "frontend developer Nigeria",
-    "backend developer Nigeria"
+    "software engineering agency Nigeria",
+    "business automation Lagos",
+    "custom software development Nigeria",
+    "Next.js agency Africa",
+    "hire software developers Lagos",
+    "business systems developer",
+    "ride-hailing app developer",
+    "logistics system developer Nigeria",
+    "SaaS engineering agency",
+    "automation systems developer",
+    "mobile app developer Lagos",
+    "e-commerce systems Nigeria",
+    "fintech systems development",
+    "custom web app development"
   ],
-  authors: [{ name: "Anyanwu Franklin", url: "https://devhubfusionx.github.io/DevHubFusion-X/" }],
-  creator: "Anyanwu Franklin",
+  authors: [{ name: "DevHubFusionX", url: "https://devhubfusionx.github.io/DevHubFusion-X/" }],
+  creator: "DevHubFusionX",
   publisher: "DevHubFusionX",
   formatDetection: {
     email: false,
@@ -53,8 +45,8 @@ export const metadata: Metadata = {
     telephone: false,
   },
   openGraph: {
-    title: "Anyanwu Franklin — Fullstack Web Developer for Startups in Nigeria",
-    description: "I build ride-hailing platforms, logistics systems, SaaS products, and custom web applications for startups across Africa. Based in Lagos, Nigeria. React, Next.js, Node.js expert.",
+    title: "DevHubFusionX — High-Performance Software Systems & Automations",
+    description: "We build custom business systems, automated workflows, SaaS dashboards, and ride-hailing/logistics platforms for clients in Nigeria and worldwide. React, Next.js, Node.js experts.",
     url: "https://devhubfusionx.github.io/DevHubFusion-X/",
     siteName: "DevHubFusionX",
     images: [
@@ -62,7 +54,7 @@ export const metadata: Metadata = {
         url: "devHub.png",
         width: 1200,
         height: 630,
-        alt: "Anyanwu Franklin — Fullstack Web Developer | DevHubFusionX",
+        alt: "DevHubFusionX — High-Performance Software Systems & Automations",
       },
     ],
     locale: "en_US",
@@ -70,8 +62,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Anyanwu Franklin — Fullstack Developer for African Startups",
-    description: "Building ride-hailing apps, logistics platforms, and SaaS products for startups in Nigeria. Expert in React, Next.js, Node.js. Hire me for your next project.",
+    title: "DevHubFusionX — High-Performance Software Systems & Automations",
+    description: "We build custom business systems, automated workflows, SaaS dashboards, and ride-hailing/logistics platforms for clients in Nigeria and worldwide. React, Next.js, Node.js experts.",
     images: ["devHub.png"],
     creator: "@DevHubFusionX",
   },
@@ -105,26 +97,22 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // Person schema — Critical for AI search. AI models index PEOPLE, not just organizations.
-  const personData = {
+  // Organization schema — Critical for AI search.
+  const organizationData = {
     "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Anyanwu Franklin",
-    "alternateName": "DevHubFusionX",
-    "jobTitle": "Fullstack Web Developer",
-    "description": "Anyanwu Franklin is a fullstack web developer based in Lagos, Nigeria, specializing in building ride-hailing apps, logistics platforms, SaaS products, and scalable web applications for African startups and businesses worldwide.",
+    "@type": "Organization",
+    "name": "DevHubFusionX",
+    "alternateName": "DevHubFusion-X",
+    "description": "DevHubFusionX is a high-performance software engineering agency based in Lagos, Nigeria, specializing in building custom web applications, business automation systems, logistics platforms, SaaS products, and ride-hailing platforms for clients in Nigeria and worldwide.",
     "url": "https://devhubfusionx.github.io/DevHubFusion-X/",
-    "image": "https://devhubfusionx.github.io/DevHubFusion-X/portrait.png",
+    "logo": "https://devhubfusionx.github.io/DevHubFusion-X/devHub.png",
+    "image": "https://devhubfusionx.github.io/DevHubFusion-X/devHub.png",
     "email": "DevHubFusionX@gmail.com",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Lagos",
       "addressRegion": "Lagos State",
       "addressCountry": "Nigeria"
-    },
-    "nationality": {
-      "@type": "Country",
-      "name": "Nigeria"
     },
     "knowsAbout": [
       "React.js", "Next.js", "Node.js", "TypeScript", "JavaScript",
@@ -133,46 +121,28 @@ export default function RootLayout({
       "Ride-Hailing App Development", "Logistics Platform Development",
       "E-commerce Development", "Fintech Development",
       "Frontend Architecture", "Backend Engineering",
-      "Tailwind CSS", "Framer Motion", "Cloudinary"
+      "Tailwind CSS", "Framer Motion", "Cloudinary",
+      "Business Automation", "Systems Engineering"
     ],
-    "knowsLanguage": ["English"],
-    "alumniOf": {
-      "@type": "EducationalOrganization",
-      "name": "Self-Taught & Professional Experience"
-    },
-    "worksFor": {
-      "@type": "Organization",
-      "name": "DevHubFusionX",
-      "url": "https://devhubfusionx.github.io/DevHubFusion-X/"
-    },
     "sameAs": [
       "https://x.com/DevHubFusionX",
       "https://github.com/DevHubFusionX",
       "https://tiktok.com/@DevHubFusionX"
-    ],
-    "hasOccupation": {
-      "@type": "Occupation",
-      "name": "Fullstack Web Developer",
-      "occupationLocation": {
-        "@type": "City",
-        "name": "Lagos, Nigeria"
-      },
-      "skills": "React, Next.js, Node.js, TypeScript, MongoDB, Firebase, MySQL, REST APIs, Tailwind CSS"
-    }
+    ]
   };
 
   // ProfessionalService schema — Tells AI exactly what services you offer
   const serviceData = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
-    "name": "DevHubFusionX — Web Development Services",
-    "description": "Professional web development services for startups and businesses. Specializing in custom web applications, ride-hailing platforms, logistics systems, SaaS products, and e-commerce solutions. Based in Lagos, Nigeria. Available worldwide.",
+    "name": "DevHubFusionX — Software Engineering Services",
+    "description": "Professional software engineering and automation services for businesses. Specializing in custom web applications, ride-hailing platforms, logistics systems, SaaS products, and e-commerce solutions. Based in Lagos, Nigeria. Available worldwide.",
     "url": "https://devhubfusionx.github.io/DevHubFusion-X/",
     "logo": "https://devhubfusionx.github.io/DevHubFusion-X/devHub.png",
     "image": "https://devhubfusionx.github.io/DevHubFusion-X/devHub.png",
-    "founder": {
-      "@type": "Person",
-      "name": "Anyanwu Franklin"
+    "provider": {
+      "@type": "Organization",
+      "name": "DevHubFusionX"
     },
     "address": {
       "@type": "PostalAddress",
@@ -187,7 +157,6 @@ export default function RootLayout({
     },
     "areaServed": [
       { "@type": "Country", "name": "Nigeria" },
-      { "@type": "Continent", "name": "Africa" },
       { "@type": "Place", "name": "Worldwide" }
     ],
     "serviceType": [
@@ -200,7 +169,8 @@ export default function RootLayout({
       "Frontend Architecture & Design",
       "Backend API Development",
       "Mobile-Responsive Web Design",
-      "Technical Strategy & Consulting"
+      "Technical Strategy & Consulting",
+      "Business Workflow Automation"
     ],
     "priceRange": "$$",
     "sameAs": [
@@ -221,12 +191,12 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "DevHubFusionX",
-    "alternateName": "Anyanwu Franklin Portfolio",
+    "alternateName": "DevHubFusion-X",
     "url": "https://devhubfusionx.github.io/DevHubFusion-X/",
-    "description": "Portfolio and web development services by Anyanwu Franklin — Fullstack developer for startups in Nigeria and Africa.",
+    "description": "High-performance software systems and custom automation workflows by DevHubFusionX.",
     "creator": {
-      "@type": "Person",
-      "name": "Anyanwu Franklin"
+      "@type": "Organization",
+      "name": "DevHubFusionX"
     }
   };
 
@@ -235,7 +205,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <JsonLd data={personData} />
+        <JsonLd data={organizationData} />
         <JsonLd data={serviceData} />
         <JsonLd data={websiteData} />
         <Preloader />

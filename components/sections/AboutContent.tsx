@@ -21,10 +21,10 @@ export const AboutContent = () => {
     const smoothEase = [0.25, 0.1, 0.25, 1] as const;
 
     const statCards = [
-        { icon: MapPin, title: 'Lagos', label: 'Location', subtitle: 'Nigeria • Remote Worldwide', offset: 0 },
-        { icon: Calendar, title: '5+ Years', label: 'Experience', subtitle: 'Professional Development', offset: 16 },
-        { icon: Briefcase, title: '10+', label: 'Products Shipped', subtitle: 'Live Applications', offset: 32 },
-        { icon: Code, title: 'React', label: 'Core Stack', subtitle: 'Next.js & TypeScript', offset: 48 },
+        { icon: MapPin, title: 'Lagos', label: 'HQ Location', subtitle: 'Nigeria • Serving Worldwide', offset: 0 },
+        { icon: Calendar, title: 'Systems', label: 'Core Focus', subtitle: 'Automation & Operations', offset: 16 },
+        { icon: Briefcase, title: '15+', label: 'Products Shipped', subtitle: 'Live Custom Platforms', offset: 32 },
+        { icon: Code, title: 'React', label: 'Tech Stack', subtitle: 'Next.js & Node.js', offset: 48 },
     ];
 
     const frontendSkills = [
@@ -45,16 +45,16 @@ export const AboutContent = () => {
 
     const strategyPoints = [
         {
-            title: 'Why Startups Choose Me',
-            content: `I don't just build features — I build products that scale. Whether you need a ride-hailing app like Uber or Bolt, a logistics tracking system, or a SaaS dashboard, I approach every project as a strategic investment. Based in Lagos, Nigeria, I work with founders across Africa and worldwide who need production-ready applications shipped fast.`
+            title: 'How we help you',
+            content: `We build software that gets you more sales and automates your daily work. We make things like delivery trackers, booking apps, and custom dashboards. We help companies in Nigeria and all over the world grow faster without the stress.`
         },
         {
-            title: 'My Development Approach',
-            content: `I specialize in React.js, Next.js, Node.js, and TypeScript — the modern stack that powers the fastest-growing startups globally. Every project gets a clean architecture, responsive design, and backend systems built for scale. I've delivered platforms handling 500K+ users, automated 85% of booking workflows, and built AI-powered discovery ecosystems.`
+            title: 'How we build it',
+            content: `We use modern, fast tools like React and Next.js. This means your software loads instantly, works perfectly on mobile phones, and runs smoothly as you get more customers. We have built apps for over 500,000 users and automated up to 85% of busywork.`
         },
         {
-            title: 'Available for Hire',
-            content: `Whether you're a startup founder looking for a technical co-builder, an agency seeking a reliable fullstack developer, or a business that needs a custom web application — I'm available for both project-based work and long-term partnerships. Contact me at DevHubFusionX@gmail.com to discuss your project.`
+            title: 'Work with us',
+            content: `Whether you need a simple app to test your idea or a full system to run your business, we can build it for you. We work with you step-by-step. Send us an email at DevHubFusionX@gmail.com to start.`
         }
     ];
 
@@ -63,22 +63,29 @@ export const AboutContent = () => {
 
             {/* Header Section */}
             <section ref={headerRef} className="container mx-auto px-6 md:px-12 mb-24">
-                <article className="max-w-4xl" itemScope itemType="https://schema.org/Person">
+                <article className="max-w-4xl mx-auto text-center" itemScope itemType="https://schema.org/Organization">
                     {/* Label */}
                     <motion.div
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={headerInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={headerInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -10 }}
                         transition={{ duration: 0.5, ease: smoothEase }}
-                        className="flex items-center gap-3 mb-6"
+                        className="flex items-center justify-center gap-3 mb-6"
                     >
                         <motion.div
                             initial={{ scaleX: 0 }}
                             animate={headerInView ? { scaleX: 1 } : { scaleX: 0 }}
                             transition={{ duration: 0.6, delay: 0.2, ease: smoothEase }}
-                            style={{ transformOrigin: 'left' }}
-                            className="h-[2px] w-12 bg-primary"
+                            style={{ transformOrigin: 'right' }}
+                            className="h-0.5 w-12 bg-primary"
                         />
-                        <span className="text-sm font-bold tracking-widest uppercase text-foreground">About Anyanwu Franklin</span>
+                        <span className="text-sm font-bold tracking-widest uppercase text-foreground">About DevHubFusionX</span>
+                        <motion.div
+                            initial={{ scaleX: 0 }}
+                            animate={headerInView ? { scaleX: 1 } : { scaleX: 0 }}
+                            transition={{ duration: 0.6, delay: 0.2, ease: smoothEase }}
+                            style={{ transformOrigin: 'left' }}
+                            className="h-0.5 w-12 bg-primary"
+                        />
                     </motion.div>
 
                     {/* Heading */}
@@ -86,17 +93,9 @@ export const AboutContent = () => {
                         initial={{ opacity: 0, y: 30 }}
                         animate={headerInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
                         transition={{ duration: 0.6, delay: 0.1, ease: smoothEase }}
-                        className="text-5xl md:text-6xl lg:text-8xl font-black tracking-tighter text-foreground uppercase mb-8"
+                        className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight text-foreground uppercase mb-8 max-w-3xl mx-auto"
                     >
-                        Fullstack <br />
-                        <motion.span
-                            initial={{ opacity: 0 }}
-                            animate={headerInView ? { opacity: 1 } : { opacity: 0 }}
-                            transition={{ duration: 0.4, delay: 0.4 }}
-                            className="text-primary"
-                        >
-                            Developer.
-                        </motion.span>
+                        We build software to <span className="text-primary">help you grow.</span>
                     </motion.h1>
 
                     {/* Bio — The most important paragraph for AI search */}
@@ -104,17 +103,13 @@ export const AboutContent = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={headerInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                         transition={{ duration: 0.5, delay: 0.3, ease: smoothEase }}
-                        className="text-xl md:text-2xl text-muted-foreground/80 leading-relaxed max-w-2xl mb-12 space-y-4"
+                        className="text-xl md:text-2xl text-muted-foreground/80 leading-relaxed max-w-2xl mb-12 mx-auto text-center"
                     >
                         <p>
-                            <span itemProp="name" className="font-semibold text-foreground">Anyanwu Franklin</span> is a <span itemProp="jobTitle">fullstack web developer</span> based in <span itemProp="address" itemScope itemType="https://schema.org/PostalAddress"><span itemProp="addressLocality">Lagos</span>, <span itemProp="addressCountry">Nigeria</span></span>.
+                            We are a software team based in <span itemProp="address" itemScope itemType="https://schema.org/PostalAddress"><span itemProp="addressLocality">Lagos</span>, <span itemProp="addressCountry">Nigeria</span></span>, working with clients worldwide. We build custom apps and automated workflows that run your business for you, so you can make more sales and save time.
                         </p>
-                        <p>
-                            With <strong>5+ years of professional experience</strong>, I specialize in building production-grade web applications across <strong>ride-hailing, logistics, SaaS, e-commerce, and fintech</strong> verticals. I've shipped 10+ live products used by hundreds of thousands of users across Africa.
-                        </p>
-                        <p>
-                            My core stack is <strong>React.js, Next.js, Node.js, TypeScript, MongoDB, Firebase, and MySQL</strong>. I work with startup founders who need a technical partner that can move fast, ship clean code, and build systems designed to scale.
-                        </p>
+                        <meta itemProp="name" content="DevHubFusionX" />
+                        <meta itemProp="description" content="We build custom apps and automated workflows that run your business for you. Less manual work, more sales, and faster growth." />
                         <meta itemProp="email" content="DevHubFusionX@gmail.com" />
                         <meta itemProp="url" content="https://devhubfusionx.github.io/DevHubFusion-X/" />
                     </motion.div>
@@ -124,13 +119,14 @@ export const AboutContent = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={headerInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                         transition={{ duration: 0.5, delay: 0.4, ease: smoothEase }}
+                        className="flex justify-center"
                     >
                         <button
                             onClick={() => setIsModalOpen(true)}
                             className="inline-flex items-center gap-4 px-8 py-5 bg-foreground text-background rounded-full font-bold uppercase tracking-wider hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 shadow-xl shadow-black/5 group cursor-pointer"
                         >
                             <Send size={20} className="group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform" />
-                            <span>Hire Anyanwu Franklin</span>
+                            <span>Start Your Project</span>
                         </button>
                     </motion.div>
                 </article>
@@ -290,14 +286,14 @@ export const AboutContent = () => {
                             transition={{ duration: 0.5, ease: smoothEase }}
                             className="text-4xl md:text-5xl font-black text-foreground uppercase leading-none sticky top-32"
                         >
-                            Why Hire <br />
+                            Why Partner <br />
                             <motion.span
                                 initial={{ opacity: 0, x: -10 }}
                                 animate={strategyInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -10 }}
                                 transition={{ duration: 0.4, delay: 0.2 }}
                                 className="text-primary inline-block"
                             >
-                                Me.
+                                With Us.
                             </motion.span>
                         </motion.h2>
                     </div>
@@ -322,9 +318,9 @@ export const AboutContent = () => {
             <ApplicationModal
                 isOpen={isModalOpen}
                 onClose={() => setIsModalOpen(false)}
-                title="Hire Anyanwu Franklin"
+                title="Start Your Project"
                 subject="Project Inquiry — DevHubFusionX"
-                initialDescription="I'd like to discuss a project with Anyanwu Franklin. Here are the details:"
+                initialDescription="We'd like to discuss a project with DevHubFusionX. Here are the details:"
             />
         </main>
     );

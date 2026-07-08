@@ -14,21 +14,21 @@ interface Testimonial {
 const testimonials: Testimonial[] = [
     {
         id: 1,
-        content: "Franklin doesn't just write code; he architects systems that scale. He built our entire platform from scratch and the execution was flawless — our platform stability improved instantly after launch.",
+        content: "DevHubFusionX built our app from scratch. It works perfectly, never crashes, and loads instantly. We are very happy with their work.",
         author: "Chinedu Eze",
         role: "CEO, TechFlow",
         project: "SaaS Platform"
     },
     {
         id: 2,
-        content: "A rare blend of high-end frontend design and scalable backend engineering. He delivered a complex booking automation system that saved us 85% of our manual workflow. True engineering authority.",
+        content: "They built a booking system that does all the work for us. It saved us hours of daily manual tasks and is very easy for our customers to use.",
         author: "Aisha Balogun",
         role: "CTO, Nexus Labs",
         project: "Booking Platform"
     },
     {
         id: 3,
-        content: "He transformed our fragmented legacy systems into a high-performance modern web application. Precise, fast, and highly strategic — exactly the kind of developer every Nigerian startup needs.",
+        content: "They took our old, slow website and made it super fast and modern. They work quickly and know exactly how to make software that grows a business.",
         author: "Oluwaseun Adebayo",
         role: "Founder, Peak Horizon",
         project: "System Modernization"
@@ -43,7 +43,7 @@ export const Testimonials = () => {
         <section 
             className="py-32 bg-background border-t border-border/40" 
             id="testimonials"
-            aria-label="Client Testimonials for Anyanwu Franklin — Web Developer Reviews"
+            aria-label="Client Testimonials for DevHubFusionX — Software Engineering Reviews"
         >
             <div className="container mx-auto px-6 md:px-12" ref={containerRef}>
                 
@@ -63,7 +63,7 @@ export const Testimonials = () => {
                         transition={{ duration: 0.5, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
                         className="text-lg text-muted-foreground mt-4 max-w-xl"
                     >
-                        What founders and CTOs say about working with Anyanwu Franklin.
+                        What our clients say about working with us.
                     </motion.p>
                 </div>
 
@@ -71,9 +71,9 @@ export const Testimonials = () => {
                 <div 
                     className="grid grid-cols-1 md:grid-cols-3 gap-0 border-y border-border/40 divide-y md:divide-y-0 md:divide-x divide-border/40"
                     itemScope 
-                    itemType="https://schema.org/Person"
+                    itemType="https://schema.org/Organization"
                 >
-                    <meta itemProp="name" content="Anyanwu Franklin" />
+                    <meta itemProp="name" content="DevHubFusionX" />
                     {testimonials.map((t, index) => (
                         <motion.div 
                             key={t.id}
@@ -106,7 +106,7 @@ export const Testimonials = () => {
                                     <div className="text-xs text-primary/60 uppercase tracking-widest mt-1">{t.project}</div>
                                 )}
                             </div>
-                            <meta itemProp="itemReviewed" content="Web Development Services by Anyanwu Franklin" />
+                            <meta itemProp="itemReviewed" content="Software Engineering Services by DevHubFusionX" />
                         </motion.div>
                     ))}
                 </div>
