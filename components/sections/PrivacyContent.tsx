@@ -8,28 +8,28 @@ import { ArrowLeft } from 'lucide-react';
 export function PrivacyContent() {
     const sections = [
         {
-            title: "1. Information We Collect",
-            content: "We collect information you provide directly to us when you request a strategic session, sign up for our newsletter, or contact us. This may include your name, email address, company name, and project details."
+            title: "1. Information I Collect",
+            content: "I collect information you provide directly to me when you request a project inquiry, start a consultation, or contact me. This may include your name, email address, company name, and project details."
         },
         {
-            title: "2. How We Use Your Information",
-            content: "We use the information we collect to provide, maintain, and improve our services, to communicate with you, and to develop new partnerships. We do not sell your personal data to third parties."
+            title: "2. How I Use Your Information",
+            content: "I use the information I collect to provide, maintain, and improve my services, to communicate with you, and to develop new project partnerships. I do not sell your personal data to third parties."
         },
         {
             title: "3. Cookies and Tracking",
-            content: "We use cookies and similar tracking technologies to analyze site traffic and improve your browsing experience. You can control cookie settings through your browser."
+            content: "I use cookies and similar tracking technologies to analyze site traffic and improve your browsing experience. You can control cookie settings through your browser."
         },
         {
             title: "4. Data Security",
-            content: "We implement reasonable security measures to protect your information from unauthorized access, disclosure, or destruction. However, no method of transmission over the internet is 100% secure."
+            content: "I implement industry-standard security measures to protect your information from unauthorized access, disclosure, or destruction. However, no method of transmission over the internet is 100% secure."
         },
         {
             title: "5. Third-Party Links",
-            content: "Our website may contain links to third-party sites. We are not responsible for the privacy practices or content of those websites."
+            content: "My website may contain links to third-party sites. I am not responsible for the privacy practices or content of those websites."
         },
         {
             title: "6. Changes to This Policy",
-            content: "We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated 'Last Updated' date."
+            content: "I may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated 'Last Updated' date."
         }
     ];
 
@@ -83,7 +83,7 @@ export function PrivacyContent() {
                     transition={{ duration: 1, delay: 1 }}
                     className="mt-24 pt-12 border-t border-border text-center text-muted-foreground"
                 >
-                    <p>© {new Date().getFullYear()} DEVHUBFUSIONX™. All rights reserved.</p>
+                    <p>© {new Date().getFullYear()} Frank. All rights reserved.</p>
                 </motion.div>
             </div>
         </main>

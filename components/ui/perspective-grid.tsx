@@ -25,12 +25,13 @@ export function PerspectiveGrid({
 
     useEffect(() => {
         setMounted(true);
-        setIsMobile(window.innerWidth < 1024);
-        const handleResize = () => {
-            setIsMobile(window.innerWidth < 1024);
+        const checkMobile = () => {
+            const hasHover = window.matchMedia('(hover: hover)').matches;
+            setIsMobile(window.innerWidth < 768 || !hasHover);
         };
-        window.addEventListener('resize', handleResize, { passive: true });
-        return () => window.removeEventListener('resize', handleResize);
+        checkMobile();
+        window.addEventListener('resize', checkMobile, { passive: true });
+        return () => window.removeEventListener('resize', checkMobile);
     }, []);
 
     const tiles = useMemo(() => Array.from({ length: gridSize * gridSize }), [gridSize]);

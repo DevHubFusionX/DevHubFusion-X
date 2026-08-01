@@ -12,32 +12,32 @@ interface FAQItem {
 
 const faqs: FAQItem[] = [
     {
-        question: "What does DevHubFusionX do?",
-        answer: "DevHubFusionX is a high-performance software engineering agency based in Lagos, Nigeria. We specialize in building custom web applications, ride-hailing platforms, logistics tracking systems, SaaS products, e-commerce web systems, and custom business automations that maximize sales and operational output for startups and enterprises globally."
+        question: "What kind of software do you build?",
+        answer: "I am a lead full-stack software engineer specializing in custom web applications, SaaS dashboards, e-commerce storefronts, logistics tracking systems, and automation pipelines that maximize sales and operational output for startups and enterprises globally."
     },
     {
         question: "Can you build ride-hailing platforms or logistics systems?",
-        answer: "Yes. Our team has direct experience engineering ride-hailing, mobility, and delivery tracking platforms. We develop complete custom systems including real-time GPS tracking, rider/driver interfaces, intelligent booking engines, secure payments (Paystack, Flutterwave, Stripe), and administrative control panels."
+        answer: "Yes. I have direct experience engineering ride-hailing, mobility, and delivery tracking platforms. I build complete custom systems including real-time GPS tracking, driver interfaces, intelligent booking engines, secure payments, and administrative control panels."
     },
     {
         question: "How much does it cost to build a custom system?",
-        answer: "The cost depends on system complexity. A simple website starts from ₦150,000–₦500,000. A custom web application or SaaS platform typically ranges from ₦500,000–₦3,000,000+. Ride-hailing or logistics tracking systems with real-time requirements start from ₦1,500,000+. Contact us at DevHubFusionX@gmail.com for a detailed scope and timeline proposal."
+        answer: "The cost depends on system complexity. A simple website starts from ₦150,000–₦500,000. A custom web application or SaaS platform typically ranges from ₦500,000–₦3,000,000+. Ride-hailing or logistics tracking systems with real-time requirements start from ₦1,500,000+. Contact me at devhubfusionx@gmail.com for a detailed scope and timeline proposal."
     },
     {
-        question: "What technologies does DevHubFusionX use?",
-        answer: "Our core technology stack features React and Next.js for the frontend, Node.js and Express for the backend, with MongoDB, Firebase, or MySQL for databases. We utilize TypeScript for type safety, Tailwind CSS for styling, Framer Motion for premium animations, and integrate robust third-party APIs for payments, map services, and real-time synchronization."
+        question: "What technologies do you use?",
+        answer: "My core technology stack features React and Next.js for the frontend, Node.js and Express for the backend, with MongoDB, Firebase, or MySQL/PostgreSQL for databases. I utilize TypeScript for type safety, Tailwind CSS for styling, Framer Motion for premium animations, and integrate robust third-party APIs for payments, map services, and real-time synchronization."
     },
     {
-        question: "Does DevHubFusionX work with clients outside Nigeria?",
-        answer: "Yes. While our agency is headquartered in Lagos, Nigeria, we serve clients and businesses globally. We have delivered production-grade systems for clients in the UK, US, and across West Africa, operating with structured remote delivery milestones and clear communication."
+        question: "Do you work with clients outside Nigeria?",
+        answer: "Yes. I serve clients and businesses globally. I have delivered production-grade systems for clients in the UK, US, and across West Africa, operating with structured remote delivery milestones and clear communication."
     },
     {
         question: "What kind of projects or startups do you work best with?",
-        answer: "We work best with businesses and founders ready to build or automate. Our sweet spot is mobility systems (ride-hailing, logistics), SaaS platforms, e-commerce operations, and custom business workflows. We have shipped products like blynQe (dating app, 500K+ users), FindMe (AI service discovery), Comtranz Global (cleaning service platform), and Dara Express (logistics tracking)."
+        answer: "I work best with businesses and founders ready to build or automate. My sweet spot is mobility systems (ride-hailing, logistics), SaaS platforms, e-commerce operations, and custom business workflows. I have shipped products like blynQe, FindMe, Comtranz Global, and Dara Express."
     },
     {
         question: "Can you help automate or modernize an existing system?",
-        answer: "Yes. We offer legacy system modernization, workflow automation, performance optimization, and custom API integrations. Whether you need to migrate an old codebase to modern React/Next.js or streamline manual spreadsheets into an automated dashboard, we can audit your system and build a clear path forward."
+        answer: "Yes. I offer legacy system modernization, workflow automation, performance optimization, and custom API integrations. Whether you need to migrate an old codebase to modern React/Next.js or streamline manual spreadsheets into an automated dashboard, I can audit your system and build a clear path forward."
     }
 ];
 
@@ -78,8 +78,8 @@ export const FAQ = () => {
                             </div>
 
                             <motion.h2
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                                initial={{ opacity: 0, y: 20, filter: "blur(12px)" }}
+                                animate={inView ? { opacity: 1, y: 0, filter: "blur(0px)" } : { opacity: 0, y: 20, filter: "blur(12px)" }}
                                 transition={{ duration: 0.6, ease: smoothEase }}
                                 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter text-foreground leading-[1.1] mb-6"
                             >
@@ -88,26 +88,26 @@ export const FAQ = () => {
                             </motion.h2>
 
                             <motion.p
-                                initial={{ opacity: 0, y: 10 }}
-                                animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+                                initial={{ opacity: 0, y: 10, filter: "blur(8px)" }}
+                                animate={inView ? { opacity: 1, y: 0, filter: "blur(0px)" } : { opacity: 0, y: 10, filter: "blur(8px)" }}
                                 transition={{ delay: 0.3, duration: 0.5, ease: smoothEase }}
                                 className="text-lg text-muted-foreground leading-relaxed mb-8"
                             >
-                                Everything you need to know about working with us. Can&apos;t find what you&apos;re looking for?
+                                Everything you need to know about working with me. Can&apos;t find what you&apos;re looking for?
                             </motion.p>
 
                             <motion.div
-                                initial={{ opacity: 0, y: 10 }}
-                                animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+                                initial={{ opacity: 0, y: 10, filter: "blur(6px)" }}
+                                animate={inView ? { opacity: 1, y: 0, filter: "blur(0px)" } : { opacity: 0, y: 10, filter: "blur(6px)" }}
                                 transition={{ delay: 0.4, duration: 0.5, ease: smoothEase }}
                             >
                                 <a
-                                    href="https://wa.me/2348030531624?text=Hi%20DevHubFusionX%2C%20I%20have%20a%20question%20about%20your%20services.%20Can%20we%20chat%3F"
+                                    href="https://wa.me/2348030531624?text=Hi%20Frank%2C%20I%20have%20a%20question%20about%2520your%20services.%252520Can%252520we%252520chat%3F"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white font-bold rounded-xl hover:bg-primary-hover transition-colors duration-200 group"
                                 >
-                                    Ask Us Directly
+                                    Ask Me Directly
                                     <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                                 </a>
                             </motion.div>
@@ -122,8 +122,8 @@ export const FAQ = () => {
                                 return (
                                     <motion.div
                                         key={index}
-                                        initial={{ opacity: 0, y: 20 }}
-                                        animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                                        initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
+                                        animate={inView ? { opacity: 1, y: 0, filter: "blur(0px)" } : { opacity: 0, y: 20, filter: "blur(10px)" }}
                                         transition={{ duration: 0.5, delay: 0.08 * index, ease: smoothEase }}
                                         className="border-b border-border/40"
                                     >

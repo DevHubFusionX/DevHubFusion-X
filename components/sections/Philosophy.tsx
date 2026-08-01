@@ -1,371 +1,233 @@
 "use client";
 
-import React, { useRef, useState } from 'react';
-import { motion, useInView, AnimatePresence } from 'framer-motion';
-import { ArrowRight, Globe, Truck, ShoppingBag, BarChart3, Zap, Smartphone, ChevronDown } from 'lucide-react';
-import Link from 'next/link';
-
-const WA_NUMBER = "2348030531624";
-const waLink = (msg: string) => `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`;
-
-const products = [
-  {
-    icon: ShoppingBag,
-    tag: "Storefront",
-    title: "Your Store, Open 24/7",
-    body: "Stop losing sales after hours. Custom e-commerce with secure checkout, inventory tracking, and automated order flow — your store sells while you sleep.",
-    accent: "#059669",
-    waMessage: "Hi DevHubFusionX, I'm interested in building an online store / e-commerce system. Let's discuss.",
-    image: "/DevHubFusion-X/software/Your Store, Open 247.jpeg",
-  },
-  {
-    icon: Truck,
-    tag: "Logistics",
-    title: "Track Every Delivery",
-    body: "Real-time GPS tracking, driver management, and intelligent booking engines. One dashboard to control your entire fleet.",
-    accent: "#10b981",
-    waMessage: "Hi DevHubFusionX, I need a logistics / ride-hailing tracking platform built. Let's talk.",
-    image: "/DevHubFusion-X/software/Track Every Delivery.jpeg",
-  },
-  {
-    icon: BarChart3,
-    tag: "SaaS",
-    title: "Data, One Screen",
-    body: "Replace scattered spreadsheets with a custom dashboard showing revenue, users, and operations in real time. Built for your workflow.",
-    accent: "#047857",
-    waMessage: "Hi DevHubFusionX, I want to build a SaaS dashboard / admin panel for my business. Let's discuss.",
-    image: "/DevHubFusion-X/software/Data, One Screen.jpeg",
-  },
-  {
-    icon: Globe,
-    tag: "Web Apps",
-    title: "Fast Apps That Convert",
-    body: "Custom web apps engineered for speed and SEO. Systems that rank on Google, handle thousands of users, and turn visitors into customers.",
-    accent: "#34d399",
-    waMessage: "Hi DevHubFusionX, I need a custom web application built. Let's discuss the details.",
-    image: "/DevHubFusion-X/software/Fast Apps That Convert.jpeg",
-  },
-  {
-    icon: Zap,
-    tag: "Automations",
-    title: "Kill Repetitive Work",
-    body: "Automated invoicing, email sequences, CRM pipelines, and data syncing. Your tools wired together so your team focuses on growth.",
-    accent: "#059669",
-    waMessage: "Hi DevHubFusionX, I want to automate my business workflows. Let's discuss what's possible.",
-    image: "/DevHubFusion-X/software/Kill Repetitive Work.jpeg",
-  },
-  {
-    icon: Smartphone,
-    tag: "Mobile-First",
-    title: "Built for Phones",
-    body: "80% of your customers are on mobile. Lightning-fast apps optimized for low bandwidth, any screen size, and real-world usage.",
-    accent: "#10b981",
-    waMessage: "Hi DevHubFusionX, I need a mobile-first web app built for my business. Let's talk.",
-    image: "/DevHubFusion-X/software/Built for Phones.jpeg",
-  },
-];
+import React, { useState, useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
+import { ArrowRight, ArrowUpRight } from 'lucide-react';
+import { ApplicationModal } from './ApplicationModal';
 
 export const Philosophy = () => {
-  const headerRef = useRef<HTMLDivElement>(null);
-  const gridRef = useRef<HTMLDivElement>(null);
-  const headerInView = useInView(headerRef, { once: true, margin: "-50px" });
-  const gridInView = useInView(gridRef, { once: true, margin: "-80px" });
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
-  // For mobile tap-to-expand
-  const [mobileActive, setMobileActive] = useState<number | null>(null);
-
-  const smoothEase = [0.25, 0.1, 0.25, 1] as const;
-  const snappyEase = [0.16, 1, 0.3, 1] as const;
+  const containerRef = useRef<HTMLDivElement>(null);
+  const inView = useInView(containerRef, { once: true, margin: "-100px" });
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <section className="py-28 md:py-36 bg-background relative overflow-hidden" id="solutions">
-      <div className="container mx-auto px-6 md:px-12">
+    <section 
+      ref={containerRef}
+      className="py-24 md:py-32 bg-[#f8f9fa] text-slate-800 relative overflow-hidden border-t border-slate-200/50" 
+      id="solutions"
+    >
+      <ApplicationModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      
+      {/* Decorative vertical slide label on the left margin (Desktop only) */}
+      <div className="hidden lg:flex absolute left-8 top-12 items-center gap-2 select-none pointer-events-none origin-left rotate-90 translate-y-16">
+        <span className="text-[10px] font-mono tracking-widest text-slate-400 uppercase font-black">
+          voodoo / frank
+        </span>
+      </div>
 
-        {/* Section Header */}
-        <div ref={headerRef} className="max-w-4xl mb-16">
-          <div className="flex items-center gap-3 mb-6">
-            <motion.div
-              initial={{ scaleX: 0 }}
-              animate={headerInView ? { scaleX: 1 } : { scaleX: 0 }}
-              transition={{ duration: 0.5, ease: snappyEase }}
-              style={{ transformOrigin: 'left' }}
-              className="h-0.5 w-12 bg-primary"
-            />
-            <motion.span
-              initial={{ opacity: 0, x: -10 }}
-              animate={headerInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -10 }}
-              transition={{ duration: 0.4, delay: 0.2, ease: smoothEase }}
-              className="text-sm font-bold tracking-widest uppercase text-foreground"
+      {/* Two horizontal dash bars on left margin (Desktop only) */}
+      <div className="hidden lg:flex flex-col gap-1.5 absolute left-8 top-1/2 -translate-y-1/2 select-none pointer-events-none">
+        <div className="w-6 h-[2px] bg-slate-400" />
+        <div className="w-4 h-[2px] bg-slate-400" />
+      </div>
+
+      {/* Slide index number at the bottom left (Desktop only) */}
+      <div className="hidden lg:block absolute left-8 bottom-12 select-none pointer-events-none">
+        <span className="text-xs font-mono font-bold text-slate-400">167</span>
+      </div>
+
+      <div className="container mx-auto px-6 md:px-16 lg:px-24 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          
+          {/* Left Column: Title & Editorial Paragraphs */}
+          <motion.div 
+            initial={{ opacity: 0, x: -35, filter: "blur(12px)" }}
+            animate={inView ? { opacity: 1, x: 0, filter: "blur(0px)" } : { opacity: 0, x: -35, filter: "blur(12px)" }}
+            transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+            className="lg:col-span-5 flex flex-col justify-center"
+          >
+            {/* Main Creative Title */}
+            <h2 className="text-4xl md:text-6xl font-black tracking-tight text-slate-900 leading-[1.05] uppercase mb-8">
+              System <br />
+              Blueprint <br />
+              <span className="text-primary">Solutions.</span>
+            </h2>
+
+            {/* Editorial Heading */}
+            <h3 className="text-lg font-extrabold text-slate-950 mb-4 tracking-tight">
+              Software that runs your business
+            </h3>
+
+            {/* Paragraphs */}
+            <div className="space-y-4 text-sm text-slate-500 font-medium leading-relaxed max-w-sm mb-8">
+              <p>
+                I engineer custom storefronts, real-time dispatch dashboards, and automated database pipelines so you can eliminate manual tracking, boost conversions, and run your business on autopilot.
+              </p>
+              <p>
+                Connect your existing software stack and build bespoke systems tailored to your workflows. Maximize operational throughput with zero-maintenance automation.
+              </p>
+            </div>
+
+            {/* Action CTA */}
+            <div>
+              <button 
+                onClick={() => setIsModalOpen(true)}
+                className="inline-flex items-center justify-center h-12 px-6 rounded-full bg-slate-900 hover:bg-primary text-white font-bold text-xs uppercase tracking-widest transition-all duration-300 group shadow-md"
+              >
+                <span>Start a project</span>
+                <ArrowRight size={14} className="ml-2 group-hover:translate-x-0.5 transition-transform" />
+              </button>
+            </div>
+          </motion.div>
+
+          {/* Right Column: Creative Staggered 3-Card Grid */}
+          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6 items-end">
+            
+            {/* Grid Column 1: Card 1 (Aligned to bottom / staggered) */}
+            <motion.div 
+              initial={{ opacity: 0, y: 50, filter: "blur(12px)" }}
+              animate={inView ? { opacity: 1, y: 0, filter: "blur(0px)" } : { opacity: 0, y: 50, filter: "blur(12px)" }}
+              transition={{ duration: 0.8, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
+              className="sm:pt-28 flex flex-col justify-end"
             >
-              What We Build
-            </motion.span>
-          </div>
-
-          <h2 className="text-3xl md:text-6xl font-black tracking-tighter text-foreground leading-[1.1] mb-6">
-            <span className="block overflow-hidden">
-              <motion.span
-                initial={{ y: '100%', opacity: 0 }}
-                animate={headerInView ? { y: 0, opacity: 1 } : { y: '100%', opacity: 0 }}
-                transition={{ duration: 0.5, ease: snappyEase }}
-                className="block"
+              {/* Card 1: Emerald Green Gradient */}
+              <div 
+                onClick={() => setIsModalOpen(true)}
+                className="aspect-auto sm:aspect-square min-h-[240px] sm:min-h-0 flex flex-col justify-between p-8 rounded-2xl bg-gradient-to-br from-emerald-600 to-emerald-800 text-white shadow-xl hover:scale-[1.02] transition-transform duration-300 cursor-pointer border border-emerald-500/20 relative overflow-hidden group"
               >
-                Software that runs
-              </motion.span>
-            </span>
-            <span className="block text-primary overflow-hidden">
-              <motion.span
-                initial={{ y: '100%', opacity: 0 }}
-                animate={headerInView ? { y: 0, opacity: 1 } : { y: '100%', opacity: 0 }}
-                transition={{ duration: 0.5, delay: 0.15, ease: snappyEase }}
-                className="block"
-              >
-                your business for you.
-              </motion.span>
-            </span>
-          </h2>
-        </div>
-
-        {/* Wrapper to track visibility of both Desktop & Mobile layouts */}
-        <div ref={gridRef}>
-          {/* ── Desktop: Hover-expandable horizontal panels ──────────────── */}
-          <div
-            className="hidden md:flex gap-2 h-105"
-            onMouseLeave={() => setActiveIndex(null)}
-          >
-          {products.map((product, index) => {
-            const Icon = product.icon;
-            const isActive = activeIndex === index;
-            const hasActive = activeIndex !== null;
-
-            return (
-              <motion.div
-                key={product.tag}
-                initial={{ opacity: 0, y: 30 }}
-                animate={gridInView
-                  ? {
-                      opacity: 1,
-                      y: 0,
-                      flex: isActive ? 4 : hasActive ? 0.6 : 1,
-                    }
-                  : { opacity: 0, y: 30, flex: 1 }
-                }
-                transition={{
-                  opacity: { duration: 0.5, delay: 0.05 * index, ease: smoothEase },
-                  y: { duration: 0.5, delay: 0.05 * index, ease: smoothEase },
-                  flex: { duration: 0.5, ease: snappyEase },
-                }}
-                onMouseEnter={() => setActiveIndex(index)}
-                className="relative rounded-2xl overflow-hidden cursor-pointer border border-border/50 group"
-                style={{ minWidth: 0 }}
-              >
-                {/* Background image — always visible */}
-                <img
-                  src={product.image}
-                  alt=""
-                  className="absolute inset-0 w-full h-full object-cover z-0 transition-transform duration-700 group-hover:scale-105"
-                />
-
-                {/* Dark overlay for text readability */}
-                <div className="absolute inset-0 z-1 bg-linear-to-t from-black/80 via-black/50 to-black/30" />
-
-                {/* Left accent bar */}
-                <motion.div
-                  className="absolute left-0 top-0 bottom-0 w-1 bg-primary z-20"
-                  animate={{ scaleY: isActive ? 1 : 0 }}
-                  transition={{ duration: 0.3, ease: snappyEase }}
-                  style={{ transformOrigin: 'top' }}
-                />
-
-                {/* Content */}
-                <div className="relative z-10 h-full p-6 md:p-8">
-                  <AnimatePresence mode="wait">
-                    {isActive ? (
-                      /* ── Expanded state ── */
-                      <motion.div
-                        key="expanded"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ duration: 0.3, ease: smoothEase }}
-                        className="h-full flex flex-col justify-between"
-                      >
-                        <div>
-                          <div className="flex items-center gap-3 mb-4">
-                            <div className="w-10 h-10 rounded-lg flex items-center justify-center bg-primary text-white shrink-0">
-                              <Icon size={20} strokeWidth={2} />
-                            </div>
-                            <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-white/70">
-                              {product.tag}
-                            </span>
-                          </div>
-                          <h3 className="text-2xl lg:text-3xl font-bold text-white tracking-tight leading-tight mb-3">
-                            {product.title}
-                          </h3>
-                        </div>
-
-                        <div className="mt-auto">
-                          <p className="text-base text-white/80 leading-relaxed mb-5">
-                            {product.body}
-                          </p>
-                          <a
-                            href={waLink(product.waMessage)}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white text-sm font-bold uppercase tracking-widest rounded-lg hover:bg-primary-hover transition-colors duration-200 group/cta"
-                          >
-                            Build This
-                            <ArrowRight size={14} className="group-hover/cta:translate-x-1 transition-transform" />
-                          </a>
-                        </div>
-                      </motion.div>
-                    ) : (
-                      /* ── Collapsed state: vertical text ── */
-                      <motion.div
-                        key="collapsed"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ duration: 0.2 }}
-                        className="h-full flex flex-col items-center"
-                      >
-                        <motion.div
-                          className="w-10 h-10 rounded-xl flex items-center justify-center mb-6 shrink-0 bg-white/20 backdrop-blur-sm text-white"
-                        >
-                          <Icon size={20} strokeWidth={2} />
-                        </motion.div>
-                        <div className="flex-1 flex items-center justify-center min-h-0">
-                          <h3
-                            className="text-base font-bold text-white tracking-tight whitespace-nowrap"
-                            style={{
-                              writingMode: 'vertical-rl',
-                              textOrientation: 'mixed',
-                              transform: 'rotate(180deg)',
-                            }}
-                          >
-                            {product.title}
-                          </h3>
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-              </motion.div>
-            );
-          })}
-        </div>
-
-        {/* ── Mobile: Tap-to-expand vertical accordion ─────────────────── */}
-        <div className="flex md:hidden flex-col gap-3">
-          {products.map((product, index) => {
-            const Icon = product.icon;
-            const isOpen = mobileActive === index;
-
-            return (
-              <motion.div
-                key={product.tag}
-                initial={{ opacity: 0, y: 20 }}
-                animate={gridInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                transition={{ delay: 0.05 * index, duration: 0.4, ease: smoothEase }}
-                onClick={() => setMobileActive(isOpen ? null : index)}
-                className={`relative border rounded-xl overflow-hidden cursor-pointer transition-all duration-300 ${
-                  isOpen 
-                    ? 'border-primary/45' 
-                    : 'border-zinc-800/80'
-                }`}
-              >
-                {/* Background image — always visible */}
-                <img
-                  src={product.image}
-                  alt=""
-                  className="absolute inset-0 w-full h-full object-cover z-0 transition-transform duration-500"
-                />
-
-                {/* Dark overlay for text readability */}
-                <div className="absolute inset-0 z-1 bg-linear-to-t from-black/95 via-black/85 to-black/70" />
-
-                {/* Content Container (Layered on top of image and overlay) */}
-                <div className="relative z-10 w-full h-full">
-                  {/* Header row — always visible */}
-                  <div className="flex items-center gap-4 p-5">
-                    <div
-                      className="w-10 h-10 rounded-lg flex items-center justify-center shrink-0 transition-colors duration-300"
-                      style={{
-                        backgroundColor: isOpen ? 'var(--primary)' : 'rgba(255, 255, 255, 0.1)',
-                        color: '#ffffff',
-                      }}
-                    >
-                      <Icon size={18} strokeWidth={2} />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <span className="text-[10px] font-bold tracking-[0.15em] uppercase text-white/60 block">
-                        {product.tag}
-                      </span>
-                      <h3 className="text-base font-bold text-white tracking-tight leading-tight">
-                        {product.title}
-                      </h3>
-                    </div>
-                    <motion.div
-                      animate={{ rotate: isOpen ? 180 : 0 }}
-                      transition={{ duration: 0.2 }}
-                      className="text-white/70 shrink-0"
-                    >
-                      <ChevronDown size={16} />
-                    </motion.div>
+                <div className="absolute -right-16 -top-16 w-36 h-36 bg-white/10 rounded-full blur-2xl pointer-events-none group-hover:scale-125 transition-transform duration-500" />
+                
+                {/* Top Section */}
+                <div className="flex items-center justify-between">
+                  {/* Icon Container: Green Gradient mixed with white/black */}
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500 via-emerald-600 to-emerald-950 border border-emerald-400/30 flex items-center justify-center shadow-inner relative overflow-hidden">
+                    <div className="absolute inset-0 bg-black/10" />
+                    <svg className="w-5 h-5 text-white relative z-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                      <rect x="2" y="3" width="20" height="14" rx="2" />
+                      <line x1="8" y1="21" x2="16" y2="21" />
+                      <line x1="12" y1="17" x2="12" y2="21" />
+                    </svg>
                   </div>
+                  <span className="text-[10px] font-mono tracking-widest font-black text-emerald-200/80">[01]</span>
+                </div>
 
-                  {/* Expandable content */}
-                  <AnimatePresence>
-                    {isOpen && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: 'auto', opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.35, ease: snappyEase }}
-                        className="overflow-hidden"
-                      >
-                        <div className="px-5 pb-5 pt-0">
-                          <p className="text-sm text-white/80 leading-relaxed mb-4">
-                            {product.body}
-                          </p>
-                          <a
-                            href={waLink(product.waMessage)}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary text-white text-xs font-bold uppercase tracking-widest rounded-lg hover:bg-primary-hover transition-colors"
-                          >
-                            Build This
-                            <ArrowRight size={12} />
-                          </a>
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+                {/* Middle Content */}
+                <div>
+                  <h4 className="text-xl font-bold tracking-tight mb-2 uppercase">Storefronts</h4>
+                  <p className="text-xs text-emerald-50/80 leading-relaxed font-medium">
+                    Ultra-fast transaction engines with secure payments & order notifications.
+                  </p>
+                </div>
+
+                {/* Bottom Technology Stack */}
+                <div className="border-t border-emerald-500/20 pt-4 flex items-center justify-between">
+                  <span className="text-[9px] font-mono tracking-wider text-emerald-300 font-bold uppercase">Next.js • Stripe</span>
+                  <ArrowUpRight size={14} className="text-emerald-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Grid Column 2: Card 2 & Card 3 Stacked */}
+            <div className="flex flex-col gap-6">
+              
+              {/* Card 2: White Theme Card */}
+              <motion.div
+                initial={{ opacity: 0, y: 50, filter: "blur(12px)" }}
+                animate={inView ? { opacity: 1, y: 0, filter: "blur(0px)" } : { opacity: 0, y: 50, filter: "blur(12px)" }}
+                transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
+                onClick={() => setIsModalOpen(true)}
+                className="aspect-auto sm:aspect-square min-h-[240px] sm:min-h-0 flex flex-col justify-between p-8 rounded-2xl bg-gradient-to-b from-slate-50 to-white text-slate-900 border border-slate-200/80 shadow-md hover:scale-[1.02] transition-transform duration-300 cursor-pointer relative overflow-hidden group"
+              >
+                <div className="absolute -right-16 -top-16 w-36 h-36 bg-emerald-500/5 rounded-full blur-2xl pointer-events-none group-hover:scale-125 transition-transform duration-500" />
+
+                {/* Top Section */}
+                <div className="flex items-center justify-between">
+                  {/* Icon Container: Green Gradient */}
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500 to-emerald-700 flex items-center justify-center shadow-md relative">
+                    <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                      <rect x="5" y="2" width="14" height="20" rx="2" />
+                      <line x1="12" y1="18" x2="12" y2="18" />
+                      <path d="M12 7v5l3 3" />
+                    </svg>
+                  </div>
+                  <span className="text-[10px] font-mono tracking-widest font-black text-slate-400">[02]</span>
+                </div>
+
+                {/* Middle Content */}
+                <div>
+                  <h4 className="text-xl font-bold tracking-tight mb-2 uppercase">Logistics</h4>
+                  <p className="text-xs text-slate-500 leading-relaxed font-medium">
+                    Real-time fleet tracking, driver dispatch & route optimization.
+                  </p>
+                </div>
+
+                {/* Bottom Technology Stack */}
+                <div className="border-t border-slate-200 pt-4 flex items-center justify-between">
+                  <span className="text-[9px] font-mono tracking-wider text-slate-500 font-bold uppercase">React Native • Mapbox</span>
+                  <ArrowUpRight size={14} className="text-slate-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </div>
               </motion.div>
-            );
-          })}
-        </div>
+
+              {/* Card 3: Solid Black Card */}
+              <motion.div
+                initial={{ opacity: 0, y: 50, filter: "blur(12px)" }}
+                animate={inView ? { opacity: 1, y: 0, filter: "blur(0px)" } : { opacity: 0, y: 50, filter: "blur(12px)" }}
+                transition={{ duration: 0.8, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+                onClick={() => setIsModalOpen(true)}
+                className="aspect-auto sm:aspect-square min-h-[240px] sm:min-h-0 flex flex-col justify-between p-8 rounded-2xl bg-black text-white border border-zinc-800/80 shadow-xl hover:scale-[1.02] transition-transform duration-300 cursor-pointer relative overflow-hidden group"
+              >
+                <div className="absolute -right-16 -top-16 w-36 h-36 bg-emerald-500/10 rounded-full blur-2xl pointer-events-none group-hover:scale-125 transition-transform duration-500" />
+
+                {/* Top Section */}
+                <div className="flex items-center justify-between">
+                  {/* Icon Container: Green Gradient mixed with black */}
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500 via-emerald-600 to-black border border-emerald-500/30 flex items-center justify-center shadow-inner relative overflow-hidden">
+                    <div className="absolute inset-0 bg-black/30" />
+                    <svg className="w-5 h-5 text-white relative z-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                      <path d="M3 3v18h18" />
+                      <path d="M18 9l-5 5-3-3-4 4" />
+                    </svg>
+                  </div>
+                  <span className="text-[10px] font-mono tracking-widest font-black text-zinc-500">[03]</span>
+                </div>
+
+                {/* Middle Content */}
+                <div>
+                  <h4 className="text-xl font-bold tracking-tight mb-2 uppercase">Pipelines</h4>
+                  <p className="text-xs text-zinc-400 leading-relaxed font-medium">
+                    Automate invoicing, lead scoring, database syncs & dashboards.
+                  </p>
+                </div>
+
+                {/* Bottom Technology Stack */}
+                <div className="border-t border-zinc-800 pt-4 flex items-center justify-between">
+                  <span className="text-[9px] font-mono tracking-wider text-zinc-400 font-bold uppercase">TypeScript • Zapier</span>
+                  <ArrowUpRight size={14} className="text-zinc-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                </div>
+              </motion.div>
+
+            </div>
+
+          </div>
         </div>
 
-        {/* Bottom CTA */}
+        {/* Bottom CTA Row (Optional / Custom designs) */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={gridInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ delay: 0.6, duration: 0.5, ease: smoothEase }}
-          className="mt-14 flex flex-col sm:flex-row items-center justify-between gap-6 border-t border-border/40 pt-10"
+          initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
+          animate={inView ? { opacity: 1, y: 0, filter: "blur(0px)" } : { opacity: 0, y: 20, filter: "blur(8px)" }}
+          transition={{ delay: 0.4, duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
+          className="mt-16 flex flex-col sm:flex-row items-center justify-between gap-6 border-t border-slate-200 pt-10"
         >
-          <p className="text-lg md:text-xl text-muted-foreground font-medium">
-            Don&apos;t see your idea here? <span className="text-foreground font-bold">We build that too.</span>
+          <p className="text-base md:text-lg text-slate-500 font-medium">
+            Don&apos;t see your system blueprint? <span className="text-slate-900 font-bold">I design custom architectures too.</span>
           </p>
-          <a
-            href={waLink("Hi DevHubFusionX, I have a project idea I'd like to discuss. Let's talk.")}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center px-8 py-4 bg-primary text-white font-bold rounded-xl shadow-[0_10px_35px_-10px_rgba(5,150,105,0.4)] hover:bg-primary-hover hover:shadow-[0_15px_40px_-10px_rgba(5,150,105,0.5)] hover:-translate-y-0.5 transition-all duration-300 group"
+          <button
+            onClick={() => setIsModalOpen(true)}
+            className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary text-white font-bold text-sm rounded-full shadow-[0_10px_35px_-10px_rgba(5,150,105,0.4)] hover:bg-[#047857] hover:shadow-[0_15px_40px_-10px_rgba(5,150,105,0.5)] transition-all duration-300 group cursor-pointer"
           >
-            Tell Us What You Need
-            <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </a>
+            <span>Tell me what you need</span>
+            <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+          </button>
         </motion.div>
 
       </div>

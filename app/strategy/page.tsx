@@ -3,7 +3,7 @@ import { StrategyContent } from '@/components/sections/StrategyContent';
 
 export const metadata: Metadata = {
   title: "The Blueprint | Strategic Architecture",
-  description: "Our calculated process for building high-impact digital assets. Zero waste, maximum authority.",
+  description: "My calculated process for building high-impact digital assets. Zero waste, maximum authority.",
 };
 
 export default function StrategyPage() {

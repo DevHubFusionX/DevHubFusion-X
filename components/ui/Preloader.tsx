@@ -41,10 +41,10 @@ export const Preloader = () => {
                             className="text-center"
                         >
                             <span className="text-3xl md:text-4xl font-bold tracking-tight text-foreground">
-                                DevHub
+                                Frank
                             </span>
                             <span className="text-3xl md:text-4xl font-bold tracking-tight text-primary">
-                                FusionX
+                                .
                             </span>
                         </motion.div>
 

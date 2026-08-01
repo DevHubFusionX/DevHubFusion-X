@@ -17,7 +17,13 @@ export const SelectedWorks = () => {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-125 h-125 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
  
       {/* Section Header */}
-      <div className="container mx-auto px-6 md:px-12 mb-12">
+      <motion.div
+        initial={{ filter: "blur(12px)", opacity: 0, y: 20 }}
+        whileInView={{ filter: "blur(0px)", opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        className="container mx-auto px-6 md:px-12 mb-12"
+      >
         <div className="flex items-center gap-3 mb-3">
           <div className="h-0.5 w-10 bg-primary"></div>
           <span className="text-xs font-bold tracking-widest uppercase text-muted-foreground">Selected Assets</span>
@@ -39,22 +45,22 @@ export const SelectedWorks = () => {
             </Link>
           </div>
         </div>
-      </div>
+      </motion.div>
  
-      {/* Simple Grid showing exactly 4 items */}
-      <div className="container mx-auto px-6 md:px-12">
+      {/* Grid showing exactly 4 items (2-column mobile, 4-column desktop) */}
+      <div className="container mx-auto px-4 sm:px-12">
         <motion.div 
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
-          initial={{ opacity: 0, y: 15 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6"
+          initial={{ opacity: 0, y: 15, filter: "blur(12px)" }}
+          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
           {displayedProjects.map((project, index) => (
             <div key={project.id} className="w-full">
               <Link
                 href={`/projects/${project.id}`}
-                className="block bg-zinc-950 border border-zinc-900 rounded-2xl overflow-hidden hover:border-zinc-800 transition-all duration-300 group h-full"
+                className="block bg-zinc-950 border border-zinc-900 rounded-xl sm:rounded-2xl overflow-hidden hover:border-zinc-800 transition-all duration-300 group h-full"
               >
                 {/* Image Container */}
                 <div className="relative aspect-16/10 w-full overflow-hidden bg-zinc-900">
@@ -63,28 +69,28 @@ export const SelectedWorks = () => {
                     alt={project.title}
                     fill
                     className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                    sizes="(max-width: 640px) 50vw, 25vw"
                     priority={index < 2}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-60 pointer-events-none" />
                 </div>
  
                 {/* Content Info */}
-                <div className="p-5">
-                  <div className="flex items-center justify-between gap-2 mb-2">
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-primary">
+                <div className="p-3 sm:p-5">
+                  <div className="flex items-center justify-between gap-2 mb-1.5 sm:mb-2">
+                    <span className="text-[8px] sm:text-[10px] font-bold uppercase tracking-widest text-primary truncate">
                       {project.category}
                     </span>
-                    <span className="text-[10px] font-mono text-zinc-500">
+                    <span className="text-[8px] sm:text-[10px] font-mono text-zinc-500 shrink-0">
                       {project.year}
                     </span>
                   </div>
  
-                  <h3 className="text-lg font-bold text-white mb-2 group-hover:text-primary transition-colors duration-200">
+                  <h3 className="text-xs sm:text-lg font-bold text-white mb-1 sm:mb-2 group-hover:text-primary transition-colors duration-200 line-clamp-1">
                     {project.title}
                   </h3>
  
-                  <p className="text-xs text-zinc-400 leading-relaxed line-clamp-2">
+                  <p className="text-[10px] sm:text-xs text-zinc-400 leading-relaxed line-clamp-2">
                     {project.description}
                   </p>
                 </div>

@@ -9,27 +9,27 @@ export function TermsContent() {
     const sections = [
         {
             title: "1. Acceptance of Terms",
-            content: "By accessing or using the services provided by DEVHUBFUSIONX™, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our services."
+            content: "By accessing or using the engineering services provided by Frank, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use my services."
         },
         {
-            title: "2. Services provided",
-            content: "DEVHUBFUSIONX™ provides high-end software development, strategic consulting, and digital transformation services. The specific scope of work for any project will be governed by a separate Master Services Agreement (MSA) or Statement of Work (SOW)."
+            title: "2. Services Provided",
+            content: "Frank provides custom software development, technical consulting, database pipeline construction, and automation services. The specific scope of work for any project will be governed by a separate Service Agreement, Statement of Work (SOW), or contract."
         },
         {
             title: "3. User Responsibilities",
-            content: "Users are responsible for providing accurate information and maintaining the confidentiality of any credentials provided. You agree not to use our services for any unlawful or prohibited activities."
+            content: "You are responsible for providing accurate project details and requirements and maintaining the confidentiality of any credentials provided. You agree not to use my services for any unlawful or prohibited activities."
         },
         {
             title: "4. Intellectual Property",
-            content: "All content, designs, and code provided by DEVHUBFUSIONX™ are protected by intellectual property laws. Unless otherwise agreed in writing, DEVHUBFUSIONX™ retains all rights to its background technology and proprietary methodologies."
+            content: "All codebase delivery, software designs, and custom architectures engineered by Frank are protected by intellectual property laws. Unless otherwise agreed in writing, Frank retains the rights to general background tools and proprietary methodologies."
         },
         {
             title: "5. Limitation of Liability",
-            content: "DEVHUBFUSIONX™ shall not be liable for any indirect, incidental, special, or consequential damages resulting from the use or inability to use our services."
+            content: "Frank shall not be liable for any indirect, incidental, special, or consequential damages resulting from the use or inability to use the delivered systems or services."
         },
         {
             title: "6. Governing Law",
-            content: "These terms shall be governed by and construed in accordance with the laws of the jurisdiction in which DEVHUBFUSIONX™ operates, without regard to its conflict of law provisions."
+            content: "These terms shall be governed by and construed in accordance with the laws of Lagos, Nigeria, without regard to its conflict of law provisions."
         }
     ];
 
@@ -83,7 +83,7 @@ export function TermsContent() {
                     transition={{ duration: 1, delay: 1 }}
                     className="mt-24 pt-12 border-t border-border text-center text-muted-foreground"
                 >
-                    <p>© {new Date().getFullYear()} DEVHUBFUSIONX™. All rights reserved.</p>
+                    <p>© {new Date().getFullYear()} Frank. All rights reserved.</p>
                 </motion.div>
             </div>
         </main>

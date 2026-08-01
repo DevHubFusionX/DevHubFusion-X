@@ -6,7 +6,7 @@ import { Copy, ArrowRight, MessageCircle, Send } from 'lucide-react';
 import { ApplicationModal } from './ApplicationModal';
 import { PerspectiveGrid } from '@/components/ui/perspective-grid';
 
-const WA_LINK = "https://wa.me/2348030531624?text=Hi%20DevHubFusionX%2C%20I%27m%20ready%20to%20start%20a%20project.%20Let%27s%20talk.";
+const WA_LINK = "https://wa.me/2348030531624?text=Hi%20Frank%2C%20I%27m%20ready%20to%20start%20a%20project.%20Let%27s%20talk.";
 
 export const Contact = () => {
   const [copied, setCopied] = useState(false);
@@ -39,7 +39,7 @@ export const Contact = () => {
       ref={sectionRef}
       className="bg-background py-8 md:py-12"
       id="contact"
-      aria-label="Contact DevHubFusionX — Software Systems & Automations"
+      aria-label="Contact Frank — Software Systems & Automations"
     >
       <div className="container mx-auto px-6 md:px-12">
         {/* Contained card */}
@@ -51,9 +51,14 @@ export const Contact = () => {
           </div>
 
           {/* Content */}
-          <div className="relative z-20 px-6 sm:px-10 md:px-14 py-10 md:py-16 pointer-events-none">
+          <motion.div
+            initial={{ opacity: 0, y: 30, filter: "blur(12px)" }}
+            animate={inView ? { opacity: 1, y: 0, filter: "blur(0px)" } : { opacity: 0, y: 30, filter: "blur(12px)" }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="relative z-20 px-6 sm:px-10 md:px-14 py-10 md:py-16 pointer-events-none"
+          >
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
-              
+
               {/* Left Column — Text & Actions */}
               <div className="lg:col-span-7">
                 {/* Eyebrow */}
@@ -68,7 +73,7 @@ export const Contact = () => {
                     Get Started
                   </span>
                 </motion.div>
- 
+
                 {/* Headline */}
                 <motion.h2
                   initial={{ opacity: 0, y: 20 }}
@@ -84,7 +89,7 @@ export const Contact = () => {
                     Start building your product.
                   </span>
                 </motion.h2>
- 
+
                 {/* Body */}
                 <motion.p
                   initial={{ opacity: 0, y: 15 }}
@@ -93,13 +98,13 @@ export const Contact = () => {
                   className="text-xs md:text-base text-zinc-400 leading-relaxed max-w-md mb-6 md:mb-8"
                 >
                   <span className="hidden sm:inline">
-                    We build custom apps and automated workflows that run your business for you. Ready to start? Let&apos;s talk about what you need.
+                    I build custom apps and automated workflows that run your business for you. Ready to start? Let&apos;s talk about what you need.
                   </span>
                   <span className="inline sm:hidden">
-                    We build custom apps and automated workflows that run your business for you. Let&apos;s talk.
+                    I build custom apps and automated workflows that run your business for you. Let&apos;s talk.
                   </span>
                 </motion.p>
- 
+
                 {/* Action row */}
                 <motion.div
                   initial={{ opacity: 0, y: 15 }}
@@ -117,7 +122,7 @@ export const Contact = () => {
                     <MessageCircle size={15} />
                     Chat on WhatsApp
                   </a>
- 
+
                   {/* Start a Project */}
                   <button
                     onClick={() => setIsModalOpen(true)}
@@ -126,7 +131,7 @@ export const Contact = () => {
                     Start a Project
                     <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                   </button>
- 
+
                   {/* Email copy */}
                   <button
                     onClick={copyEmail}
@@ -158,7 +163,7 @@ export const Contact = () => {
                   </button>
                 </motion.div>
               </div>
- 
+
               {/* Right Column — Email Subscribe Form */}
               <div className="lg:col-span-5 flex flex-col justify-center">
                 <motion.div
@@ -169,27 +174,25 @@ export const Contact = () => {
                 >
                   <h3 className="text-base md:text-lg font-bold text-white mb-1 sm:mb-2">Subscribe</h3>
                   <p className="hidden sm:block text-xs text-zinc-400 mb-6">Stay updated with engineering insights and case studies.</p>
-                  
-                  <form onSubmit={handleSubscribe} className="relative flex flex-col gap-3 pointer-events-auto">
-                    <div className="relative flex items-center bg-zinc-950 border border-zinc-800 rounded-full p-1.5 focus-within:border-primary/50 transition-colors">
-                      <input
-                        type="email"
-                        required
-                        placeholder="Your email address"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        className="w-full bg-transparent pl-4 pr-16 py-2 text-xs md:text-sm text-white placeholder-zinc-500 focus:outline-none"
-                      />
-                      <button
-                        type="submit"
-                        disabled={subscribed}
-                        className="absolute right-2 top-1.5 bottom-1.5 px-3 md:px-4 bg-primary text-white text-[10px] md:text-xs font-bold rounded-full flex items-center justify-center hover:bg-emerald-600 transition-colors disabled:bg-zinc-800 disabled:text-zinc-600 cursor-pointer"
-                      >
-                        Subscribe
-                      </button>
-                    </div>
+
+                  <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-3 pointer-events-auto w-full">
+                    <input
+                      type="email"
+                      required
+                      placeholder="Your email address"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      className="bg-zinc-950 border border-zinc-800 rounded-xl px-4 py-3 text-xs md:text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-primary/50 transition-colors w-full"
+                    />
+                    <button
+                      type="submit"
+                      disabled={subscribed}
+                      className="px-6 py-3 bg-primary text-white text-xs font-bold rounded-xl hover:bg-emerald-600 transition-colors disabled:bg-zinc-800 disabled:text-zinc-600 cursor-pointer shrink-0"
+                    >
+                      Subscribe
+                    </button>
                   </form>
- 
+
                   <AnimatePresence>
                     {subscribed && (
                       <motion.p
@@ -204,9 +207,9 @@ export const Contact = () => {
                   </AnimatePresence>
                 </motion.div>
               </div>
- 
+
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
 

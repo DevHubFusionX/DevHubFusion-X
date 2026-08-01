@@ -17,15 +17,15 @@ export const StrategyContent = () => {
                     transition={{ duration: 0.8, ease: smoothEase }}
                     className="text-5xl md:text-7xl font-black uppercase tracking-tight mb-6"
                 >
-                    How we build <span className="text-primary">your software.</span>
+                    How I build <span className="text-primary">your software.</span>
                 </motion.h1>
                 <motion.p
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.2, ease: smoothEase }}
-                    className="text-xl text-muted-foreground leading-relaxed mx-auto max-w-2xl"
+                    className="text-lg sm:text-xl text-muted-foreground leading-relaxed mx-auto max-w-2xl"
                 >
-                    We follow a simple, step-by-step process. This keeps things on track and makes sure you get exactly what your business needs.
+                    I follow a systematic, high-precision engineering process. This eliminates scope creep and ensures your product is delivered on time, built to scale.
                 </motion.p>
             </div>
 

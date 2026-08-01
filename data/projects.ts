@@ -36,7 +36,7 @@ export const projects: Project[] = [
     "architecture": ["Next.js", "Node.js", "Redis", "PostgreSQL", "REST"],
     "challenge": "African fintechs typically wire together NIMC, NIBSS, MTN MoMo, Airtel, Flutterwave, and numerous other providers by hand — each with its own authentication, schema, and rate limits. This fragmented approach turns every new integration into weeks of plumbing work.",
     "solution": "Built a normalisation layer that abstracts 40+ regional APIs behind a single RESTful endpoint with unified auth, consistent response schemas, and intelligent rate-limit management. Achieved 4.2ms average gateway latency with 99.98% uptime.",
-    "role": "DevHubFusionX Engineering Team",
+    "role": "Lead Full-Stack Engineer",
     "outcomes": [
       "Processed over 2.8 million API calls per month with 99.98% uptime across 90 days",
       "Reduced average gateway latency to 4.2ms through edge caching and connection pooling",
@@ -73,7 +73,7 @@ export const projects: Project[] = [
     "architecture": ["Next.js", "React.js", "Transformers.js", "IndexedDB", "Tailwind CSS"],
     "challenge": "Modern AI applications typically rely on remote cloud APIs, posing serious data privacy risks and latency issues. The goal was to build a highly responsive workspace where document processing, semantic auto-linking, and voice synthesis happen entirely offline.",
     "solution": "Developed a local-first architecture leveraging Transformers.js and Web Assembly for client-side LLM inference. Integrated IndexedDB for secure offline storage, and built a custom Web Audio pipeline for real-time transcription and fluid voice capturing.",
-    "role": "DevHubFusionX Engineering Team",
+    "role": "Lead Full-Stack Engineer",
     "outcomes": [
       "Achieved 100% on-device data privacy with zero cloud exposure or external API requests",
       "Engineered 'Note Buddy', an on-device AI chat assistant that dynamically queries and connects local notes",
@@ -110,7 +110,7 @@ export const projects: Project[] = [
     "architecture": ["React.js", "Next.js", "Node.js", "Tailwind CSS"],
     "challenge": "Conventional dating platforms prioritize volume over meaningful connections. The challenge was building an architecture and experience that fosters depth, privacy, and safety.",
     "solution": "Designed a calm, conversion-focused UI/UX centered on intentional user interaction. Implemented a structured journey flow: Profile → Match → Introduction → Connection.",
-    "role": "DevHubFusionX Engineering Team",
+    "role": "Lead Full-Stack Engineer",
     "outcomes": [
       "Helped shape a platform used by 500,000+ users globally",
       "Contributed to product strategy emphasizing real-world connection",
@@ -142,7 +142,7 @@ export const projects: Project[] = [
     "architecture": ["Next.js", "Node.js", "MongoDB", "Cloudinary"],
     "challenge": "Local businesses lacked a unified, intelligent system to showcase services and interact dynamically with potential customers.",
     "solution": "Architected a modular SaaS foundation with robust APIs, authentication mechanisms, and real-time interaction capabilities using the Next.js and MongoDB stack.",
-    "role": "DevHubFusionX Engineering Team",
+    "role": "Lead Full-Stack Engineer",
     "outcomes": [
       "Built a modular architecture safely supporting myriad business use cases",
       "Implemented secure JWT authentication and efficient large-scale media handling",
@@ -174,7 +174,7 @@ export const projects: Project[] = [
     "liveLink": "https://www.comtranzglobal.com",
     "challenge": "The enterprise faced serious operational bottlenecks due to manual scheduling and fragmented booking processes. They required a robust solution to handle complex service availabilities.",
     "solution": "Developed a custom booking engine automating the entire scheduling lifecycle, alongside a high-conversion client acquisition funnel using React and Firebase.",
-    "role": "DevHubFusionX Engineering Team",
+    "role": "Lead Full-Stack Engineer",
     "outcomes": [
       "Achieved 85% automation of the previously manual booking workflow",
       "Optimized frontend components to substantially improve client acquisition",
@@ -206,7 +206,7 @@ export const projects: Project[] = [
     "architecture": ["React.js", "EmailJS", "Tracking APIs", "Cloud Infra"],
     "challenge": "Fragmented tracking mechanisms caused unacceptable delays and severe opacity within logistics operations.",
     "solution": "Built a centralized, API-driven logistics dashboard to aggregate real-time tracking and facilitate immediate cross-region coordination.",
-    "role": "DevHubFusionX Engineering Team",
+    "role": "Lead Full-Stack Engineer",
     "outcomes": [
       "Deployed a unified live-tracking interface with deep API integrations",
       "Optimized frontend rendering paths explicitly for cross-region latency issues",
@@ -238,7 +238,7 @@ export const projects: Project[] = [
     "architecture": ["React.js", "Node.js", "MongoDB", "HLS/DASH"],
     "challenge": "Delivering high-quality video formats dynamically while preserving robust watchlists and access control features.",
     "solution": "Crafted an agile media environment built on structured data principles, allowing personalized media consumption through a highly responsive UI.",
-    "role": "DevHubFusionX Engineering Team",
+    "role": "Lead Full-Stack Engineer",
     "outcomes": [
       "Implemented seamless low-latency media streaming leveraging HLS/DASH protocols",
       "Built personalized user watchlists alongside robust admin moderation interfaces",

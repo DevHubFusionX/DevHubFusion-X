@@ -14,21 +14,21 @@ interface Testimonial {
 const testimonials: Testimonial[] = [
     {
         id: 1,
-        content: "DevHubFusionX built our app from scratch. It works perfectly, never crashes, and loads instantly. We are very happy with their work.",
+        content: "Frank built our app from scratch. It works perfectly, never crashes, and loads instantly. We are very happy with his work.",
         author: "Chinedu Eze",
         role: "CEO, TechFlow",
         project: "SaaS Platform"
     },
     {
         id: 2,
-        content: "They built a booking system that does all the work for us. It saved us hours of daily manual tasks and is very easy for our customers to use.",
+        content: "He built a booking system that does all the work for us. It saved us hours of daily manual tasks and is very easy for our customers to use.",
         author: "Aisha Balogun",
         role: "CTO, Nexus Labs",
         project: "Booking Platform"
     },
     {
         id: 3,
-        content: "They took our old, slow website and made it super fast and modern. They work quickly and know exactly how to make software that grows a business.",
+        content: "He took our old, slow website and made it super fast and modern. He works quickly and knows exactly how to make software that grows a business.",
         author: "Oluwaseun Adebayo",
         role: "Founder, Peak Horizon",
         project: "System Modernization"
@@ -40,45 +40,45 @@ export const Testimonials = () => {
     const inView = useInView(containerRef, { once: true, margin: "-100px" });
 
     return (
-        <section 
-            className="py-32 bg-background border-t border-border/40" 
+        <section
+            className="py-32 bg-background border-t border-border/40"
             id="testimonials"
-            aria-label="Client Testimonials for DevHubFusionX — Software Engineering Reviews"
+            aria-label="Client Testimonials for Frank — Software Engineering Reviews"
         >
             <div className="container mx-auto px-6 md:px-12" ref={containerRef}>
-                
+
                 {/* Minimalist Header */}
                 <div className="mb-20">
-                    <motion.h2 
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                    <motion.h2
+                        initial={{ opacity: 0, y: 20, filter: "blur(12px)" }}
+                        animate={inView ? { opacity: 1, y: 0, filter: "blur(0px)" } : { opacity: 0, y: 20, filter: "blur(12px)" }}
                         transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
                         className="text-3xl md:text-5xl font-bold tracking-tight text-foreground uppercase"
                     >
                         Client <span className="text-primary">Reviews.</span>
                     </motion.h2>
                     <motion.p
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+                        initial={{ opacity: 0, y: 10, filter: "blur(8px)" }}
+                        animate={inView ? { opacity: 1, y: 0, filter: "blur(0px)" } : { opacity: 0, y: 10, filter: "blur(8px)" }}
                         transition={{ duration: 0.5, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
                         className="text-lg text-muted-foreground mt-4 max-w-xl"
                     >
-                        What our clients say about working with us.
+                        What my clients say about working with me.
                     </motion.p>
                 </div>
 
                 {/* Editorial Grid */}
-                <div 
+                <div
                     className="grid grid-cols-1 md:grid-cols-3 gap-0 border-y border-border/40 divide-y md:divide-y-0 md:divide-x divide-border/40"
-                    itemScope 
+                    itemScope
                     itemType="https://schema.org/Organization"
                 >
-                    <meta itemProp="name" content="DevHubFusionX" />
+                    <meta itemProp="name" content="Frank" />
                     {testimonials.map((t, index) => (
-                        <motion.div 
+                        <motion.div
                             key={t.id}
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+                            initial={{ opacity: 0, y: 30, filter: "blur(12px)" }}
+                            animate={inView ? { opacity: 1, y: 0, filter: "blur(0px)" } : { opacity: 0, y: 30, filter: "blur(12px)" }}
                             transition={{ duration: 0.6, delay: 0.1 * index, ease: [0.25, 0.1, 0.25, 1] }}
                             className="p-8 md:p-12 group"
                             itemScope
@@ -86,14 +86,14 @@ export const Testimonials = () => {
                             itemProp="review"
                         >
                             <div className="text-5xl font-serif text-primary/40 mb-6 leading-none">&quot;</div>
-                            <p 
+                            <p
                                 className="text-lg md:text-xl font-medium text-foreground/90 leading-relaxed mb-12"
                                 itemProp="reviewBody"
                             >
                                 {t.content}
                             </p>
                             <div>
-                                <div 
+                                <div
                                     className="font-bold text-foreground tracking-wide uppercase text-sm mb-1"
                                     itemProp="author"
                                     itemScope
@@ -106,7 +106,7 @@ export const Testimonials = () => {
                                     <div className="text-xs text-primary/60 uppercase tracking-widest mt-1">{t.project}</div>
                                 )}
                             </div>
-                            <meta itemProp="itemReviewed" content="Software Engineering Services by DevHubFusionX" />
+                            <meta itemProp="itemReviewed" content="Software Engineering Services by Frank" />
                         </motion.div>
                     ))}
                 </div>

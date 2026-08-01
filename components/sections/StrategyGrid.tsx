@@ -38,7 +38,7 @@ export const StrategyGrid = () => {
               transition={{ duration: 0.8, delay: 0.2, ease: smoothEase }}
               className="text-5xl md:text-8xl font-black text-foreground tracking-tighter uppercase leading-[0.85] mb-8"
             >
-              Our code <br />
+              My code <br />
               <span className="text-primary text-outline-strong">standards.</span>
             </motion.h2>
             <motion.p
@@ -47,7 +47,7 @@ export const StrategyGrid = () => {
               transition={{ duration: 0.8, delay: 0.4, ease: smoothEase }}
               className="text-xl text-muted-foreground max-w-xl leading-relaxed"
             >
-              We write clean, high-quality code. Every app we build is designed to run fast, look great, and support your business growth.
+              I write clean, robust, and highly-optimized code. Every application I engineer is designed to load instantly, convert users, and scale seamlessly.
             </motion.p>
 
             <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full transform translate-x-16 -translate-y-16 group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-500 ease-out" />
@@ -81,15 +81,20 @@ export const StrategyGrid = () => {
             initial={{ opacity: 0, y: 40 }}
             animate={row2InView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
             transition={{ duration: 0.6, delay: 0.1, ease: smoothEase }}
-            className="p-12 hover:bg-muted/30 transition-colors group relative h-full"
+            className="p-12 hover:bg-muted/30 transition-colors duration-300 group relative h-full overflow-hidden"
           >
-            <div className="absolute top-6 right-6 opacity-10 group-hover:opacity-100 group-hover:text-primary transition-all duration-300">
-              <Code size={40} strokeWidth={1} />
+            {/* Top Accent Line */}
+            <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-primary to-emerald-400 origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out" />
+            {/* Hover Glow */}
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(5,150,105,0.08)_0%,transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+
+            <div className="absolute top-6 right-6 opacity-10 group-hover:opacity-100 group-hover:text-primary group-hover:scale-110 group-hover:-translate-y-1 transition-all duration-300 ease-out">
+              <Code size={40} strokeWidth={1.2} />
             </div>
-            <div className="font-mono text-5xl font-light text-primary/20 mb-8 group-hover:text-primary transition-colors">01</div>
-            <h3 className="text-2xl font-bold text-foreground mb-4">Plan</h3>
-            <p className="text-muted-foreground leading-relaxed">
-              We talk about your business goals. We find the easiest and fastest way to build exactly what you need.
+            <div className="font-mono text-5xl font-light text-primary/20 mb-8 group-hover:text-primary group-hover:translate-x-1 transition-all duration-300">01</div>
+            <h3 className="text-2xl font-bold text-foreground mb-4 transition-colors duration-300 group-hover:text-primary">Plan</h3>
+            <p className="text-muted-foreground leading-relaxed transition-colors duration-300 group-hover:text-foreground">
+              I align with your business objectives to engineer the leanest, most efficient roadmap for building your product.
             </p>
           </motion.div>
 
@@ -98,15 +103,20 @@ export const StrategyGrid = () => {
             initial={{ opacity: 0, y: 40 }}
             animate={row2InView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
             transition={{ duration: 0.6, delay: 0.3, ease: smoothEase }}
-            className="p-12 hover:bg-muted/30 transition-colors group relative h-full border-primary/10"
+            className="p-12 hover:bg-muted/30 transition-colors duration-300 group relative h-full overflow-hidden border-primary/10"
           >
-            <div className="absolute top-6 right-6 opacity-10 group-hover:opacity-100 group-hover:text-primary transition-all duration-300">
-              <Cpu size={40} strokeWidth={1} />
+            {/* Top Accent Line */}
+            <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-primary to-emerald-400 origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out" />
+            {/* Hover Glow */}
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(5,150,105,0.08)_0%,transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+
+            <div className="absolute top-6 right-6 opacity-10 group-hover:opacity-100 group-hover:text-primary group-hover:rotate-45 group-hover:scale-110 transition-all duration-500 ease-out">
+              <Cpu size={40} strokeWidth={1.2} />
             </div>
-            <div className="font-mono text-5xl font-light text-primary/20 mb-8 group-hover:text-primary transition-colors">02</div>
-            <h3 className="text-2xl font-bold text-foreground mb-4">Design & Build</h3>
-            <p className="text-muted-foreground leading-relaxed">
-              We design and write the code for your app. We make sure it is super fast and ready to handle lots of users.
+            <div className="font-mono text-5xl font-light text-primary/20 mb-8 group-hover:text-primary group-hover:translate-x-1 transition-all duration-300">02</div>
+            <h3 className="text-2xl font-bold text-foreground mb-4 transition-colors duration-300 group-hover:text-primary">Design & Build</h3>
+            <p className="text-muted-foreground leading-relaxed transition-colors duration-300 group-hover:text-foreground">
+              I design and write clean, scalable codebase, ensuring your application is optimized for speed, security, and high concurrent traffic.
             </p>
           </motion.div>
 
@@ -115,15 +125,20 @@ export const StrategyGrid = () => {
             initial={{ opacity: 0, y: 40 }}
             animate={row2InView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
             transition={{ duration: 0.6, delay: 0.5, ease: smoothEase }}
-            className="p-12 hover:bg-muted/30 transition-colors group relative h-full"
+            className="p-12 hover:bg-muted/30 transition-colors duration-300 group relative h-full overflow-hidden"
           >
-            <div className="absolute top-6 right-6 opacity-10 group-hover:opacity-100 group-hover:text-primary transition-all duration-300">
-              <ShieldCheck size={40} strokeWidth={1} />
+            {/* Top Accent Line */}
+            <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-primary to-emerald-400 origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out" />
+            {/* Hover Glow */}
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(5,150,105,0.08)_0%,transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+
+            <div className="absolute top-6 right-6 opacity-10 group-hover:opacity-100 group-hover:text-primary group-hover:scale-110 group-hover:rotate-12 transition-all duration-300 ease-out">
+              <ShieldCheck size={40} strokeWidth={1.2} />
             </div>
-            <div className="font-mono text-5xl font-light text-primary/20 mb-8 group-hover:text-primary transition-colors">03</div>
-            <h3 className="text-2xl font-bold text-foreground mb-4">Launch</h3>
-            <p className="text-muted-foreground leading-relaxed">
-              We test everything and launch your app. You get a complete, working product that is ready for your customers.
+            <div className="font-mono text-5xl font-light text-primary/20 mb-8 group-hover:text-primary group-hover:translate-x-1 transition-all duration-300">03</div>
+            <h3 className="text-2xl font-bold text-foreground mb-4 transition-colors duration-300 group-hover:text-primary">Launch</h3>
+            <p className="text-muted-foreground leading-relaxed transition-colors duration-300 group-hover:text-foreground">
+              I run thorough integration testing and deploy your application to high-performance edge infrastructure, delivering a production-ready system.
             </p>
           </motion.div>
         </div>
@@ -137,7 +152,7 @@ export const StrategyGrid = () => {
               transition={{ duration: 0.6, ease: smoothEase }}
               className="text-4xl md:text-5xl font-bold text-foreground mb-8"
             >
-              Why work with us.
+              Why work with me.
             </motion.h3>
             <div className="space-y-6">
               {[
@@ -197,7 +212,7 @@ export const StrategyGrid = () => {
                 transition={{ duration: 0.5, delay: 1 }}
                 className="text-muted-foreground max-w-sm mx-auto"
               >
-                We build custom systems that get you sales and save your time.
+                I engineer custom systems that drive revenue and automate your operations.
               </motion.p>
             </div>
           </motion.div>
