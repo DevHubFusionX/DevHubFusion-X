@@ -9,7 +9,7 @@ import { ApplicationModal } from './ApplicationModal';
 const ITEMS = [
   {
     type: 'image',
-    src: '/software/Built%20for%20Phones.jpeg',
+    src: '/DevHubFusion-X/software/Built-for-Phones.jpeg',
     alt: 'Built for Phones',
   },
   {
@@ -23,7 +23,7 @@ const ITEMS = [
   },
   {
     type: 'image',
-    src: '/software/Track%20Every%20Delivery.jpeg',
+    src: '/DevHubFusion-X/software/Track-Every-Delivery.jpeg',
     alt: 'Track Every Delivery',
   },
   {
@@ -46,7 +46,7 @@ const ITEMS = [
   },
   {
     type: 'image',
-    src: '/software/Kill%20Repetitive%20Work.jpeg',
+    src: '/DevHubFusion-X/software/Kill-Repetitive-Work.jpeg',
     alt: 'Kill Repetitive Work',
   },
   {
@@ -60,7 +60,7 @@ const ITEMS = [
   },
   {
     type: 'image',
-    src: '/software/Data%2C%20One%20Screen.jpeg',
+    src: '/DevHubFusion-X/software/Data-One-Screen.jpeg',
     alt: 'Data, One Screen',
   },
 ];

@@ -6,6 +6,9 @@ const nextConfig: import('next').NextConfig = {
     unoptimized: true
   },
   basePath: "/DevHubFusion-X",
+  turbopack: {
+    root: __dirname,
+  },
 };
 
 export default nextConfig;
