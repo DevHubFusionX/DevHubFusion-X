@@ -10,6 +10,7 @@ import { ApplicationModal } from '@/components/sections/ApplicationModal';
 const navLinks = [
   { name: 'How I work', href: '/strategy' },
   { name: 'Projects', href: '/projects' },
+  { name: 'Gallery', href: '/gallery' },
   { name: 'Services', href: '/services' },
   { name: 'About', href: '/about' },
 ];

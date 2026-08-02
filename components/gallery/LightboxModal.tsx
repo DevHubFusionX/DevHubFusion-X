@@ -1,0 +1,104 @@
+import React, { useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { GalleryProject } from './galleryData';
+
+interface LightboxModalProps {
+  isOpen: boolean;
+  projectIndex: number;
+  imageIndex: number;
+  projects: GalleryProject[];
+  closeLightbox: () => void;
+  navigateLightbox: (direction: 'next' | 'prev') => void;
+}
+
+export const LightboxModal: React.FC<LightboxModalProps> = ({
+  isOpen,
+  projectIndex,
+  imageIndex,
+  projects,
+  closeLightbox,
+  navigateLightbox,
+}) => {
+  const activeProject = projects[projectIndex];
+  const activeImage = activeProject?.images[imageIndex];
+
+  // Keyboard controls for lightbox
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (!isOpen) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowRight') navigateLightbox('next');
+      if (e.key === 'ArrowLeft') navigateLightbox('prev');
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen, closeLightbox, navigateLightbox]);
+
+  if (!isOpen || !activeProject || !activeImage) return null;
+
+  return (
+    <AnimatePresence>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className="fixed inset-0 z-50 bg-black/95 backdrop-blur-md flex flex-col justify-between"
+      >
+        {/* Lightbox Header - Contain ONLY close button, NO TEXT */}
+        <div className="flex items-center justify-end p-6 md:p-8 select-none z-10">
+          <button
+            onClick={closeLightbox}
+            className="w-12 h-12 rounded-full border border-white/20 bg-white/5 hover:bg-white hover:text-black transition-all flex items-center justify-center text-white cursor-pointer"
+          >
+            <X size={18} />
+          </button>
+        </div>
+
+        {/* Main Viewer Area */}
+        <div className="relative flex-1 flex items-center justify-center px-4 md:px-20 z-0">
+          
+          {/* Prev Button */}
+          <button
+            onClick={() => navigateLightbox('prev')}
+            className="absolute left-4 md:left-8 w-12 h-12 rounded-full border border-white/10 bg-black/40 hover:bg-white hover:text-black text-white transition-all flex items-center justify-center cursor-pointer z-10"
+          >
+            <ChevronLeft size={20} />
+          </button>
+
+          {/* Image Frame - Scaled Big for both Mobile & Desktop */}
+          <div className="relative w-full h-[75vh] md:h-[82vh] flex items-center justify-center">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeImage.src}
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.3 }}
+                className="relative max-w-full max-h-full aspect-auto flex items-center justify-center w-full h-full"
+              >
+                <img
+                  src={activeImage.src}
+                  alt={activeImage.label}
+                  className="rounded-lg object-contain max-w-full max-h-[75vh] md:max-h-[82vh] w-full shadow-2xl border border-white/10"
+                />
+              </motion.div>
+            </AnimatePresence>
+          </div>
+
+          {/* Next Button */}
+          <button
+            onClick={() => navigateLightbox('next')}
+            className="absolute right-4 md:right-8 w-12 h-12 rounded-full border border-white/10 bg-black/40 hover:bg-white hover:text-black text-white transition-all flex items-center justify-center cursor-pointer z-10"
+          >
+            <ChevronRight size={20} />
+          </button>
+        </div>
+
+        {/* Footers and labels completely removed for pure screen focus */}
+        <div className="h-6" />
+      </motion.div>
+    </AnimatePresence>
+  );
+};
+export default LightboxModal;
