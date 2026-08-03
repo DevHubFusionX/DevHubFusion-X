@@ -61,13 +61,13 @@ export const LightboxModal: React.FC<LightboxModalProps> = ({
           {/* Prev Button */}
           <button
             onClick={() => navigateLightbox('prev')}
-            className="absolute left-4 md:left-8 w-12 h-12 rounded-full border border-white/10 bg-black/40 hover:bg-white hover:text-black text-white transition-all flex items-center justify-center cursor-pointer z-10"
+            className="absolute left-2 sm:left-4 md:left-8 w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/10 bg-black/40 hover:bg-white hover:text-black text-white transition-all flex items-center justify-center cursor-pointer z-10"
           >
-            <ChevronLeft size={20} />
+            <ChevronLeft className="w-4 h-4 md:w-5 md:h-5" />
           </button>
 
           {/* Image Frame - Scaled Big for both Mobile & Desktop */}
-          <div className="relative w-full h-[75vh] md:h-[82vh] flex items-center justify-center">
+          <div className="relative w-full h-[70vh] md:h-[82vh] flex items-center justify-center overflow-hidden">
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeImage.src}
@@ -75,12 +75,23 @@ export const LightboxModal: React.FC<LightboxModalProps> = ({
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.3 }}
-                className="relative max-w-full max-h-full aspect-auto flex items-center justify-center w-full h-full"
+                drag="x"
+                dragConstraints={{ left: 0, right: 0 }}
+                dragElastic={0.2}
+                onDragEnd={(e, info) => {
+                  const swipeThreshold = 50;
+                  if (info.offset.x < -swipeThreshold) {
+                    navigateLightbox('next');
+                  } else if (info.offset.x > swipeThreshold) {
+                    navigateLightbox('prev');
+                  }
+                }}
+                className="relative max-w-full max-h-full aspect-auto flex items-center justify-center w-full h-full cursor-grab active:cursor-grabbing touch-pan-y"
               >
                 <img
                   src={activeImage.src}
                   alt={activeImage.label}
-                  className="rounded-lg object-contain max-w-full max-h-[75vh] md:max-h-[82vh] w-full shadow-2xl border border-white/10"
+                  className="rounded-lg object-contain max-w-[90%] md:max-w-full max-h-[70vh] md:max-h-[82vh] w-full shadow-2xl border border-white/10 pointer-events-none select-none"
                 />
               </motion.div>
             </AnimatePresence>
@@ -89,9 +100,9 @@ export const LightboxModal: React.FC<LightboxModalProps> = ({
           {/* Next Button */}
           <button
             onClick={() => navigateLightbox('next')}
-            className="absolute right-4 md:right-8 w-12 h-12 rounded-full border border-white/10 bg-black/40 hover:bg-white hover:text-black text-white transition-all flex items-center justify-center cursor-pointer z-10"
+            className="absolute right-2 sm:right-4 md:right-8 w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/10 bg-black/40 hover:bg-white hover:text-black text-white transition-all flex items-center justify-center cursor-pointer z-10"
           >
-            <ChevronRight size={20} />
+            <ChevronRight className="w-4 h-4 md:w-5 md:h-5" />
           </button>
         </div>
 

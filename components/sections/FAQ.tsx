@@ -50,11 +50,11 @@ export const FAQ = () => {
     const snappyEase = [0.16, 1, 0.3, 1] as const;
 
     return (
-        <section className="py-28 md:py-36 bg-background" id="faq" ref={containerRef}>
+        <section className="py-16 md:py-36 bg-background" id="faq" ref={containerRef}>
             <div className="container mx-auto px-6 md:px-12">
 
                 {/* Two-column layout: header left, accordion right */}
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
 
                     {/* Left column — sticky header */}
                     <div className="lg:col-span-4">
@@ -81,9 +81,9 @@ export const FAQ = () => {
                                 initial={{ opacity: 0, y: 20, filter: "blur(12px)" }}
                                 animate={inView ? { opacity: 1, y: 0, filter: "blur(0px)" } : { opacity: 0, y: 20, filter: "blur(12px)" }}
                                 transition={{ duration: 0.6, ease: smoothEase }}
-                                className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter text-foreground leading-[1.1] mb-6"
+                                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter text-foreground leading-[1.1] mb-6"
                             >
-                                Got <br />
+                                Got <br className="hidden sm:block" />
                                 <span className="text-primary">Questions?</span>
                             </motion.h2>
 
@@ -91,7 +91,7 @@ export const FAQ = () => {
                                 initial={{ opacity: 0, y: 10, filter: "blur(8px)" }}
                                 animate={inView ? { opacity: 1, y: 0, filter: "blur(0px)" } : { opacity: 0, y: 10, filter: "blur(8px)" }}
                                 transition={{ delay: 0.3, duration: 0.5, ease: smoothEase }}
-                                className="text-lg text-muted-foreground leading-relaxed mb-8"
+                                className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-8"
                             >
                                 Everything you need to know about working with me. Can&apos;t find what you&apos;re looking for?
                             </motion.p>
@@ -129,22 +129,22 @@ export const FAQ = () => {
                                     >
                                         <button
                                             onClick={() => setOpenIndex(isOpen ? null : index)}
-                                            className="w-full flex items-start justify-between py-7 text-left group cursor-pointer gap-6"
+                                            className="w-full flex items-start justify-between py-6 sm:py-7 text-left group cursor-pointer gap-4 sm:gap-6"
                                         >
-                                            <div className="flex items-start gap-5">
-                                                <span className="text-sm font-mono font-bold text-muted-foreground/50 mt-1.5 shrink-0 tabular-nums">
+                                            <div className="flex items-start gap-3 sm:gap-5">
+                                                <span className="text-xs sm:text-sm font-mono font-bold text-muted-foreground/50 mt-1 sm:mt-1.5 shrink-0 tabular-nums">
                                                     {String(index + 1).padStart(2, '0')}
                                                 </span>
-                                                <h3 className="text-lg md:text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-200">
+                                                <h3 className="text-base sm:text-lg md:text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-200 leading-snug">
                                                     {faq.question}
                                                 </h3>
                                             </div>
                                             <motion.div
                                                 animate={{ rotate: isOpen ? 90 : 0 }}
                                                 transition={{ duration: 0.25, ease: snappyEase }}
-                                                className="shrink-0 mt-1.5 w-8 h-8 rounded-full border border-border/60 flex items-center justify-center text-muted-foreground group-hover:border-primary group-hover:text-primary transition-colors duration-200"
+                                                className="shrink-0 mt-0.5 sm:mt-1.5 w-7 h-7 sm:w-8 sm:h-8 rounded-full border border-border/60 flex items-center justify-center text-muted-foreground group-hover:border-primary group-hover:text-primary transition-colors duration-200"
                                             >
-                                                {isOpen ? <Minus size={16} strokeWidth={2.5} /> : <Plus size={16} strokeWidth={2.5} />}
+                                                {isOpen ? <Minus size={14} strokeWidth={2.5} /> : <Plus size={14} strokeWidth={2.5} />}
                                             </motion.div>
                                         </button>
 
@@ -157,8 +157,8 @@ export const FAQ = () => {
                                                     transition={{ duration: 0.35, ease: snappyEase }}
                                                     className="overflow-hidden"
                                                 >
-                                                    <div className="pb-8 pl-12 md:pl-14 pr-14">
-                                                        <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+                                                    <div className="pb-6 pl-7 sm:pl-12 md:pl-14 pr-4 sm:pr-14">
+                                                        <p className="text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed">
                                                             {faq.answer}
                                                         </p>
                                                     </div>

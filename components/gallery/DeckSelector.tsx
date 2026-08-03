@@ -19,17 +19,15 @@ export const DeckSelector: React.FC<DeckSelectorProps> = ({
         Slides
       </span>
 
-      <div className="flex flex-row gap-3 py-2 px-1 relative select-none items-center">
+      <div className="w-full max-w-full overflow-x-auto touch-pan-x scrollbar-none snap-x snap-mandatory flex flex-row gap-3 py-2 px-1 relative select-none items-center [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
         {cards.map((card) => {
           const isActive = activeProject === card.id;
-          const rotateVal = isActive ? 0 : card.rotation;
-          const xVal = isActive ? 0 : card.xOffset;
 
           return (
             <motion.div
               key={card.id}
               onClick={() => setActiveProject(card.id)}
-              className={`flex-1 min-w-[80px] h-16 lg:h-20 rounded-2xl shadow-md cursor-pointer relative overflow-hidden transition-all duration-300 border flex items-center justify-center ${card.bgClass} ${isActive
+              className={`flex-1 min-w-[105px] sm:min-w-[120px] md:min-w-0 h-14 sm:h-16 md:h-20 rounded-2xl shadow-md cursor-pointer relative overflow-hidden transition-all duration-300 border flex items-center justify-center shrink-0 snap-center ${card.bgClass} ${isActive
                   ? 'z-30 shadow-xl border-primary/60 opacity-100 ring-2 ring-primary/40 scale-[1.04]'
                   : 'opacity-50 hover:opacity-80 z-10'
                 }`}
@@ -60,7 +58,7 @@ export const DeckSelector: React.FC<DeckSelectorProps> = ({
               </svg>
 
               {/* Card label */}
-              <h3 className="relative z-10 text-[11px] lg:text-xs font-bold uppercase tracking-tight text-center leading-none px-2 select-none">
+              <h3 className="relative z-10 text-[10px] sm:text-xs font-bold uppercase tracking-tight text-center leading-none px-2 select-none">
                 {card.name}
               </h3>
             </motion.div>

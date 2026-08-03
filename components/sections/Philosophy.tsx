@@ -130,32 +130,32 @@ export const Philosophy = () => {
           </h2>
         </motion.div>
 
-        {/* ── Bento Grid: 4 cols × 2 rows ── */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+        {/* ── Bento Grid: 1 col on mobile, 2 cols on tablet, 4 cols on desktop ── */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {ITEMS.map((item, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 28, filter: 'blur(8px)' }}
               animate={inView ? { opacity: 1, y: 0, filter: 'blur(0px)' } : {}}
               transition={{ duration: 0.6, delay: i * 0.07, ease: [0.25, 0.1, 0.25, 1] }}
-              className="min-h-[220px] lg:min-h-[260px]"
+              className="min-h-[180px] sm:min-h-[220px] lg:min-h-[260px] flex"
             >
               {item.type === 'image' ? (
                 /* ── Image card ── */
-                <div className="relative w-full h-full min-h-[220px] lg:min-h-[260px] rounded-2xl overflow-hidden shadow-sm">
+                <div className="relative w-full h-[200px] sm:h-auto min-h-[200px] sm:min-h-[220px] lg:min-h-[260px] rounded-2xl overflow-hidden shadow-sm flex-1">
                   <Image
                     src={item.src!}
                     alt={item.alt!}
                     fill
                     className="object-cover"
-                    sizes="(max-width: 768px) 50vw, 25vw"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                   />
                 </div>
               ) : (
                 /* ── Text card ── */
                 <div
                   onClick={() => setIsModalOpen(true)}
-                  className={`w-full h-full min-h-[220px] lg:min-h-[260px] rounded-2xl border p-6 flex flex-col justify-between cursor-pointer hover:scale-[1.015] transition-transform duration-300 shadow-sm ${themeMap[item.theme!]}`}
+                  className={`w-full min-h-[200px] sm:min-h-[220px] lg:min-h-[260px] rounded-2xl border p-5 sm:p-6 flex flex-col justify-between cursor-pointer hover:scale-[1.015] transition-transform duration-300 shadow-sm flex-1 ${themeMap[item.theme!]}`}
                 >
                   {/* Top: index + stack */}
                   <div className="flex items-start justify-between">
@@ -168,8 +168,8 @@ export const Philosophy = () => {
                   </div>
 
                   {/* Middle: title + description */}
-                  <div className="space-y-3">
-                    <h3 className="text-xl lg:text-2xl font-black uppercase tracking-tight leading-tight">
+                  <div className="space-y-2.5 my-4">
+                    <h3 className="text-lg sm:text-xl lg:text-2xl font-black uppercase tracking-tight leading-tight">
                       {item.title}
                     </h3>
                     <p className={`text-xs leading-relaxed font-medium ${mutedMap[item.theme!]}`}>

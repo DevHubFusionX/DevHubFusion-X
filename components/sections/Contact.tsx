@@ -55,7 +55,7 @@ export const Contact = () => {
             initial={{ opacity: 0, y: 30, filter: "blur(12px)" }}
             animate={inView ? { opacity: 1, y: 0, filter: "blur(0px)" } : { opacity: 0, y: 30, filter: "blur(12px)" }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="relative z-20 px-6 sm:px-10 md:px-14 py-10 md:py-16 pointer-events-none"
+            className="relative z-20 px-5 sm:px-10 md:px-14 py-8 sm:py-12 md:py-16 pointer-events-none"
           >
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
 
@@ -66,7 +66,7 @@ export const Contact = () => {
                   initial={{ opacity: 0, x: -20 }}
                   animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
                   transition={{ duration: 0.5, ease: smoothEase }}
-                  className="flex items-center gap-2.5 mb-4 md:mb-6"
+                  className="flex items-center gap-2.5 mb-4"
                 >
                   <div className="w-1.5 h-1.5 rounded-full bg-primary" />
                   <span className="text-xs font-bold tracking-[0.2em] uppercase text-zinc-400">
@@ -79,7 +79,7 @@ export const Contact = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                   transition={{ duration: 0.6, delay: 0.1, ease: smoothEase }}
-                  className="text-xl sm:text-2xl md:text-4xl font-black tracking-tight text-white leading-[1.15] mb-4 md:mb-6 animate-pulse-faint"
+                  className="text-2xl sm:text-3xl md:text-4xl font-black tracking-tight text-white leading-[1.15] mb-4 md:mb-6 animate-pulse-faint"
                 >
                   <span className="hidden sm:inline">
                     Start building your product <br className="hidden md:block" />
@@ -95,7 +95,7 @@ export const Contact = () => {
                   initial={{ opacity: 0, y: 15 }}
                   animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 15 }}
                   transition={{ duration: 0.6, delay: 0.2, ease: smoothEase }}
-                  className="text-xs md:text-base text-zinc-400 leading-relaxed max-w-md mb-6 md:mb-8"
+                  className="text-sm md:text-base text-zinc-400 leading-relaxed max-w-md mb-6 md:mb-8"
                 >
                   <span className="hidden sm:inline">
                     I build custom apps and automated workflows that run your business for you. Ready to start? Let&apos;s talk about what you need.

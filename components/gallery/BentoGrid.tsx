@@ -138,7 +138,7 @@ export const BentoGrid: React.FC<BentoGridProps> = ({
               </BentoCard>
             ) : (
               <motion.div
-                className="col-span-12 rounded-2xl border border-emerald-500/30 bg-[#022c22]/90 p-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 min-h-[200px] shadow-[inset_0_0_0_1px_rgba(52,211,153,0.06)] select-none"
+                className="col-span-12 rounded-2xl border border-emerald-500/30 bg-[#022c22]/90 p-6 md:p-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 min-h-[200px] shadow-[inset_0_0_0_1px_rgba(52,211,153,0.06)] select-none"
                 whileHover={{ scale: 1.004 }}
                 transition={{ duration: 0.25, ease: 'easeOut' }}
               >

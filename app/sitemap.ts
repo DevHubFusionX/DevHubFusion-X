@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next';
 import { projects } from '@/data/projects';
+import { posts } from '@/data/posts';
 
 export const dynamic = 'force-static';
 
@@ -13,13 +14,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/projects',
     '/services',
     '/strategy',
+    '/blog',
     '/privacy',
     '/terms',
   ].map((route) => ({
     url: `${baseUrl}${route}/`,
-    lastModified: new URLSearchParams().get('t') ? new Date() : new Date('2026-02-06'), // Use current date for lastmod
+    lastModified: new Date(),
     changeFrequency: 'monthly' as const,
-    priority: route === '' ? 1 : 0.8,
+    priority: route === '' ? 1 : route === '/blog' ? 0.9 : 0.8,
   }));
 
   // Dynamic project routes
@@ -30,5 +32,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...staticRoutes, ...projectRoutes];
+  // Blog post routes
+  const blogRoutes = posts.map((post) => ({
+    url: `${baseUrl}/blog/${post.slug}/`,
+    lastModified: new Date(post.date),
+    changeFrequency: 'weekly' as const,
+    priority: 0.85,
+  }));
+
+  return [...staticRoutes, ...projectRoutes, ...blogRoutes];
 }
