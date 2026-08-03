@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Maximize2, ArrowUpRight } from 'lucide-react';
 import Image from 'next/image';
 import { GalleryProject } from './galleryData';
+import { getAssetPath } from '@/lib/assets';
 
 interface BentoGridProps {
   currentProject: GalleryProject;
@@ -78,7 +79,7 @@ export const BentoGrid: React.FC<BentoGridProps> = ({
                 className="col-span-12 md:col-span-8 h-[340px] lg:h-[420px]"
                 onClick={() => openLightbox(activeProjIdx, 0)}
               >
-                <Image src={imgs[0].src} alt={imgs[0].label} fill className="object-contain transition-transform duration-700 group-hover:scale-[1.03]" />
+                <Image src={getAssetPath(imgs[0].src)} alt={imgs[0].label} fill className="object-contain transition-transform duration-700 group-hover:scale-[1.03]" />
                 <ExpandIcon />
               </BentoCard>
             )}
@@ -88,7 +89,7 @@ export const BentoGrid: React.FC<BentoGridProps> = ({
                 className="col-span-12 md:col-span-4 h-[340px] lg:h-[420px]"
                 onClick={() => openLightbox(activeProjIdx, 1)}
               >
-                <Image src={imgs[1].src} alt={imgs[1].label} fill className="object-contain transition-transform duration-700 group-hover:scale-[1.03]" />
+                <Image src={getAssetPath(imgs[1].src)} alt={imgs[1].label} fill className="object-contain transition-transform duration-700 group-hover:scale-[1.03]" />
                 <ExpandIcon />
               </BentoCard>
             )}
@@ -100,7 +101,7 @@ export const BentoGrid: React.FC<BentoGridProps> = ({
                 onClick={() => openLightbox(activeProjIdx, 2)}
                 hoverScale={1.012}
               >
-                <Image src={imgs[2].src} alt={imgs[2].label} fill className="object-contain transition-transform duration-700 group-hover:scale-[1.04]" />
+                <Image src={getAssetPath(imgs[2].src)} alt={imgs[2].label} fill className="object-contain transition-transform duration-700 group-hover:scale-[1.04]" />
                 <ExpandIcon />
               </BentoCard>
             )}
@@ -111,7 +112,7 @@ export const BentoGrid: React.FC<BentoGridProps> = ({
                 onClick={() => openLightbox(activeProjIdx, 3)}
                 hoverScale={1.012}
               >
-                <Image src={imgs[3].src} alt={imgs[3].label} fill className="object-contain transition-transform duration-700 group-hover:scale-[1.04]" />
+                <Image src={getAssetPath(imgs[3].src)} alt={imgs[3].label} fill className="object-contain transition-transform duration-700 group-hover:scale-[1.04]" />
                 <ExpandIcon />
               </BentoCard>
             )}
@@ -122,7 +123,7 @@ export const BentoGrid: React.FC<BentoGridProps> = ({
                 onClick={() => openLightbox(activeProjIdx, 4)}
                 hoverScale={1.012}
               >
-                <Image src={imgs[4].src} alt={imgs[4].label} fill className="object-contain transition-transform duration-700 group-hover:scale-[1.04]" />
+                <Image src={getAssetPath(imgs[4].src)} alt={imgs[4].label} fill className="object-contain transition-transform duration-700 group-hover:scale-[1.04]" />
                 <ExpandIcon />
               </BentoCard>
             )}
@@ -133,7 +134,7 @@ export const BentoGrid: React.FC<BentoGridProps> = ({
                 className="col-span-12 h-[240px] lg:h-[280px]"
                 onClick={() => openLightbox(activeProjIdx, 5)}
               >
-                <Image src={imgs[5].src} alt={imgs[5].label} fill className="object-contain transition-transform duration-700 group-hover:scale-[1.02]" />
+                <Image src={getAssetPath(imgs[5].src)} alt={imgs[5].label} fill className="object-contain transition-transform duration-700 group-hover:scale-[1.02]" />
                 <ExpandIcon />
               </BentoCard>
             ) : (

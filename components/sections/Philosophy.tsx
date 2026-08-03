@@ -5,6 +5,7 @@ import { motion, useInView } from 'framer-motion';
 import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import Image from 'next/image';
 import { ApplicationModal } from './ApplicationModal';
+import { getAssetPath } from '@/lib/assets';
 
 const ITEMS = [
   {
@@ -144,7 +145,7 @@ export const Philosophy = () => {
                 /* ── Image card ── */
                 <div className="relative w-full h-[200px] sm:h-auto min-h-[200px] sm:min-h-[220px] lg:min-h-[260px] rounded-2xl overflow-hidden shadow-sm flex-1">
                   <Image
-                    src={item.src!}
+                    src={getAssetPath(item.src!)}
                     alt={item.alt!}
                     fill
                     className="object-cover"

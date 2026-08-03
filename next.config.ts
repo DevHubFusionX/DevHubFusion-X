@@ -1,3 +1,5 @@
+const isGithubActions = process.env.GITHUB_ACTIONS === 'true';
+
 /** @type {import('next').NextConfig} */
 const nextConfig: import('next').NextConfig = {
   output: "export",
@@ -5,7 +7,10 @@ const nextConfig: import('next').NextConfig = {
   images: {
     unoptimized: true
   },
-  basePath: "/DevHubFusion-X",
+  basePath: isGithubActions ? "/DevHubFusion-X" : "",
+  env: {
+    NEXT_PUBLIC_BASE_PATH: isGithubActions ? "/DevHubFusion-X" : "",
+  },
   turbopack: {
     root: __dirname,
   },

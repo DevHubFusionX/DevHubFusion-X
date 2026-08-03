@@ -6,6 +6,7 @@ import { ArrowUpRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { projects } from '@/data/projects';
+import { getAssetPath } from '@/lib/assets';
  
 export const SelectedWorks = () => {
   // Show exactly the first 4 projects
@@ -65,7 +66,7 @@ export const SelectedWorks = () => {
                 {/* Image Container */}
                 <div className="relative aspect-16/10 w-full overflow-hidden bg-zinc-900">
                   <Image
-                    src={project.image}
+                    src={getAssetPath(project.image)}
                     alt={project.title}
                     fill
                     className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"

@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { GalleryProject } from './galleryData';
+import { getAssetPath } from '@/lib/assets';
 
 interface LightboxModalProps {
   isOpen: boolean;
@@ -89,7 +90,7 @@ export const LightboxModal: React.FC<LightboxModalProps> = ({
                 className="relative max-w-full max-h-full aspect-auto flex items-center justify-center w-full h-full cursor-grab active:cursor-grabbing touch-pan-y"
               >
                 <img
-                  src={activeImage.src}
+                  src={getAssetPath(activeImage.src)}
                   alt={activeImage.label}
                   className="rounded-lg object-contain max-w-[90%] md:max-w-full max-h-[70vh] md:max-h-[82vh] w-full shadow-2xl border border-white/10 pointer-events-none select-none"
                 />

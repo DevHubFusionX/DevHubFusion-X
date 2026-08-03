@@ -6,6 +6,7 @@ import { ArrowUpRight } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { projects } from '@/data/projects';
+import { getAssetPath } from '@/lib/assets';
 
 export const ProjectGrid = () => {
   const smoothEase = [0.25, 0.1, 0.25, 1] as const;
@@ -26,7 +27,7 @@ export const ProjectGrid = () => {
               <Link href={`/projects/${project.id}`} className="block relative aspect-[16/10] overflow-hidden rounded-[0.5rem] bg-muted">
                 {/* project image */}
                 <Image
-                  src={project.image}
+                  src={getAssetPath(project.image)}
                   alt={project.title}
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
