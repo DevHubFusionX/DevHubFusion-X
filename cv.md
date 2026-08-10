@@ -37,10 +37,6 @@ Specializing in modern JavaScript/TypeScript ecosystems (React, Next.js, Node.js
 *   Designed a customized role-based access control (RBAC) system and real-time analytics reports.
 *   Improved load speeds by **35%** using Next.js incremental static regeneration (ISR) and code splitting.
 
-### **FindMe** — Location-Based Service & Matching Engine
-*   Built a highly responsive geospatial application matching service providers with clients in real-time.
-*   Utilized Firebase Realtime Database and location clustering algorithms to minimize latency during high concurrency.
-
 ### **Comtranz Global** — Commercial Transport & Logistics Management
 *   Designed and shipped a secure administrative portal for managing driver schedules, payloads, and payment histories.
 *   Implemented automated SMS alerts and transactional emails, leading to a **25%** increase in client communication speed.

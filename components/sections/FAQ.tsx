@@ -33,7 +33,7 @@ const faqs: FAQItem[] = [
     },
     {
         question: "What kind of projects or startups do you work best with?",
-        answer: "I work best with businesses and founders ready to build or automate. My sweet spot is mobility systems (ride-hailing, logistics), SaaS platforms, e-commerce operations, and custom business workflows. I have shipped products like blynQe, FindMe, Comtranz Global, and Dara Express."
+        answer: "I work best with businesses and founders ready to build or automate. My sweet spot is mobility systems (ride-hailing, logistics), SaaS platforms, e-commerce operations, and custom business workflows. I have shipped products like blynQe, Comtranz Global, and Dara Express."
     },
     {
         question: "Can you help automate or modernize an existing system?",
