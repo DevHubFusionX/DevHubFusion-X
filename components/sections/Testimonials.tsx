@@ -74,6 +74,11 @@ export const Testimonials = () => {
                     itemType="https://schema.org/Organization"
                 >
                     <meta itemProp="name" content="Frank" />
+                    <div itemProp="aggregateRating" itemScope itemType="https://schema.org/AggregateRating">
+                        <meta itemProp="ratingValue" content="5" />
+                        <meta itemProp="bestRating" content="5" />
+                        <meta itemProp="reviewCount" content="3" />
+                    </div>
                     {testimonials.map((t, index) => (
                         <motion.div
                             key={t.id}
@@ -85,6 +90,10 @@ export const Testimonials = () => {
                             itemType="https://schema.org/Review"
                             itemProp="review"
                         >
+                            <div itemProp="reviewRating" itemScope itemType="https://schema.org/Rating">
+                                <meta itemProp="ratingValue" content="5" />
+                                <meta itemProp="bestRating" content="5" />
+                            </div>
                             <div className="text-5xl font-serif text-primary/40 mb-6 leading-none">&quot;</div>
                             <p
                                 className="text-lg md:text-xl font-medium text-foreground/90 leading-relaxed mb-12"
