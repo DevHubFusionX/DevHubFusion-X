@@ -15,10 +15,14 @@ export async function generateMetadata(
   const { slug } = await params;
   const post = posts.find(p => p.slug === slug);
   if (!post) return {};
+
+  const BASE_URL = "https://devhubfusionx.github.io/DevHubFusion-X";
+  const OG_IMAGE = `${BASE_URL}/devHub.png`;
+
   return {
     title: post.title,
     description: post.excerpt,
-    keywords: [post.category, "Frank software engineer", "Nigeria tech blog", post.title],
+    keywords: [post.category, "Frank software engineer", "Nigeria tech blog", post.title, "DevHubFusionX blog"],
     alternates: { canonical: `/blog/${post.slug}` },
     openGraph: {
       title: post.title,
@@ -26,7 +30,22 @@ export async function generateMetadata(
       type: 'article',
       publishedTime: post.date,
       authors: ['Frank'],
+      url: `${BASE_URL}/blog/${post.slug}`,
+      images: [
+        {
+          url: OG_IMAGE,
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        }
+      ]
     },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.excerpt,
+      images: [OG_IMAGE],
+    }
   };
 }
 

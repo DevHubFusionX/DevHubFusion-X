@@ -199,4 +199,61 @@ export const posts: Post[] = [
       { type: "paragraph", content: "Always verify transactions server-side. Do not trust client-side callbacks — a customer can manipulate the frontend to fake a successful payment response. After every payment, call the Paystack verify endpoint from your backend, check that the amount matches what you expected, and only then confirm the order or grant access." },
     ]
   },
+  {
+    slug: "how-to-build-a-ride-hailing-app-in-nigeria",
+    title: "How to Build a Ride-Hailing App in Nigeria (2026 Technical Guide)",
+    excerpt: "A complete technical blueprint for engineering a ride-hailing system like Uber or Bolt in the Nigerian context — covering real-time mapping, web sockets, offline tolerance, and payment splits.",
+    category: "Build Guides",
+    readTime: "10 min read",
+    date: "2026-08-10",
+    featured: true,
+    body: [
+      { type: "paragraph", content: "Building a ride-hailing platform in Nigeria is a high-stakes engineering challenge. Real-time GPS polling, socket networks, payment splits, and handling slow network connectivity are critical requirements. Here is a complete blueprint from a systems perspective." },
+      { type: "heading", content: "The Core Architectural Components" },
+      { type: "list", items: ["Passenger App (mobile-first UI for booking and location lookup)", "Driver App (background GPS tracking and order management)", "Admin/Ops Dashboard (fleet management, dispute resolution, financials)", "Live Map Engine (WebSockets + Redis geospatial database)"] },
+      { type: "heading", content: "Real-Time Tracking & Communication (WebSockets vs Polling)" },
+      { type: "paragraph", content: "To track drivers in real-time, you need low-latency bi-directional communication. Standard HTTP polling will crash your servers at scale and incur massive data usage for drivers. WebSockets (Socket.io or raw ws) are the standard. Use Redis geospatial indexes (GEOADD, GEORADIUS) to efficiently query nearest drivers in milliseconds." },
+      { type: "callout", label: "Google Maps Billing Alert", content: "Calling Google Distance Matrix API on every coordinate tick will cost thousands of USD monthly. Use server-side map matching and throttle location updates to every 5-10 seconds to control api costs." },
+      { type: "heading", content: "Handling Nigerian Network Irregularities" },
+      { type: "paragraph", content: "Nigerian networks (MTN, Airtel, Glo) drop frequently. Your system must handle offline states. If a driver loses connection, buffer coordinates locally in IndexedDB or SQLite and sync them in batches when the network restores, using interpolation to draw smooth tracks." },
+      { type: "heading", content: "Payments and Automatic Splits" },
+      { type: "paragraph", content: "Most rides in Nigeria are cash or bank transfer. For card payments, use Paystack or Flutterwave with their Split Payments API to instantly route the driver's commission (e.g. 85%) and your platform fee (15%) to separate bank accounts automatically." },
+    ]
+  },
+  {
+    slug: "best-programming-languages-for-nigerian-developers-2026",
+    title: "Best Programming Languages for Nigerian Developers in 2026",
+    excerpt: "Which languages and frameworks should you master in 2026 to secure remote roles, launch local startups, or build high-performance business applications in Nigeria?",
+    category: "Business Strategy",
+    readTime: "6 min read",
+    date: "2026-08-09",
+    body: [
+      { type: "paragraph", content: "The tech landscape is shifting. To remain competitive in the Nigerian ecosystem and secure high-paying local or international remote contracts, your tech stack needs to be highly focused. Here is the data-driven list for 2026." },
+      { type: "heading", content: "1. TypeScript & JavaScript (React, Next.js, Node.js)" },
+      { type: "paragraph", content: "Still the undisputed king. Over 80% of new startups in Lagos build their MVPs using Next.js and Tailwind on the frontend and Node.js on the backend. It offers the fastest time-to-market." },
+      { type: "heading", content: "2. Python (FastAPI, Django, AI integration)" },
+      { type: "paragraph", content: "Essential for data-heavy platforms, local AI integrations, and high-performance APIs. FastAPI has overtaken Express in some modern microservices due to automatic type validation and speed." },
+      { type: "heading", content: "3. Go (Golang)" },
+      { type: "paragraph", content: "Go is heavily adopted by Nigerian fintechs (like Moniepoint, PiggyVest, and OPay) for high-concurrency ledger systems. If you want to work in payment infrastructure, Go is highly lucrative." },
+      { type: "callout", label: "Avoid Framework Bloat", content: "Do not try to learn 10 different frameworks. Master one database (PostgreSQL), one frontend framework (Next.js), and one backend language (TypeScript or Go). Depth beats breadth." },
+    ]
+  },
+  {
+    slug: "how-to-launch-a-saas-startup-in-nigeria",
+    title: "How to Launch a SaaS Startup in Nigeria: Technical Roadmap",
+    excerpt: "Building software is only 20% of the battle. Here is the technical roadmap for launching a subscription SaaS in Nigeria — covering subscription logic, multi-tenancy, and security.",
+    category: "Business Strategy",
+    readTime: "9 min read",
+    date: "2026-08-08",
+    body: [
+      { type: "paragraph", content: "Launching a Software-as-a-Service (SaaS) business in Nigeria is a massive opportunity as local SMEs digitize. However, SaaS requires specific architectural decisions around multi-tenancy, security, and subscription billing." },
+      { type: "heading", content: "Multi-Tenancy: Shared Database vs Isolated Databases" },
+      { type: "paragraph", content: "For most startups, a Shared Database (Logical Separation) using a tenant_id column on every table is the most cost-effective and scalable approach. Use Postgres Row Level Security (RLS) to ensure no tenant can ever see another's data." },
+      { type: "heading", content: "Subscription Billing in Naira & USD" },
+      { type: "paragraph", content: "In Nigeria, recurring cards can fail due to bank restrictions or OTP challenges. Offer both Card Auto-Renewal via Paystack Subscriptions and automated Virtual Bank Transfers for monthly top-ups." },
+      { type: "callout", label: "The Hybrid Model", content: "Nigerian B2B buyers often prefer annual bank transfers over monthly credit card subscriptions. Ensure your billing engine supports manual bank reconciliation with automated account credits." },
+      { type: "heading", content: "Security & Compliance (NDPR)" },
+      { type: "paragraph", content: "Under the Nigeria Data Protection Regulation (NDPR), you must encrypt all user data in transit and at rest. Use HTTPS, secure JWTs, and host your databases in regions that comply with local guidelines." },
+    ]
+  }
 ];

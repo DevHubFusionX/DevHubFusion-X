@@ -5,7 +5,7 @@ import { JsonLd } from '@/components/seo/JsonLd';
 import { posts } from '@/data/posts';
 
 export const metadata: Metadata = {
-  title: "Blog — Engineering Insights by Frank",
+  title: "Blog — Software Engineering Insights by Frank",
   description: "Practical guides on building custom software, ride-hailing platforms, logistics systems, SaaS products, and making technical decisions for Nigerian businesses.",
   keywords: [
     "software engineering blog Nigeria",
@@ -15,8 +15,20 @@ export const metadata: Metadata = {
     "custom software cost Nigeria",
     "SaaS development guide",
     "Frank software engineer blog",
+    "DevHubFusionX blog"
   ],
   alternates: { canonical: "/blog" },
+  openGraph: {
+    title: "Blog — Software Engineering Insights by Frank",
+    description: "Practical guides on building custom software, ride-hailing platforms, logistics systems, SaaS products, and making technical decisions for Nigerian businesses.",
+    url: "https://devhubfusionx.github.io/DevHubFusion-X/blog",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Blog — Software Engineering Insights by Frank",
+    description: "Practical guides on custom software, logistics tracking, ride-hailing platforms, and SaaS products in Nigeria.",
+  }
 };
 
 export default function BlogPage() {

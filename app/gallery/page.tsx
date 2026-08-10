@@ -4,7 +4,7 @@ import { JsonLd } from '@/components/seo/JsonLd';
 
 export const metadata: Metadata = {
     title: "Interface Gallery — Shipped Software & Automations by Frank",
-    description: "Browse the interface gallery of Frank (DevHubFusionX). Real-world production screenshots of custom SaaS dashboards, dating apps, logistics systems, and ERP portals.",
+    description: "Browse the interface gallery of Frank (DevHubFusionX). Production screenshots of custom SaaS dashboards, dating apps, logistics systems, and ERP portals.",
     keywords: [
         "Frank interface gallery",
         "Frank software screenshots",
@@ -12,8 +12,23 @@ export const metadata: Metadata = {
         "logistics app tracking interface",
         "portfolio designs",
         "Blynque dating app",
-        "Tesla dashboard clone"
+        "Tesla dashboard clone",
+        "DevHubFusionX gallery"
     ],
+    alternates: {
+        canonical: "/gallery",
+    },
+    openGraph: {
+        title: "Interface Gallery — Shipped Software & Automations by Frank",
+        description: "Browse the interface gallery of Frank (DevHubFusionX). Production screenshots of custom SaaS dashboards, dating apps, logistics systems, and ERP portals.",
+        url: "https://devhubfusionx.github.io/DevHubFusion-X/gallery",
+        type: "website",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Interface Gallery — Shipped Software & Automations by Frank",
+        description: "Browse production screenshots of custom software interfaces designed and engineered by Frank.",
+    }
 };
 
 export default function GalleryPage() {

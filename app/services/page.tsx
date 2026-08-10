@@ -3,16 +3,31 @@ import { ServicesContent } from '@/components/sections/ServicesContent';
 import { JsonLd } from '@/components/seo/JsonLd';
 
 export const metadata: Metadata = {
-   title: "Engineering Services | Full-Stack Software Systems",
-   description: "Professional software engineering and business automation services by Frank. Custom web applications, ride-hailing platforms, logistics systems, SaaS products, e-commerce websites, and fintech solutions.",
+   title: "Services — Software Systems & Business Automation by Frank",
+   description: "Professional software engineering and business automation services by Frank. Specializing in custom web apps, ride-hailing platforms, logistics systems, and multi-tenant SaaS products.",
    keywords: [
       "web development services",
       "custom web application development",
-      "SaaS development",
-      "business automation",
+      "SaaS development Nigeria",
+      "business automation Lagos",
       "logistics platform development",
-      "software engineer Nigeria"
+      "software engineer Nigeria",
+      "DevHubFusionX services"
    ],
+   alternates: {
+      canonical: "/services",
+   },
+   openGraph: {
+      title: "Services — Software Systems & Business Automation by Frank",
+      description: "Professional software engineering and business automation services by Frank. Specializing in custom web apps, ride-hailing platforms, logistics systems, and multi-tenant SaaS products.",
+      url: "https://devhubfusionx.github.io/DevHubFusion-X/services",
+      type: "website",
+   },
+   twitter: {
+      card: "summary_large_image",
+      title: "Services — Software Systems & Business Automation by Frank",
+      description: "Professional software engineering and business automation services by Frank.",
+   }
 };
 
 export default function ServicesPage() {

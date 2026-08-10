@@ -6,14 +6,29 @@ import { projects } from '@/data/projects';
 
 export const metadata: Metadata = {
     title: "Portfolio — Software Systems Engineered by Frank",
-    description: "View the portfolio of Frank: custom business systems, automated workflows, SaaS dashboards, and ride-hailing/logistics platforms.",
+    description: "Explore Frank's engineering portfolio featuring custom business systems, automated workflows, SaaS dashboards, and ride-hailing/logistics platforms.",
     keywords: [
         "Frank portfolio",
         "Frank software engineer portfolio",
         "software engineering projects",
         "business automation systems",
-        "Next.js applications"
+        "Next.js applications",
+        "DevHubFusionX portfolio"
     ],
+    alternates: {
+        canonical: "/projects",
+    },
+    openGraph: {
+        title: "Portfolio — Software Systems Engineered by Frank",
+        description: "Explore Frank's engineering portfolio featuring custom business systems, automated workflows, SaaS dashboards, and ride-hailing/logistics platforms.",
+        url: "https://devhubfusionx.github.io/DevHubFusion-X/projects",
+        type: "website",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Portfolio — Software Systems Engineered by Frank",
+        description: "Explore Frank's engineering portfolio featuring custom business systems, automated workflows, SaaS dashboards, and ride-hailing/logistics platforms.",
+    }
 };
 
 export default function ProjectsPage() {

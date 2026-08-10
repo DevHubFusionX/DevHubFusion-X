@@ -3,12 +3,30 @@ import { AboutContent } from '@/components/sections/AboutContent';
 import { JsonLd } from '@/components/seo/JsonLd';
 
 export const metadata: Metadata = {
-   title: "About DevHubFusionX — High-Performance Software Systems & Automations",
-   description: "DevHubFusionX is a software engineering agency based in Lagos, Nigeria, serving clients worldwide. We build custom business systems, automated workflows, SaaS dashboards, and ride-hailing/logistics platforms.",
+   title: "About Frank & DevHubFusionX — High-Performance Systems",
+   description: "Learn about Frank, a Lead Full-Stack Software Engineer and Systems Architect at DevHubFusionX building custom SaaS, logistics platforms, and business automation software.",
    keywords: [
-      "DevHubFusionX", "software engineering agency Nigeria", "business automation Lagos",
-      "custom software development Nigeria", "Next.js agency Africa"
+      "Frank software engineer",
+      "about DevHubFusionX",
+      "software engineering agency Nigeria",
+      "business automation Lagos",
+      "custom software development Nigeria",
+      "Next.js developer Africa"
    ],
+   alternates: {
+      canonical: "/about",
+   },
+   openGraph: {
+      title: "About Frank & DevHubFusionX — High-Performance Systems",
+      description: "Learn about Frank, a Lead Full-Stack Software Engineer and Systems Architect at DevHubFusionX building custom SaaS, logistics platforms, and business automation software.",
+      url: "https://devhubfusionx.github.io/DevHubFusion-X/about",
+      type: "website",
+   },
+   twitter: {
+      card: "summary_large_image",
+      title: "About Frank & DevHubFusionX — High-Performance Systems",
+      description: "Lead Full-Stack Software Engineer & Systems Architect building custom software and business automations.",
+   }
 };
 
 export default function AboutPage() {
