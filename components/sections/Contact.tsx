@@ -39,7 +39,7 @@ export const Contact = () => {
       ref={sectionRef}
       className="bg-background py-8 md:py-12"
       id="contact"
-      aria-label="Contact Frank — Software Systems & Automations"
+      aria-label="Contact Franklin Anyanwu — DevHubFusionX | Custom Software Development Nigeria"
     >
       <div className="container mx-auto px-6 md:px-12">
         {/* Contained card */}
@@ -82,11 +82,11 @@ export const Contact = () => {
                   className="text-2xl sm:text-3xl md:text-4xl font-black tracking-tight text-white leading-[1.15] mb-4 md:mb-6 animate-pulse-faint"
                 >
                   <span className="hidden sm:inline">
-                    Start building your product <br className="hidden md:block" />
-                    the way it should be built.
+                    Ready to build? Let&apos;s talk scope, <br className="hidden md:block" />
+                    timeline, and budget.
                   </span>
                   <span className="inline sm:hidden">
-                    Start building your product.
+                    Ready to build? Let&apos;s talk.
                   </span>
                 </motion.h2>
 
@@ -172,8 +172,8 @@ export const Contact = () => {
                   transition={{ duration: 0.6, delay: 0.3, ease: smoothEase }}
                   className="bg-zinc-900/40 border border-zinc-800/80 backdrop-blur-md rounded-2xl p-5 md:p-8"
                 >
-                  <h3 className="text-base md:text-lg font-bold text-white mb-1 sm:mb-2">Subscribe</h3>
-                  <p className="hidden sm:block text-xs text-zinc-400 mb-6">Stay updated with engineering insights and case studies.</p>
+                  <h3 className="text-base md:text-lg font-bold text-white mb-1 sm:mb-2">Get Free Engineering Insights</h3>
+                  <p className="hidden sm:block text-xs text-zinc-400 mb-6">How to build apps, cut costs, and automate in Nigeria — from a developer actively doing it.</p>
 
                   <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-3 pointer-events-auto w-full">
                     <input

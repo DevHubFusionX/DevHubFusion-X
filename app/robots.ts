@@ -44,6 +44,6 @@ export default function robots(): MetadataRoute.Robots {
         allow: '/',
       },
     ],
-    sitemap: 'https://devhubfusionx.github.io/DevHubFusion-X/sitemap.xml',
+    sitemap: 'https://devhubfusionx.site/sitemap.xml',
   };
 }

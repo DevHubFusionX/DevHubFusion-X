@@ -113,7 +113,7 @@ export const Footer = () => {
               transition={{ duration: 0.4, delay: 0.5 }}
               className="mt-3 sm:mt-4 max-w-xs md:ml-auto text-white font-bold text-sm"
             >
-              <span itemProp="name">Frank</span> — Lead Full-Stack Engineer
+              <span itemProp="name">Franklin Anyanwu</span> — Lead Full-Stack Engineer
             </motion.p>
             <motion.p
               initial={{ opacity: 0 }}
@@ -189,7 +189,7 @@ export const Footer = () => {
           transition={{ duration: 0.4, delay: 0.9, ease: "easeOut" }}
           className="flex flex-col md:flex-row justify-between items-center mt-12 pt-8 border-t border-white/20 text-sm text-white/60 font-medium"
         >
-          <p>© {new Date().getFullYear()} Frank | Custom Software & Automations</p>
+          <p>© {new Date().getFullYear()} Franklin Anyanwu | DevHubFusionX — Custom Software & Automations</p>
           <div className="flex gap-8 mt-4 md:mt-0">
             <Link href="/privacy" className="hover:text-white transition-colors duration-200">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-white transition-colors duration-200">Terms of Service</Link>

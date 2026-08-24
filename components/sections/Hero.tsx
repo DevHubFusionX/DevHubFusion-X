@@ -151,7 +151,7 @@ export const Hero = () => {
           >
             <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
             <span className="text-sm font-bold tracking-widest uppercase text-muted-foreground">
-              Hi, I&apos;m Frank — Full-Stack Engineer
+              Hi, I&apos;m Franklin Anyanwu — Lead Full-Stack Engineer
             </span>
           </motion.div>
 
@@ -214,12 +214,12 @@ export const Hero = () => {
             transition={{ delay: 0.6, duration: 0.6, ease: smoothEase }}
             className="text-lg sm:text-xl md:text-2xl text-muted-foreground font-normal leading-relaxed max-w-3xl mb-12"
           >
-            I engineer bespoke web applications and automated software pipelines that run your business on autopilot. Less manual overhead, maximized conversion, and seamless scalability—built for growth.
+            I build custom web apps, automated workflows, and real-time platforms for businesses in Nigeria and worldwide. 5+ years. 20+ projects shipped. Zero delays.
           </motion.p>
 
           {/* Hidden semantic content for search indexers */}
           <div className="sr-only">
-            <p>Frank is a full-stack software engineer building custom systems, automated workflows, and scalable web applications for businesses in Nigeria and worldwide. I design and deploy booking engines, logistics systems, SaaS dashboards, and automated funnels to maximize sales and operational output. Contact me at DevHubFusionX@gmail.com.</p>
+            <p>Franklin Anyanwu (DevHubFusionX) is a lead full-stack software engineer with 5+ years of experience and 20+ projects shipped, building custom systems, automated workflows, and scalable web applications for businesses in Nigeria, UK, US and worldwide. He designs and deploys booking engines, logistics systems, SaaS dashboards, ride-hailing platforms, and automated funnels to maximize sales and operational output. Contact Franklin at DevHubFusionX@gmail.com or devhubfusionx.site.</p>
           </div>
 
           {/* CTA Buttons */}
@@ -233,7 +233,7 @@ export const Hero = () => {
               onClick={() => setIsModalOpen(true)}
               className="inline-flex items-center justify-center px-8 py-4 bg-primary text-white font-bold rounded-xl shadow-[0_10px_35px_-10px_rgba(5,150,105,0.4)] hover:bg-primary-hover hover:shadow-[0_15px_40px_-10px_rgba(5,150,105,0.5)] hover:-translate-y-0.5 transition-all duration-300 group text-center w-full sm:w-auto cursor-pointer"
             >
-              Start Your Project
+              Build My System
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform shrink-0" />
             </button>
 
@@ -241,7 +241,7 @@ export const Hero = () => {
               href="#projects"
               className="inline-flex items-center justify-center px-8 py-4 bg-white border border-border text-foreground font-semibold rounded-xl hover:bg-muted transition-all duration-300 text-center w-full sm:w-auto"
             >
-              See my work
+              View Case Studies
             </Link>
           </motion.div>
 

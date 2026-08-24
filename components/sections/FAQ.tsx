@@ -38,6 +38,14 @@ const faqs: FAQItem[] = [
     {
         question: "Can you help automate or modernize an existing system?",
         answer: "Yes. I offer legacy system modernization, workflow automation, performance optimization, and custom API integrations. Whether you need to migrate an old codebase to modern React/Next.js or streamline manual spreadsheets into an automated dashboard, I can audit your system and build a clear path forward."
+    },
+    {
+        question: "Where are you located and do you work remotely?",
+        answer: "I'm Franklin Anyanwu, based in Lagos, Nigeria, and I work with clients fully remotely worldwide. I've delivered projects for clients in the UK, US, Ghana, and across West Africa. All communication is handled via WhatsApp, email, and video calls, with structured delivery milestones so you always know what's happening."
+    },
+    {
+        question: "How long does it take to build a custom system?",
+        answer: "A simple business website typically takes 2–3 weeks. A custom web application with backend and database: 4–8 weeks. A full SaaS platform or marketplace: 8–14 weeks. A real-time ride-hailing or logistics system: 8–16 weeks. I provide a detailed project timeline in every proposal. Contact me at devhubfusionx@gmail.com to discuss your specific scope."
     }
 ];
 
@@ -93,7 +101,7 @@ export const FAQ = () => {
                                 transition={{ delay: 0.3, duration: 0.5, ease: smoothEase }}
                                 className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-8"
                             >
-                                Everything you need to know about working with me. Can&apos;t find what you&apos;re looking for?
+                                Everything you need to know about working with Franklin Anyanwu (DevHubFusionX). Can&apos;t find what you&apos;re looking for?
                             </motion.p>
 
                             <motion.div

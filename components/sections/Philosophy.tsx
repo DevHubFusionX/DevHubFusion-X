@@ -127,7 +127,7 @@ export const Philosophy = () => {
             <span className="w-1.5 h-1.5 rounded-full bg-primary" />
           </div>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 leading-[0.95] uppercase">
-            System <span className="text-primary">Blueprint.</span>
+            What I <span className="text-primary">Build.</span>
           </h2>
         </motion.div>
 
@@ -180,7 +180,7 @@ export const Philosophy = () => {
 
                   {/* Bottom: link */}
                   <button className={`self-start text-[10px] font-bold uppercase tracking-wider border-b pb-px flex items-center gap-1 transition-all group ${linkMap[item.theme!]}`}>
-                    More Information
+                    See How It Works
                     <ArrowUpRight size={11} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                   </button>
                 </div>
@@ -197,8 +197,8 @@ export const Philosophy = () => {
           className="mt-10 flex flex-col sm:flex-row items-center justify-between gap-6 border-t border-slate-200 pt-10"
         >
           <p className="text-base md:text-lg text-slate-500 font-medium">
-            Don&apos;t see your system blueprint?{' '}
-            <span className="text-slate-900 font-bold">I design custom architectures too.</span>
+            Don&apos;t see your use case?{' '}
+            <span className="text-slate-900 font-bold">Franklin builds custom architectures for any business need.</span>
           </p>
           <button
             onClick={() => setIsModalOpen(true)}

@@ -32,10 +32,10 @@ export function ServicesContent() {
                         <span className="text-xs font-bold tracking-widest text-muted-foreground uppercase">What I Do</span>
                     </div>
                     <h1 className="text-4xl md:text-6xl font-black tracking-tight text-slate-900 uppercase mb-6">
-                        Simple, powerful <span className="text-primary">software</span> built for you.
+                        Custom Software Development in <span className="text-primary">Lagos, Nigeria.</span>
                     </h1>
                     <p className="text-base md:text-lg text-slate-600 leading-relaxed">
-                        I build custom websites, online stores, and digital tools that help your business run smoothly. I handle all the technical details so you can focus on growing your business.
+                        Franklin Anyanwu (DevHubFusionX) builds custom websites, SaaS platforms, and automation tools for businesses in Nigeria and worldwide. 5+ years experience. 20+ projects shipped. You focus on growth — I handle the technical heavy lifting.
                     </p>
                 </motion.div>
             </section>
@@ -63,7 +63,7 @@ export function ServicesContent() {
                             </h3>
 
                             <p className="text-sm md:text-base text-emerald-100/90 leading-relaxed max-w-xl">
-                                I build custom websites, dashboards, and online platforms that load instantly, look amazing on any screen, and automate your day-to-day business operations. Perfect for businesses looking to scale without hiring a full engineering team.
+                                Custom web apps, SaaS dashboards, and business platforms that load fast, look great on any device, and automate your daily operations. Built for Nigerian businesses scaling without a full engineering team.
                             </p>
                         </div>
 
@@ -95,7 +95,7 @@ export function ServicesContent() {
                                 </h3>
 
                                 <p className="text-sm text-[#0a361c]/80 leading-relaxed">
-                                    I design high-converting online storefronts integrated with secure checkouts (Paystack, Stripe, etc.) to help you accept payments and sell products globally.
+                                    High-converting e-commerce stores with Paystack checkout, smart inventory management, and order tracking — built specifically for Nigerian shoppers who pay by card, bank transfer, and USSD.
                                 </p>
                             </div>
 
@@ -124,7 +124,7 @@ export function ServicesContent() {
                                 </h3>
 
                                 <p className="text-sm text-zinc-400 leading-relaxed">
-                                    I build logistics dashboards and tracking portals with real-time mapping, driver scheduling, and route planners to run your operations easily.
+                                    Ride-hailing and delivery apps with live GPS tracking, driver dispatch, and route optimization — built for Nigerian road networks and designed to handle unstable connectivity.
                                 </p>
                             </div>
 
@@ -159,7 +159,7 @@ export function ServicesContent() {
                             onClick={() => setIsModalOpen(true)}
                             className="inline-flex items-center gap-3 h-14 px-8 bg-slate-900 text-white font-bold text-sm rounded-lg transition-colors hover:bg-primary hover:text-white group/btn uppercase tracking-wider cursor-pointer"
                         >
-                            <span>Get in Touch</span>
+                            <span>Start Your Project</span>
                             <ArrowRight size={16} className="group-hover/btn:translate-x-1 transition-transform" />
                         </button>
                     </div>

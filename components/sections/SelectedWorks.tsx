@@ -27,12 +27,12 @@ export const SelectedWorks = () => {
       >
         <div className="flex items-center gap-3 mb-3">
           <div className="h-0.5 w-10 bg-primary"></div>
-          <span className="text-xs font-bold tracking-widest uppercase text-muted-foreground">Selected Assets</span>
+          <span className="text-xs font-bold tracking-widest uppercase text-muted-foreground">Recent Work</span>
         </div>
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6">
           <div>
             <h2 className="text-3xl md:text-5xl font-black tracking-tighter text-foreground leading-none">
-              Evidence of <span className="text-primary">Impact.</span>
+              20+ Projects. Real <span className="text-primary">Impact.</span>
             </h2>
           </div>
  
@@ -41,7 +41,7 @@ export const SelectedWorks = () => {
               href="/projects"
               className="text-xs md:text-sm font-bold text-muted-foreground hover:text-primary transition-colors flex items-center gap-1 group border-b border-border/60 pb-0.5"
             >
-              View all
+              See All Projects
               <ArrowUpRight size={12} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </Link>
           </div>

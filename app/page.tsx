@@ -67,6 +67,22 @@ export default async function Home() {
           "@type": "Answer",
           "text": "Yes. I offer legacy system modernization, workflow automation, performance optimization, and custom API integrations. Whether you need to migrate an old codebase to modern React/Next.js or streamline manual spreadsheets into an automated dashboard, I can audit your system and build a clear path forward."
         }
+      },
+      {
+        "@type": "Question",
+        "name": "Where are you located and do you work remotely?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "I'm Franklin Anyanwu, based in Lagos, Nigeria, and I work with clients fully remotely worldwide. I've delivered projects for clients in the UK, US, Ghana, and across West Africa. All communication is handled via WhatsApp, email, and video calls, with structured delivery milestones."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does it take to build a custom system?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A simple business website typically takes 2-3 weeks. A custom web application with backend and database: 4-8 weeks. A full SaaS platform or marketplace: 8-14 weeks. A real-time ride-hailing or logistics system: 8-16 weeks. I provide a detailed project timeline in every proposal. Contact me at devhubfusionx@gmail.com."
+        }
       }
     ]
   };
