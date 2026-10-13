@@ -10,7 +10,7 @@ interface BentoGridProps {
   activeProjIdx: number;
   openLightbox: (projIdx: number, imgIdx: number) => void;
   openCTAModal: () => void;
-  smoothEase: readonly number[];
+  smoothEase: [number, number, number, number] | readonly [number, number, number, number] | string;
   activeProject: string;
 }
 
@@ -68,7 +68,7 @@ export const BentoGrid: React.FC<BentoGridProps> = ({
           initial={{ opacity: 0, y: 16, filter: 'blur(6px)' }}
           animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
           exit={{ opacity: 0, y: -16, filter: 'blur(6px)' }}
-          transition={{ duration: 0.4, ease: smoothEase as any }}
+          transition={{ duration: 0.4, ease: smoothEase as [number, number, number, number] }}
         >
           {/* ── 12-column bento grid ── */}
           <div className="grid grid-cols-12 gap-3">
@@ -147,7 +147,7 @@ export const BentoGrid: React.FC<BentoGridProps> = ({
                   <div className="text-[10px] font-mono tracking-widest text-emerald-400 font-bold uppercase">DevHubFusionX</div>
                   <h4 className="text-2xl font-black uppercase tracking-tight text-white leading-none">Ready to build?</h4>
                   <p className="text-sm text-emerald-100/60 leading-relaxed max-w-md">
-                    Let's automate and scale your custom operations with a high-performance system.
+                    Let&apos;s automate and scale your custom operations with a high-performance system.
                   </p>
                 </div>
                 <button

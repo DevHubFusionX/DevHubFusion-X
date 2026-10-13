@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: "Portfolio — Software Systems Engineered by Frank",
         description: "Explore Frank's engineering portfolio featuring custom business systems, automated workflows, SaaS dashboards, and ride-hailing/logistics platforms.",
-        url: "https://devhubfusionx.github.io/DevHubFusion-X/projects",
+        url: "https://devhubfusionx.site/projects",
         type: "website",
     },
     twitter: {

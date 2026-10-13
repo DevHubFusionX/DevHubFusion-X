@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "The Blueprint — Strategic Software Architecture by Frank",
     description: "Frank's calculated process for building high-impact digital systems and software automations. Zero waste, maximum authority, and client qualification methods.",
-    url: "https://devhubfusionx.github.io/DevHubFusion-X/strategy",
+    url: "https://devhubfusionx.site/strategy",
     type: "website",
   },
   twitter: {

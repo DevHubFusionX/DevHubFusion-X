@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: "Interface Gallery — Shipped Software & Automations by Frank",
         description: "Browse the interface gallery of Frank (DevHubFusionX). Production screenshots of custom SaaS dashboards, dating apps, logistics systems, and ERP portals.",
-        url: "https://devhubfusionx.github.io/DevHubFusion-X/gallery",
+        url: "https://devhubfusionx.site/gallery",
         type: "website",
     },
     twitter: {

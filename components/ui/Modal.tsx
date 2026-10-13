@@ -12,13 +12,14 @@ interface ModalProps {
   className?: string;
 }
 
-export const Modal = ({ isOpen, onClose, children, className }: ModalProps) => {
-  const [mounted, setMounted] = React.useState(false);
+const emptySubscribe = () => () => {};
 
-  useEffect(() => {
-    setMounted(true);
-    return () => setMounted(false);
-  }, []);
+export const Modal = ({ isOpen, onClose, children, className }: ModalProps) => {
+  const mounted = React.useSyncExternalStore(
+    emptySubscribe,
+    () => true,
+    () => false
+  );
 
   useEffect(() => {
     if (isOpen) {

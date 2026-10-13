@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Layers, BookOpen, ImageIcon, PenLine, ArrowRight } from 'lucide-react';
+import { Layers, BookOpen, ImageIcon, PenLine } from 'lucide-react';
 import { posts } from '@/data/posts';
 
 interface ExploreMegaMenuProps {

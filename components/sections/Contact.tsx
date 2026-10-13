@@ -2,7 +2,7 @@
 
 import React, { useState, useRef } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
-import { Copy, ArrowRight, MessageCircle, Send } from 'lucide-react';
+import { Copy, ArrowRight, MessageCircle } from 'lucide-react';
 import { ApplicationModal } from './ApplicationModal';
 import { PerspectiveGrid } from '@/components/ui/perspective-grid';
 

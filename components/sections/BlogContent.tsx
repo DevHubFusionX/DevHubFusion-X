@@ -110,7 +110,6 @@ export function BlogContent() {
   const filtered = activeCategory === "All"
     ? posts
     : posts.filter(p => p.category === activeCategory);
-  const nonFeatured = filtered.filter(p => !p.featured);
 
   return (
     <main className="min-h-screen bg-background text-foreground pt-24 sm:pt-32 pb-16 sm:pb-20">

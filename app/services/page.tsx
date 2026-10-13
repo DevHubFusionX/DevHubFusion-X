@@ -20,7 +20,7 @@ export const metadata: Metadata = {
    openGraph: {
       title: "Services — Software Systems & Business Automation by Frank",
       description: "Professional software engineering and business automation services by Frank. Specializing in custom web apps, ride-hailing platforms, logistics systems, and multi-tenant SaaS products.",
-      url: "https://devhubfusionx.github.io/DevHubFusion-X/services",
+      url: "https://devhubfusionx.site/services",
       type: "website",
    },
    twitter: {

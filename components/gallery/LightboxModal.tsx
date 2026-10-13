@@ -89,6 +89,7 @@ export const LightboxModal: React.FC<LightboxModalProps> = ({
                 }}
                 className="relative max-w-full max-h-full aspect-auto flex items-center justify-center w-full h-full cursor-grab active:cursor-grabbing touch-pan-y"
               >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={getAssetPath(activeImage.src)}
                   alt={activeImage.label}

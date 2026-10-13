@@ -40,7 +40,7 @@ export default function NotFound() {
                     transition={{ duration: 0.6, delay: 0.2, ease: smoothEase }}
                     className="text-xl text-muted-foreground/80 mb-12 leading-relaxed"
                 >
-                    The path you requested isn't part of the strategic roadmap. This route does not exist in the current system.
+                    The path you requested isn&apos;t part of the strategic roadmap. This route does not exist in the current system.
                 </motion.p>
 
                 <motion.div

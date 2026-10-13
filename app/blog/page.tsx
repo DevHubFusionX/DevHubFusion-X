@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Blog — Software Engineering Insights by Frank",
     description: "Practical guides on building custom software, ride-hailing platforms, logistics systems, SaaS products, and making technical decisions for Nigerian businesses.",
-    url: "https://devhubfusionx.github.io/DevHubFusion-X/blog",
+    url: "https://devhubfusionx.site/blog",
     type: "website",
   },
   twitter: {
@@ -37,19 +37,19 @@ export default function BlogPage() {
     "@type": "Blog",
     "name": "Frank's Engineering Journal",
     "description": "Practical software engineering insights for Nigerian businesses and founders — covering build costs, technical decisions, and system architecture.",
-    "url": "https://devhubfusionx.github.io/DevHubFusion-X/blog",
+    "url": "https://devhubfusionx.site/blog",
     "author": {
       "@type": "Person",
       "name": "Frank",
       "jobTitle": "Lead Full-Stack Engineer",
-      "url": "https://devhubfusionx.github.io/DevHubFusion-X/"
+      "url": "https://devhubfusionx.site/"
     },
     "blogPost": posts.map(post => ({
       "@type": "BlogPosting",
       "headline": post.title,
       "description": post.excerpt,
       "datePublished": post.date,
-      "url": `https://devhubfusionx.github.io/DevHubFusion-X/blog/${post.slug}`,
+      "url": `https://devhubfusionx.site/blog/${post.slug}`,
       "author": { "@type": "Person", "name": "Frank" },
       "keywords": post.category,
     }))

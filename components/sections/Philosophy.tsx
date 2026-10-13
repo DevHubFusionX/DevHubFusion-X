@@ -78,12 +78,6 @@ const mutedMap: Record<string, string> = {
   slate: 'text-zinc-400',
 };
 
-const borderMap: Record<string, string> = {
-  light: 'border-slate-200',
-  dark: 'border-zinc-800',
-  slate: 'border-zinc-700',
-};
-
 const stackMap: Record<string, string> = {
   light: 'text-slate-400',
   dark: 'text-zinc-500',
