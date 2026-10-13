@@ -19,7 +19,7 @@ export const metadata: Metadata = {
    openGraph: {
       title: "About Frank & DevHubFusionX — High-Performance Systems",
       description: "Learn about Frank, a Lead Full-Stack Software Engineer and Systems Architect at DevHubFusionX building custom SaaS, logistics platforms, and business automation software.",
-      url: "https://devhubfusionx.github.io/DevHubFusion-X/about",
+      url: "https://devhubfusionx.site/about",
       type: "website",
    },
    twitter: {

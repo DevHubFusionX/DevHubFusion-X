@@ -3,7 +3,6 @@
 import React, { useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { ArrowRight, Layout, ShoppingCart, Truck } from 'lucide-react';
-import Link from 'next/link';
 import { ApplicationModal } from '@/components/sections/ApplicationModal';
 
 export function ServicesContent() {

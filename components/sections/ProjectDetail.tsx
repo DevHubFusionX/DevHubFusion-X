@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useRef } from 'react';
-import { motion, useInView, useScroll, useTransform } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import { ArrowLeft, ArrowUpRight, CheckCircle2, Server, Globe, Database, Cpu } from 'lucide-react';
 import { Project } from '@/data/projects';
 import Link from 'next/link';
@@ -38,9 +38,6 @@ export const ProjectDetail = ({ project }: ProjectDetailProps) => {
       "Latency reduced by 40% globally",
       "Infrastructure costs cut by 15%"
    ];
-
-   // Split title for letter animation
-   const titleLetters = project.title.split('');
 
    return (
       <main className="min-h-screen bg-background text-foreground pt-32 pb-20 relative overflow-hidden">

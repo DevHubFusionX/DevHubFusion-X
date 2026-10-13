@@ -4,6 +4,8 @@ import { posts } from '@/data/posts';
 import { BlogPostContent } from '@/components/sections/BlogPostContent';
 import { JsonLd } from '@/components/seo/JsonLd';
 
+const BASE_URL = "https://devhubfusionx.site";
+
 // Required for Next.js static export
 export function generateStaticParams() {
   return posts.map(post => ({ slug: post.slug }));
@@ -16,7 +18,6 @@ export async function generateMetadata(
   const post = posts.find(p => p.slug === slug);
   if (!post) return {};
 
-  const BASE_URL = "https://devhubfusionx.github.io/DevHubFusion-X";
   const OG_IMAGE = `${BASE_URL}/devHub.png`;
 
   return {
@@ -63,27 +64,53 @@ export default async function BlogPostPage(
     "description": post.excerpt,
     "datePublished": post.date,
     "dateModified": post.date,
-    "url": `https://devhubfusionx.github.io/DevHubFusion-X/blog/${post.slug}`,
+    "url": `https://devhubfusionx.site/blog/${post.slug}`,
     "author": {
       "@type": "Person",
       "name": "Frank",
       "jobTitle": "Lead Full-Stack Engineer",
-      "url": "https://devhubfusionx.github.io/DevHubFusion-X/",
+      "url": "https://devhubfusionx.site/",
       "email": "devhubfusionx@gmail.com"
     },
     "publisher": {
       "@type": "Organization",
       "name": "DevHubFusionX",
-      "url": "https://devhubfusionx.github.io/DevHubFusion-X/"
+      "url": "https://devhubfusionx.site/"
     },
     "keywords": post.category,
     "articleSection": post.category,
     "timeRequired": post.readTime,
   };
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": `${BASE_URL}/`
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": `${BASE_URL}/blog/`
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": post.title,
+        "item": `${BASE_URL}/blog/${post.slug}/`
+      }
+    ]
+  };
+
   return (
     <>
       <JsonLd data={articleSchema} />
+      <JsonLd data={breadcrumbSchema} />
       <BlogPostContent post={post} />
     </>
   );

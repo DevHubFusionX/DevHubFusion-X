@@ -1,0 +1,80 @@
+# Franklin Anyanwu (DevHubFusionX) — Comprehensive Technical & Business Dossier
+
+## 1. Executive Summary
+Franklin Anyanwu (operating as DevHubFusionX / Frank. Engineering Studio) is a Lead Full-Stack Software Engineer and Systems Architect based in Lagos, Nigeria, delivering production-grade systems globally. 
+Over 5+ years of active development, he has delivered 20+ applications spanning enterprise SaaS, real-time logistics networks, consumer mobile applications, fintech checkout systems, and custom business automations.
+
+## 2. Technical Stack Specifications
+### Frontend Technologies
+- **Frameworks:** Next.js 16 (App Router, Turbopack, React Server Components), React 19, TypeScript
+- **State & Data Management:** React Hooks, Redux Toolkit, Context API, TanStack Query
+- **Styling & UI:** Tailwind CSS v4, Framer Motion, Vanilla CSS, Responsive Micro-Interactions
+- **Performance:** Next.js Incremental Static Regeneration (ISR), Code Splitting, Core Web Vitals optimization
+
+### Backend & APIs
+- **Runtimes & Frameworks:** Node.js, Express.js, Next.js API Routes, Serverless Functions
+- **APIs & Protocols:** RESTful APIs, GraphQL, WebSockets (real-time events)
+- **Authentication & Security:** JWT, Role-Based Access Control (RBAC), CSRF & CORS policies, SSL encryption
+
+### Databases & Cloud Storage
+- **Relational Databases:** PostgreSQL, MySQL, Supabase
+- **NoSQL Databases:** MongoDB, Cloud Firestore
+- **Caching & Key-Value:** Redis
+- **Media & File Storage:** Cloudinary, AWS S3
+
+### Third-Party Integrations & APIs
+- **Payment Processing:** Paystack (Nigeria & West Africa), Flutterwave (Pan-African), Stripe (Global)
+- **Geolocation & Maps:** Google Maps Platform (Directions, Geocoding, Distance Matrix, Maps JavaScript API)
+- **Messaging & Alerts:** Twilio, Resend, EmailJS, Webhooks
+
+### AI & Modern Systems
+- **On-Device AI:** Transformers.js, WebAssembly execution, local IndexedDB vector storage
+- **LLM Integrations:** OpenAI API, Google Gemini API, Anthropic Claude API, streaming chat completions
+
+## 3. Shipped Projects & Case Studies
+### Dara Express (Logistics & Package Tracking)
+- **URL:** https://daraexpress.com
+- **Role:** Lead Full-Stack Software Engineer
+- **Challenge:** Traditional delivery workflows relied on manual tracking, leading to opaque logistics and frequent dispatch delays.
+- **Solution:** Built a centralized, API-driven logistics tracking portal with automated invoice generation and cross-region dispatch synchronization.
+- **Results:** 40% reduction in manual dispatch errors and customer booking friction.
+
+### blynQe (Social & Dating Platform)
+- **URL:** https://blynqe.online
+- **Role:** Lead Full-Stack Software Engineer
+- **Challenge:** Creating an intentional, calm digital connection platform that scales across mobile web without high latency.
+- **Solution:** Engineered a mobile-first UI with Next.js, optimized caching, and intentional introductory matching algorithms.
+- **Results:** Supported 500,000+ registered global users with 35% faster page transitions.
+
+### Noteable (100% On-Device AI Workspace)
+- **URL:** https://noteable-kappa.vercel.app
+- **Role:** Creator & Systems Architect
+- **Challenge:** Modern AI note-taking applications upload private user data to third-party cloud servers.
+- **Solution:** Leveraged Transformers.js and local IndexedDB to run small language models and vector search completely client-side in the browser.
+- **Results:** Zero cloud storage costs, zero third-party data transmission, offline-capable.
+
+### Comtranz Global (Fleet Logistics Portal)
+- **Role:** Lead Full-Stack Software Engineer
+- **Challenge:** Managing multi-driver schedules, vehicle payloads, and financial reconciliations across physical terminals.
+- **Solution:** Shipped an administrative portal featuring driver payload manifests, automated transactional SMS notifications, and role-based permissions.
+
+## 4. Services & Engagement Models
+1. **Custom Web Applications:** Complete software lifecycle from architecture and database design to frontend implementation and cloud deployment.
+2. **Mobility & Logistics Platforms:** Live GPS route calculation, fleet dispatch, dynamic booking engines, and payment settlement.
+3. **SaaS Platforms:** Multi-tenant architecture, automated subscription billing, user role permissions, and interactive analytics.
+4. **Payment Systems Integration:** Secure payment flows with instant webhook confirmation for Nigerian, African, and international currencies.
+5. **System Audits & Modernization:** Codebase refactoring, performance tuning, and transitioning legacy web setups to Next.js.
+
+## 5. Pricing & Timelines (Indicative)
+- **Landing Pages & Business Showcase Sites:** ₦150,000 – ₦500,000 (~2–3 weeks)
+- **Custom Web Applications & SaaS Dashboards:** ₦500,000 – ₦3,000,000+ (~4–8 weeks)
+- **Logistics, Mobility & Real-Time Portals:** ₦1,500,000+ (~8–16 weeks)
+- *Note:* Exact proposals depend on technical scope, third-party services, and deployment requirements.
+
+## 6. Official Contact & Links
+- **Lead Engineer:** Franklin Anyanwu (Frank)
+- **Email:** devhubfusionx@gmail.com
+- **WhatsApp / Phone:** +234 803 053 1624
+- **Website:** https://devhubfusionx.site
+- **GitHub:** https://github.com/DevHubFusionX
+- **Twitter / X:** https://x.com/DevHubFusionX

@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   if (!project) return { title: "Project Not Found" };
 
-  const BASE_URL = "https://devhubfusionx.github.io/DevHubFusion-X";
+  const BASE_URL = "https://devhubfusionx.site";
 
   return {
     title: `${project.title} — Software Engineered by Frank`,
@@ -65,7 +65,7 @@ export default async function ProjectPage({ params }: Props) {
     notFound();
   }
 
-  const BASE_URL = "https://devhubfusionx.github.io/DevHubFusion-X";
+  const BASE_URL = "https://devhubfusionx.site";
 
   const projectSchema = {
     "@context": "https://schema.org",
@@ -87,9 +87,35 @@ export default async function ProjectPage({ params }: Props) {
     }
   };
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": `${BASE_URL}/`
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Projects",
+        "item": `${BASE_URL}/projects/`
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": project.title,
+        "item": `${BASE_URL}/projects/${project.id}/`
+      }
+    ]
+  };
+
   return (
     <>
       <JsonLd data={projectSchema} />
+      <JsonLd data={breadcrumbSchema} />
       <ProjectDetail project={project} />
     </>
   );

@@ -41,10 +41,12 @@ export function Navbar() {
   };
 
   // Close dropdown and mobile menu on route change
-  useEffect(() => {
+  const [prevPathname, setPrevPathname] = useState(pathname);
+  if (pathname !== prevPathname) {
+    setPrevPathname(pathname);
     setExploreOpen(false);
     setIsMobileMenuOpen(false);
-  }, [pathname]);
+  }
 
   // Listen to custom event to open contact modal from mega menu
   useEffect(() => {

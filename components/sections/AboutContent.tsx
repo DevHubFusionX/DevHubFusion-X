@@ -155,7 +155,7 @@ export const AboutContent = () => {
                         <meta itemProp="name" content="Frank" />
                         <meta itemProp="jobTitle" content="Lead Full-Stack Engineer" />
                         <meta itemProp="email" content="devhubfusionx@gmail.com" />
-                        <meta itemProp="url" content="https://devhubfusionx.github.io/DevHubFusion-X/" />
+                        <meta itemProp="url" content="https://devhubfusionx.site/" />
                     </motion.div>
 
                     {/* Dossier Download Button */}

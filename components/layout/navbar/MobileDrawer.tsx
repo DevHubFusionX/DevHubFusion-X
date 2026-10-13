@@ -3,7 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, ArrowUpRight, LucideIcon } from 'lucide-react';
+import { ArrowUpRight, LucideIcon } from 'lucide-react';
 
 interface MobileDrawerProps {
   isOpen: boolean;

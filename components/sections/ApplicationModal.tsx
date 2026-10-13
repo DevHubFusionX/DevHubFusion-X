@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Modal } from '@/components/ui/Modal';
-import { ArrowRight, Check, Mail, Phone, Loader2, AlertCircle } from 'lucide-react';
+import { ArrowRight, Check, Loader2, AlertCircle } from 'lucide-react';
 
 interface ApplicationModalProps {
   isOpen: boolean;
@@ -16,7 +16,6 @@ interface ApplicationModalProps {
 export const ApplicationModal = ({
   isOpen,
   onClose,
-  title = "Get a Solution",
   subject: customSubject,
   initialDescription = ""
 }: ApplicationModalProps) => {
@@ -28,11 +27,11 @@ export const ApplicationModal = ({
   });
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
 
-  useEffect(() => {
-    if (initialDescription) {
-      setFormData(prev => ({ ...prev, description: initialDescription }));
-    }
-  }, [initialDescription]);
+  const [prevInitialDesc, setPrevInitialDesc] = useState(initialDescription);
+  if (initialDescription !== prevInitialDesc) {
+    setPrevInitialDesc(initialDescription);
+    setFormData(prev => ({ ...prev, description: initialDescription }));
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -60,7 +59,7 @@ export const ApplicationModal = ({
       } else {
         setStatus('error');
       }
-    } catch (error) {
+    } catch {
       setStatus('error');
     }
   };
@@ -122,7 +121,7 @@ export const ApplicationModal = ({
                   <span className="text-primary">Software Needs</span>
                 </h3>
                 <p className="text-slate-500 text-sm leading-relaxed mb-6 font-medium">
-                  Let's engineer a production-grade system built for speed, automation, and scale.
+                  Let&apos;s engineer a production-grade system built for speed, automation, and scale.
                 </p>
               </div>
 

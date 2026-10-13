@@ -139,13 +139,16 @@ export default function RootLayout({
     },
     "knowsAbout": [
       "React.js", "Next.js", "Node.js", "TypeScript", "JavaScript",
-      "MongoDB", "Firebase", "MySQL", "PostgreSQL", "REST APIs",
+      "MongoDB", "Firebase", "MySQL", "PostgreSQL", "Supabase", "Redis", "REST APIs",
       "Web Application Development", "SaaS Development",
       "Ride-Hailing App Development", "Logistics Platform Development",
       "E-commerce Development", "Fintech Development",
+      "Payment Gateway Integration (Paystack, Flutterwave, Stripe)",
+      "Google Maps Platform & GPS Tracking",
       "Frontend Architecture", "Backend Engineering",
       "Business Automation", "Systems Engineering",
-      "Freelance Software Development", "Custom Software Nigeria"
+      "Freelance Software Development", "Custom Software Nigeria",
+      "Full-Stack Software Engineer Lagos", "On-Device AI and Machine Learning"
     ],
     "sameAs": [
       "https://x.com/DevHubFusionX",
@@ -188,15 +191,18 @@ export default function RootLayout({
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Logistics System Development" } },
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "SaaS Product Development" } },
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Business Workflow Automation" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "E-commerce Development" } }
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "E-commerce Development" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Payment Gateway Integration (Paystack, Flutterwave, Stripe)" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Google Maps Platform & Live GPS Systems" } }
       ]
     },
     "knowsAbout": [
       "React.js", "Next.js", "Node.js", "TypeScript", "JavaScript",
-      "MongoDB", "Firebase", "MySQL", "REST APIs",
+      "MongoDB", "Firebase", "MySQL", "PostgreSQL", "Supabase", "Redis", "REST APIs",
       "Web Application Development", "SaaS Development",
       "Ride-Hailing App Development", "Logistics Platform Development",
       "E-commerce Development", "Fintech Development",
+      "Payment Gateway Integration", "Google Maps Platform",
       "Frontend Architecture", "Backend Engineering",
       "Tailwind CSS", "Framer Motion", "Cloudinary",
       "Business Automation", "Systems Engineering"
@@ -288,6 +294,10 @@ export default function RootLayout({
 
   return (
     <html lang="en">
+      <head>
+        <link rel="help" type="text/markdown" href="/llms.txt" title="LLM Documentation" />
+        <link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Summary" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState, useMemo } from "react";
+import React, { useMemo, useSyncExternalStore } from "react";
 import { cn } from "@/lib/utils";
 
 interface PerspectiveGridProps {
@@ -14,25 +14,30 @@ interface PerspectiveGridProps {
     fadeRadius?: number;
 }
 
+const emptySubscribe = () => () => {};
+
+function subscribeMobile(callback: () => void) {
+    window.addEventListener('resize', callback, { passive: true });
+    return () => window.removeEventListener('resize', callback);
+}
+
+function getMobileSnapshot() {
+    const hasHover = window.matchMedia('(hover: hover)').matches;
+    return window.innerWidth < 768 || !hasHover;
+}
+
+function getServerSnapshot() {
+    return true;
+}
+
 export function PerspectiveGrid({
     className,
     gridSize = 40,
     showOverlay = true,
     fadeRadius = 80,
 }: PerspectiveGridProps) {
-    const [mounted, setMounted] = useState(false);
-    const [isMobile, setIsMobile] = useState(true);
-
-    useEffect(() => {
-        setMounted(true);
-        const checkMobile = () => {
-            const hasHover = window.matchMedia('(hover: hover)').matches;
-            setIsMobile(window.innerWidth < 768 || !hasHover);
-        };
-        checkMobile();
-        window.addEventListener('resize', checkMobile, { passive: true });
-        return () => window.removeEventListener('resize', checkMobile);
-    }, []);
+    const mounted = useSyncExternalStore(emptySubscribe, () => true, () => false);
+    const isMobile = useSyncExternalStore(subscribeMobile, getMobileSnapshot, getServerSnapshot);
 
     const tiles = useMemo(() => Array.from({ length: gridSize * gridSize }), [gridSize]);
 

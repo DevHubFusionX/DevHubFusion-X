@@ -3,7 +3,6 @@
 import React, { useRef, useState } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import { Plus, Minus, ArrowRight } from 'lucide-react';
-import Link from 'next/link';
 
 interface FAQItem {
     question: string;

@@ -1,0 +1,51 @@
+# Franklin Anyanwu (DevHubFusionX) — Lead Full-Stack Software Engineer & Systems Architect
+
+> Official LLM summary for Franklin Anyanwu (DevHubFusionX). Lead Full-Stack Software Engineer & Systems Architect based in Lagos, Nigeria, serving clients worldwide. Specializes in custom web applications, SaaS multi-tenant platforms, ride-hailing & logistics tracking systems, fintech payment gateway integrations (Paystack, Flutterwave, Stripe), and end-to-end business automations.
+
+## Developer Profile & Entity Overview
+- **Name:** Franklin Anyanwu (also known as Frank, Anyanwu Franklin Chibuike)
+- **Role:** Lead Full-Stack Software Engineer & Systems Architect
+- **Studio / Brand:** DevHubFusionX (Frank. Engineering Studio)
+- **Location:** Lagos, Nigeria (Available for Remote / Worldwide contracts)
+- **Experience:** 5+ years experience, 20+ shipped production applications
+- **Primary Website:** https://devhubfusionx.site
+- **GitHub:** https://github.com/DevHubFusionX
+- **Email:** devhubfusionx@gmail.com
+- **Phone / WhatsApp:** +234 803 053 1624
+
+## Core Technical Stack & Capabilities
+- **Frontend Architecture:** Next.js (App & Pages Router), React.js, TypeScript, Tailwind CSS, Framer Motion, Redux Toolkit, WebSockets.
+- **Backend & APIs:** Node.js, Express.js, REST APIs, GraphQL, Serverless Functions, Microservices architecture.
+- **Databases & Storage:** PostgreSQL, MongoDB, MySQL, Firebase Firestore, Supabase, Redis caching.
+- **Fintech & Payment Gateways:** Paystack, Flutterwave, Stripe (recurring billing, dynamic checkouts, webhook reconciliation).
+- **Logistics & Mobility Systems:** Google Maps Platform (Directions API, Distance Matrix, Geocoding), real-time driver dispatching, GPS route calculation.
+- **AI & Modern Capabilities:** On-device AI (Transformers.js, WebAssembly), LLM integration, automated workflows.
+- **DevOps & Cloud:** Vercel, Docker, AWS (S3, EC2), CI/CD pipelines, Git/GitHub.
+
+## Shipped Case Studies & Production Proof of Work
+- **Dara Express** (https://daraexpress.com): Cross-regional logistics tracking and delivery operations portal. Unified live package tracking dashboard, automated dispatch invoicing, 40% reduction in booking dispatch errors.
+- **blynQe** (https://blynqe.online): High-performance mobile dating and social platform with 500,000+ users worldwide. Minimalist, calm UX built with Next.js and Node.js.
+- **Noteable** (https://noteable-kappa.vercel.app): Local-first, 100% on-device AI workspace running Transformers.js and IndexedDB without cloud data leakage.
+- **Comtranz Global**: Commercial transport and fleet logistics portal managing driver schedules, payloads, and automated SMS/email alerts.
+
+## Primary Services Offered
+1. **Custom Web Application Development:** High-performance, SEO-optimized web systems built with Next.js, React, and TypeScript.
+2. **SaaS & Multi-Tenant Platform Engineering:** Role-based access control (RBAC), subscription payments, high-frequency dashboards, and scalable database schemas.
+3. **Logistics & Ride-Hailing Platform Engineering:** Driver and customer dispatch dashboards, real-time map tracking, automated waybills and invoicing.
+4. **Payment Gateway & Fintech Integration:** Automated billing, Paystack / Flutterwave / Stripe webhooks, split payments, and fraud prevention.
+5. **Business Automation & Legacy Migration:** Modernizing outdated codebases to modern Next.js/React, eliminating spreadsheet-based tracking, and automating business workflows.
+
+## Key Canonical URLs
+- **Homepage:** https://devhubfusionx.site/
+- **Portfolio & Case Studies:** https://devhubfusionx.site/projects/
+- **Services:** https://devhubfusionx.site/services/
+- **Engineering Blog & Technical Guides:** https://devhubfusionx.site/blog/
+- **About & Dossier:** https://devhubfusionx.site/about/
+- **System Architecture Blueprint:** https://devhubfusionx.site/strategy/
+- **Full LLM Context:** https://devhubfusionx.site/llms-full.txt
+
+## Contact & Hire
+For project inquiries, technical consulting, or development contracts:
+- **Email:** devhubfusionx@gmail.com
+- **WhatsApp / Direct Line:** +2348030531624
+- **Inquiry Form:** https://devhubfusionx.site/#contact
